@@ -1,15 +1,16 @@
+.body {
+    position: relative;
+    width: auto; /* ビューポートの幅いっぱいに */
+    height: auto; /* ビューポートの高さいっぱいに */
+}
+
 .base {
     background: linear-gradient(90deg, #B2F5F5 0%, #7BC0FF 100%);
     background-blend-mode: multiply;
-    position: relative;
-    width: 100vw; /* ビューポートの幅いっぱいに */
-    height: 100vh; /* ビューポートの高さいっぱいに */
     /*flex-direction: column;*/
 }
 
 .content {
-   /* justify-content: center; /* 横方向の中央揃え */
-    /*  align-items: center; 縦方向の中央揃え */
     margin:  auto auto 40.28436018957346vw auto;
     display:  flex;
     align-items: center;
@@ -27,7 +28,7 @@
     word-break: normal;
     width: 76.92307692307693vw;
     word-break: break-all;
-    margin: auto auto 10.66350710900474vw auto;
+    margin: auto auto 19.66350710900474vw auto;
 
     color: #FFF;
     font-family: "SF Pro";
@@ -41,11 +42,10 @@
     display:  flex;
     align-items: flex-end;
     word-break: normal;
+
     width: 76.92307692307693vw;
     word-break: break-all;
-    position: absolute;
-    bottom: 10px;
-    left: 0;
+    margin-top: 19.938388625592417vw;
 }
 
 .button {
@@ -54,10 +54,36 @@
     flex-shrink: 0;
 
     border-radius: 90px;
-    border: 1px solid #B5B2B2;
+    border: 1px solid #696969;
     background: #FFF;
     background-blend-mode: multiply;
     margin-bottom: 2.8957345971563981vw;
+
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.button::after {
+    background: linear-gradient(90deg, #afb3fe 0%, #F5B2B2 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 100%;
+    transform: scale(0, 1);
+    transform-origin: left top;
+    transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
+    z-index: -1;
+}
+
+.button:hover{
+    color: #fff;
+}
+
+.button:hover::after {
+    transform: scale(1, 1);
 }
 
 .font {
