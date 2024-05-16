@@ -34,10 +34,14 @@
   }
 
 .text2{
+    padding-top: 10px;
     padding-left: 100px;
+    margin-bottom: 0px;
 }
 .text3{
     padding-left: 130px;
+    margin-top: 0px;
+    padding-bottom: 15px;
 }
 
 .icon{
