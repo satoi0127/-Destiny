@@ -32,3 +32,22 @@
 .text1{
     border-bottom: 1px solid rgba(184, 184, 184, 0.863);
   }
+
+.text2{
+    padding-left: 100px;
+}
+.text3{
+    padding-left: 130px;
+}
+
+.icon{
+    /* IMG_0408 1 */
+position: absolute;
+width: 85px;
+height: 84px;
+left: 13px;
+
+mix-blend-mode: normal;
+border-radius: 360px;
+
+  }
