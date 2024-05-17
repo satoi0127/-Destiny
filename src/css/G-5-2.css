@@ -45,14 +45,14 @@
     display: inline-block; /* 吹き出しが文字幅に合わせます */
     margin: 15px 20px 20px;
     padding: 10px 20px;
-    background: #696969; /*（◯）カラー変更はこちら*/
+    background: #f786e9; /*（◯）カラー変更はこちら*/
     text-align: left; /*テキスト左揃え*/
     border-radius: 15px; /*枠の丸みの設定はこちら*/
     }
     .left .chatting-color::after {
     content: "";
     border: 15px solid transparent;
-    border-top-color: #696969; /*（◯）とカラーを合わせる*/
+    border-top-color: #f786e9; /*（◯）とカラーを合わせる*/
     position: absolute;
     top: 15px; /*三角部分の高さ*/
     left: -15px; /*三角部分の位置*/
@@ -66,14 +66,14 @@
     display: inline-block; /* 吹き出しが文字幅に合わせます */
     margin: 15px 20px 20px;
     padding: 10px 20px;
-    background: #2f4f4f; /*（△）カラー変更はこちら*/
+    background: rgb(209, 209, 209); /*（△）カラー変更はこちら*/
     text-align: left; /*テキストの位置変更はこちら*/
     border-radius: 15px; /*枠の丸みの設定はこちら*/
     }
     .right .chatting-color::after {
     content: "";
     border: 15px solid transparent;
-    border-top-color: #2f4f4f; /*（△）とカラーを合わせる*/
+    border-top-color:rgb(209, 209, 209); /*（△）とカラーを合わせる*/
     position: absolute;
     top: 15px; /*三角部分の高さ*/
     right: -15px; /*三角部分の位置*/
@@ -92,6 +92,24 @@
     margin: 0px;
     }
     .text-color {
-        color: #fff; /* テキストのカラー変更はこちら*/
+        color: #000000; /* テキストのカラー変更はこちら*/
         font-size: 16px; /*テキストサイズの変更はこちら（なければデフォルトのサイズになります）*/
-        }
+    }
+    .wrapper{
+        height: 100%;
+        min-height: 100vh;
+        position: relative;/*←相対位置*/
+        padding-bottom: 120px;/*←footerの高さ*/
+        box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+    }
+    
+    footer{
+        width: 100%;
+        background-color: #89c7de;
+        color: #fff;
+        text-align: center;
+        padding: 30px 0;
+
+        position: absolute;/*←絶対位置*/
+        bottom: 0; /*下に固定*/
+    }
