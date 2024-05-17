@@ -45,11 +45,5 @@
 }
 .conn{ 
     
-    display: flex;
-    justify-content: space-between
-   
-}
-.conn{
-    width: 30%; 
-    height: auto;
+    margin: 30px;
 }
