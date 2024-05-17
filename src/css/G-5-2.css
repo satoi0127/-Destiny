@@ -80,6 +80,8 @@
     }
     /* アイコンの作成 */
     .balloon-color figure img {
+        width: 50x;
+        height: 50px; 
     border-radius: 0; /* 画像を丸くしたいときに利用 */
     margin: 0;
     }
@@ -87,4 +89,9 @@
 .icon-color {
     width: 20x;
     height: 20px;
+    margin: 0px;
     }
+    .text-color {
+        color: #fff; /* テキストのカラー変更はこちら*/
+        font-size: 16px; /*テキストサイズの変更はこちら（なければデフォルトのサイズになります）*/
+        }
