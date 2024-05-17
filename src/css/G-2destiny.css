@@ -1,0 +1,23 @@
+.topbutton{
+    border: 0px;
+    border-bottom: 1px solid black;
+    height: 100%;
+    width:33.33%;
+    padding: 0px;
+    margin: 0px;
+    float:left;
+    background-color: white;
+}
+
+.topbutton:hover {
+    background-color: #eeeeee;
+}
+
+.user_list_individual {
+    border-bottom: 1px solid black;
+    display: flex;
+}
+
+.user_list_individual_image {
+    margin: 15px;
+}
