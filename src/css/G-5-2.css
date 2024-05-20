@@ -101,10 +101,21 @@
   }
   footer {
         position: fixed;
+        width: 80%;
         bottom: 0;
-   
+        background-color:gray;
         /* 背景色などは割愛します */
   }
-.sendtext{
-    background-color: rgb(165, 165, 165);
-}
+  .sendtext {
+    border:none;
+    border-radius:10px;
+    box-shadow: none;
+    padding: 2px 8px;
+  }
+  .sendtext:focus {
+    outline: none;
+  }
+
+  .sendimg{
+    float: left;
+  }
