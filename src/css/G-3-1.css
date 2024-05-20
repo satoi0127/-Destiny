@@ -1,3 +1,36 @@
+.arrow_btn{ 
+    position: relative;
+    display: inline-block;
+    padding: 0 0 0 16px;
+    color: #000;
+    vertical-align: middle;
+    text-decoration: none;
+    font-size: 15px;
+    
+    padding: 5px 10px 5px 30px;
+} 
+.arrow_btn::before,
+.arrow_btn::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    content: "";
+    vertical-align: middle;
+}
+
+.arrow_01::before{
+    width: 10px;
+    height: 10px;
+    border-top: 4px solid #000;
+    border-right: 4px solid #000;
+    -webkit-transform: rotate(225deg);
+    transform: rotate(225deg);
+}
+.large-button{
+    border-radius: 10px;
+}
 .container {
     border: 2px solid #000; /* 枠線の設定 */
     padding: 20px;
@@ -35,3 +68,6 @@
         width: 50px;
         margin-right: 250px;
 }
+.large-input {
+    height:100px;
+  }
