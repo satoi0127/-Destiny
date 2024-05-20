@@ -101,10 +101,13 @@
   }
   footer {
         position: fixed;
-        width: 80%;
+        width: 100%;
         bottom: 0;
         background-color:gray;
         /* 背景色などは割愛します */
+  }
+  .sendbox{
+    text-align: center;
   }
   .sendtext {
     border:none;
@@ -117,5 +120,10 @@
   }
 
   .sendimg{
-    float: left;
+    width: 40px;
+    height: 40px;
+  }
+  button{
+    background: transparent;
+    border: 2px solid transparent;
   }
