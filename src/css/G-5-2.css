@@ -108,8 +108,10 @@
   }
   .sendbox{
     text-align: center;
+    margin-bottom: 10px;
   }
   .sendtext {
+    margin-bottom: 20px;
     border:none;
     border-radius:10px;
     box-shadow: none;
