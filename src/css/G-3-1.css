@@ -1,0 +1,37 @@
+.container {
+    border: 2px solid #000; /* 枠線の設定 */
+    padding: 20px;
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+/* 写真のスタイル */
+.photo {
+    float: left;
+    width: 80px;
+    height: auto;
+    margin-right: 20px;
+}
+/* テキストボックスのスタイル */
+.textbox {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box; /* パディングを含む */
+}
+.container.text {
+    flex: 1; /* テキストボックスが残りのスペースを占有 */
+}
+.container.text input[type="text"] {
+    width: 100px; /* テキストボックスの幅を100%に設定 */
+    padding: 10px; /* パディングを追加 */
+    box-sizing: border-box; /* パディングを含めてボックスのサイズを計算 */
+}
+.textboxb{
+    border-radius: 10px; /* 丸みの半径 */
+        padding: 10px;
+        border: 1px solid #ccc;
+        outline: none;
+        width: 50px;
+        margin-right: 250px;
+}
