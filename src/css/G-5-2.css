@@ -105,4 +105,6 @@
    
         /* 背景色などは割愛します */
   }
-    
+.sendtext{
+    background-color: rgb(165, 165, 165);
+}
