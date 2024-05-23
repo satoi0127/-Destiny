@@ -6,4 +6,5 @@
     $connect = 'mysql:host='.SERVER.';dbname='.DBNAME.';charset=utf8';
 
     //test
+    //test
 ?>
