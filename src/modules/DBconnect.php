@@ -4,4 +4,6 @@
     const USER = 'LAA1517439-destiny';
     const PASS = 'PAss1234';
     $connect = 'mysql:host='.SERVER.';dbname='.DBNAME.';charset=utf8';
+
+    //test
 ?>

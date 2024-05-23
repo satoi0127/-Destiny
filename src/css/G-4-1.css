@@ -40,6 +40,13 @@
         top: 0;
         right: 0;
     }
-    
+
+    .ai {
+        border:black 3px solid; /*境界線の指定*/
+        padding:0px;
+        width:300px;
+        color:black;
+        display:flex;
+    }
 
 
