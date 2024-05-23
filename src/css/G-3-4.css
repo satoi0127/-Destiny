@@ -1,0 +1,140 @@
+.arrow_btn{ 
+    position: relative;
+    display: inline-block;
+    padding: 0 0 0 16px;
+    color: #000;
+    vertical-align: middle;
+    text-decoration: none;
+    font-size: 15px;
+    
+    padding: 5px 10px 5px 30px;
+} 
+.arrow_btn::before,
+.arrow_btn::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    content: "";
+    vertical-align: middle;
+}
+
+.arrow_01::before{
+    width: 10px;
+    height: 10px;
+    border-top: 4px solid #000;
+    border-right: 4px solid #000;
+    -webkit-transform: rotate(225deg);
+    transform: rotate(225deg);
+}
+.bar{
+  margin: 0 0 0 auto;
+  width:  40px;
+}
+.barsimg{
+    width: 30px;
+    height: 30px; 
+}
+.text1{
+    border-bottom: 1px solid rgba(184, 184, 184, 0.863);
+    text-align: center;
+  }
+  .balloon-color {
+    display: flex;
+    flex-wrap: wrap;
+    }
+    /* 左の吹き出し */
+    .balloon-color.left {
+    flex-direction: row; /* 左から右に並べる */
+    }
+    .left .chatting-color {
+    position: relative;
+    display: inline-block; /* 吹き出しが文字幅に合わせます */
+    margin: 15px 20px 20px;
+    padding: 10px 20px;
+    background: #f786e9; /*（◯）カラー変更はこちら*/
+    text-align: left; /*テキスト左揃え*/
+    border-radius: 15px; /*枠の丸みの設定はこちら*/
+    }
+    .left .chatting-color::after {
+    content: "";
+    border: 15px solid transparent;
+    border-top-color: #f786e9; /*（◯）とカラーを合わせる*/
+    position: absolute;
+    top: 15px; /*三角部分の高さ*/
+    left: -15px; /*三角部分の位置*/
+    }
+    /* 右の吹き出し */ 
+    .balloon-color.right {
+    flex-direction: row-reverse; /* 右から左に並べる */ 
+    }
+    .right .chatting-color {
+    position: relative;
+    display: inline-block; /* 吹き出しが文字幅に合わせます */
+    margin: 15px 20px 20px;
+    padding: 10px 20px;
+    background: rgb(209, 209, 209); /*（△）カラー変更はこちら*/
+    text-align: left; /*テキストの位置変更はこちら*/
+    border-radius: 15px; /*枠の丸みの設定はこちら*/
+    }
+    .right .chatting-color::after {
+    content: "";
+    border: 15px solid transparent;
+    border-top-color:rgb(209, 209, 209); /*（△）とカラーを合わせる*/
+    position: absolute;
+    top: 15px; /*三角部分の高さ*/
+    right: -15px; /*三角部分の位置*/
+    }
+    /* アイコンの作成 */
+    .balloon-color figure img {
+        width: 50x;
+        height: 50px; 
+    border-radius: 0; /* 画像を丸くしたいときに利用 */
+    margin: 0;
+    }
+    /* アイコンの大きさ */
+.icon-color {
+    width: 20x;
+    height: 20px;
+    margin: 0px;
+    }
+    .text-color {
+        color: #000000; /* テキストのカラー変更はこちら*/
+        font-size: 16px; /*テキストサイズの変更はこちら（なければデフォルトのサイズになります）*/
+    }
+    .container {
+        padding-bottom: 60px;
+        box-sizing: border-box;
+  }
+  footer {
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        background-color:gray;
+        /* 背景色などは割愛します */
+  }
+  .sendbox{
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .sendtext {
+    border:none;
+    border-radius:10px;
+    box-shadow: none;
+    padding: 2px 8px;
+  }
+  .sendtext:focus {
+    outline: none;
+  }
+
+  .sendimg{
+    position: relative;
+    top:15px;
+    width: 40px;
+    height: 40px;
+  }
+  button{
+    background: transparent;
+    border: transparent;
+  }
