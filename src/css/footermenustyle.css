@@ -1,0 +1,10 @@
+.footermenu{
+    border: 0px;
+    border-bottom: 1px solid black;
+    height: 100%;
+    width: 20%;
+    padding: 0px;
+    margin: 0px;
+    float:left;
+    background-color: white;
+}
