@@ -28,6 +28,14 @@
     -webkit-transform: rotate(225deg);
     transform: rotate(225deg);
 }
+.bars{
+  display: inline-block;
+  text-align: right;
+}
+.barsimg{
+    width: 30px;
+    height: 30px; 
+}
 .text1{
     border-bottom: 1px solid rgba(184, 184, 184, 0.863);
     text-align: center;
