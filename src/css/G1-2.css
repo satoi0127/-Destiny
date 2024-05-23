@@ -67,7 +67,7 @@ input:focus {
     position: relative;
 }
 
-.button {
+.nextbutton {
     position: fixed;
     bottom: 0;
     margin: auto auto 10vw auto;
@@ -81,7 +81,7 @@ input:focus {
     transition: ease .2s;
 }
 
-.button:before {
+.nextbutton:before {
     content: '';
     position: absolute;
     top: 0;
@@ -95,15 +95,20 @@ input:focus {
     transform-origin: right top;
 }
 
-.button.active {
+.nextbutton.active {
     border-color: #B5B2B2;
 }
 
-.button.active:before {
+.nextbutton.active:before {
     transform-origin: left top;
     transform: scale(1, 1);
 }
 
 .font.active {
     color: #ffffff;
+}
+
+.backbutton {
+    border: none;
+    background: transparent;
 }
