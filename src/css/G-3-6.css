@@ -28,6 +28,34 @@
     -webkit-transform: rotate(225deg);
     transform: rotate(225deg);
 }
+
 .follo{
     text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; 
 }
+.checkbox-round {
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 2px solid #566573;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    margin-left:270px;
+    margin-top:-5px;
+}
+.checkbox-round:checked {
+    background-color: #85C1E9;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 画面の高さいっぱいにボタンを表示する */
+  }
