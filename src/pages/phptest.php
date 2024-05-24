@@ -3,8 +3,8 @@
 
 <?php
 
-$pdo = new PDO($connect,USER,PASS);
-    $sql = $pdo->query('select name from user');
+    $pdo = new PDO($connect,USER,PASS);
+    $sql = $pdo->query('select interest_id from interest');
     foreach($sql as $row){
         echo '<p>',$row,'</p>';
     }
