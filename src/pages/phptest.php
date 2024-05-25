@@ -4,10 +4,14 @@
 <?php
 
     $pdo = new PDO($connect,USER,PASS);
-    $sql = $pdo->query('select interest_id from interest');
+    $sql = $pdo->query('select interest_name from interest');
     foreach($sql as $row){
         echo '<p>',$row,'</p>';
     }
+
+    echo 'test';
+
+    
 ?>
 
 

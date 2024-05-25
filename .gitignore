@@ -1,2 +1,5 @@
 src/modules/DBconnect.php
 DBconnect.php
+/.vscode
+.DS_Store
+.DS_Store
