@@ -1,0 +1,10 @@
+.interest_blob {
+    background-color: deeppink;
+    height: auto;
+    width:auto;
+    border: 0px;
+    border-radius: 10px;
+    color: white;
+    font-size: 32px;
+    margin: 3px;
+}

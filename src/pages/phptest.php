@@ -1,12 +1,14 @@
 <?php require '../modules/DBconnect.php'; ?>
 <?php require '../modules/header.php'; ?>
+<link rel="stylesheet" href="../css/style.css">
 
 <?php
 
     $pdo = new PDO($connect,USER,PASS);
-    $sql = $pdo->query('select interest_name from interest');
+    $sql = $pdo->query('select * from interest');
     foreach($sql as $row){
-        echo '<p>',$row,'</p>';
+        echo '<button class="interest_blob">',$row['interest_name'],'</button>';
+        //echo '<p>',$row['interest_id'],' ',$row['interest_name'],'</p>';
     }
 
     echo 'test';
