@@ -47,7 +47,7 @@
     -webkit-appearance: none;
     outline: none;
     cursor: pointer;
-    margin-left:270px;
+    
     margin-top:-5px;
 }
 .checkbox-round:checked {
@@ -59,3 +59,7 @@
     align-items: center;
     height: 100vh; /* 画面の高さいっぱいにボタンを表示する */
   }
+.buhin{
+    width: 10px;
+    height: 10px;
+}
