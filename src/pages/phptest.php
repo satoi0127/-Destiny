@@ -8,7 +8,6 @@
     $sql = $pdo->query('select * from interest');
     foreach($sql as $row){
         echo '<button class="interest_blob">',$row['interest_name'],'</button>';
-        //echo '<p>',$row['interest_id'],' ',$row['interest_name'],'</p>';
     }
 
     echo 'test';
