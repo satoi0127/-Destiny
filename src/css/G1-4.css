@@ -1,0 +1,139 @@
+.body {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: block;
+}
+
+.border {
+    background: linear-gradient(90deg, #afb3fe 0%, #F5B2B2 100%);
+}
+
+.left {
+    margin: 11px 0 0 11px;
+}
+
+.subject {
+    color: #000;
+    text-align: left;
+    font-family: "SF Pro";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 910;
+    line-height: 4vh;
+    word-break: break-all;
+    margin: 2vh auto 4vh 7vw;
+}
+
+.textbox {
+    border: none;
+    border-bottom: 2px solid #B5B2B2;
+    width: 86.66666666666667vw;
+    display: flex;
+    text-align: left;
+    margin: auto auto auto auto;
+    font-size: 16px;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 2px solid #000000;
+}
+
+.text1{
+    text-align: left;
+    font-family: "SF Pro Text";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    color: #A2A2A2;
+    margin-top: 5vw;
+    margin-left: 3vw;
+}
+
+.text2{
+    text-align: left;
+    font-family: "SF Pro Text";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    color: #A2A2A2;
+    margin-left: 3vw;
+}
+
+.font {
+    color: #000000;
+    text-align: center;
+    font-family: "SF Pro";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    z-index: 3;
+    position: relative;
+}
+
+.nextbutton {
+    position: fixed;
+    bottom: 0;
+    margin: auto auto 10vw auto;
+    width: 96.15384615384616vw;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 90px;
+    border: 1px solid #B5B2B2;
+    background: #FFF;
+    overflow: hidden;
+    transition: ease .2s;
+}
+
+.nextbutton:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: linear-gradient(90deg, #B2F5F5 0%, #7BC0FF 50%, #F5B2B2 100%);
+    width: 100%;
+    height: 100%;
+    transition: transform .6s cubic-bezier(0.8, 0, 0.2, 1) 0s;
+    transform: scale(0, 1);
+    transform-origin: right top;
+}
+
+.nextbutton.active {
+    border-color: #B5B2B2;
+}
+
+.nextbutton.active:before {
+    transform-origin: left top;
+    transform: scale(1, 1);
+}
+
+.font.active {
+    color: #ffffff;
+}
+
+.backbutton {
+    border: none;
+    background: transparent;
+}
+
+.birth-input{
+    font-family: "SF Pro";
+    width: 22px;
+    height: 33px;
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
+    text-align: center;
+    border: none;
+    border-bottom: 2px solid #888080;
+    font-size: 20px;
+}
+
+.div {
+    font-size: 16px;
+    color: #888080;;
+}
