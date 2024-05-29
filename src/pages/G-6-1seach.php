@@ -71,3 +71,6 @@
                 </div>
     
 <?php require 'G0-0footer.php'; ?>
+
+    </body>
+    </html>
