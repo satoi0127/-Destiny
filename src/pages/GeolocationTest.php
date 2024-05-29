@@ -8,4 +8,4 @@
 
 <button>位置情報更新</button>
 
-<?php require '../modules/G0-0footer.php' ?>
+<?php require '../modules/footer.php'; ?>
