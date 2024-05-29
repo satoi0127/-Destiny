@@ -45,6 +45,6 @@
     <p class="text3">よろしく！</p>
     <hr>
 </div>
-
+<?php require 'footer.php'; ?>
 </body>
 </html>
