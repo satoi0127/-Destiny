@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/G-5-1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>チャット画面</title>
+</head>
+<body>
+    <a href="#" class="arrow_btn arrow_01"></a>
+<br><h3 class="text1">新しいマッチ</h3>
+<img src="../image/gray.png" alt="">
+<img src="../image/gray.png" alt="">
+<img src="../image/gray.png" alt="">
+<br><h3>メッセージ</h3>
+
+<div>
+    <hr>
+    <img src="../image/hukai.png" alt="" class="icon">
+    <h4 class="text2">名前</h4>
+    <p class="text3">よろしく！</p>
+    <hr>
+</div>
+
+
+
+<div>
+    <img src="../image/虎.jpg" alt="" class="icon">
+    <h4 class="text2">とらのすけ</h4>
+    <p class="text3">とらですよーーー</p>
+    <hr>
+</div>
+
+<div>
+    <img src="../image/hukai.png" alt="" class="icon">
+    <h4 class="text2">名前</h4>
+    <p class="text3">よろしく！</p>
+    <hr>
+</div>
+
+<div>
+    <img src="../image/hukai.png" alt="" class="icon">
+    <h4 class="text2">名前</h4>
+    <p class="text3">よろしく！</p>
+    <hr>
+</div>
+
+</body>
+</html>
