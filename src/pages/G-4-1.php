@@ -18,12 +18,12 @@
     <div class="huka">
     <img src="../image/hukai.png" alt="">
     <h2>深井君 〇〇歳 </h2>
-    </div>
-    </body>
+    </div>  
     <h2>自己紹介</h2>
     <div class=ai><h4>会いたいです</h4></div>
     <br>
     <h2>趣味</h2>
     <div class=ai><h4>ゲーム テニス アウトドア</h4></div>
     <?php require 'G0-0footer.php'; ?>
+</body>
 </html>

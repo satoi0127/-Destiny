@@ -12,3 +12,12 @@
     width: 9vw;
     height: 60px;
 }
+
+body{
+  padding-bottom: 10vh;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    z-index:999;
+}
