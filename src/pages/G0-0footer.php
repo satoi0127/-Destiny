@@ -9,5 +9,3 @@
     <button class="footermenu"><img src="../image/Search.png" alt=""></button>
     <button class="footermenu"><img src="../image/Profile.png" alt=""></button>
 </div>
-
-<?php require '../modules/footer.php'; ?>
