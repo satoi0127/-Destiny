@@ -67,5 +67,6 @@
             <input style="border: 0px; margin: auto; height: 32px;" id="syumi" name="b" type="text" placeholder="暇つぶし">
             </div>        
     </body>
+    <?php require 'G0-0footer.php'; ?>
 </body>
 </html>
