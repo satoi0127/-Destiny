@@ -16,7 +16,7 @@
         <input type="text" placeholder="詳細" class="textbox">
         <input type="text" placeholder="メンバー" class="textboxb">
     </div>
-    
+    <?php require 'G0-0footer.php'; ?>
     
 </body>
 </html>
