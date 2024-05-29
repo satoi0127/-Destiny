@@ -1,4 +1,4 @@
-
+<?php require 'DBconnect.php'; ?>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -70,4 +70,7 @@
                 </div>
                 </div>
     
-<?php require 'footer.php'; ?>
+<?php require 'G0-0footer.php'; ?>
+
+    </body>
+    </html>

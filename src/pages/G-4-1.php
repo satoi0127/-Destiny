@@ -25,4 +25,5 @@
     <br>
     <h2>趣味</h2>
     <div class=ai><h4>ゲーム テニス アウトドア</h4></div>
+    <?php require 'G0-0footer.php'; ?>
 </html>
