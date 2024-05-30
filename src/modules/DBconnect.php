@@ -1,7 +1,7 @@
 <?php
 const SERVER = "localhost";
-const DBNAME = "destiny";
+const DBNAME = "Destiny";
 const USER = "root";
-const PASS = "root";
+const PASS = "Psalms16:8";
 $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
 ?>
