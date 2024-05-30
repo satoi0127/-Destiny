@@ -1,3 +1,9 @@
+<?php require '../modules/DBconnect.php'; ?>
+<?php
+$pdo = new PDO($connect,USER,PASS);
+$sql = $pdo->query('select * from interest');
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,11 +22,27 @@
 <br><h3>メッセージ</h3>
 
 <div>
-    <hr>
-    <img src="../image/hukai.png" alt="" class="icon">
-    <h4 class="text2">名前</h4>
-    <p class="text3">よろしく！</p>
-    <hr>
+<?php
+$pdo = new PDO($connect,USER,PASS);
+$kariid=3;
+$sql = $pdo->query('select * from chatmember where user_id != 3');
+foreach($sql as $row){
+    $sendid=$row['user_id'];
+}
+echo $sendid;
+    echo'<hr>';
+    echo'<img src="../image/hukai.png" alt="" class="icon">';
+    $sql = $pdo->query('select * from user where user_id = 6');
+    foreach($sql as $row){
+        echo'<h4 class="text2">',$row['user_name'],'</h4>';
+    }
+    $sql = $pdo->query('select * from Message where user_id = 6');
+    foreach($sql as $row){
+        echo'<p class="text3">',$row['message_text'],'</p>';
+    }
+   
+    echo'<hr>';
+?>
 </div>
 
 
