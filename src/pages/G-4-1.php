@@ -14,7 +14,7 @@
 <!-- → -->
     <a href="#" class="arrow_btn arrow_01" style="position: absolute;"></a>
     <div class="hen">
-    <a href="pitu_page.php"><img src="../image/pitu.png" alt=""></a>
+    <a href="http://localhost/src/pages/G-4-2.php"><img src="../image/pitu.png" alt=""></a>
     <a href="ruma_page.php"><img src="../image/ruma.png" alt=""></a>
     </div>
     <div class="huka">
