@@ -1,4 +1,4 @@
-<?php require '<modules>DBconect.php'; ?>
+<?php require '<modules>DBconnect.php'; ?>
 
 <!DOCTYPE html>
 <html lang="ja">
