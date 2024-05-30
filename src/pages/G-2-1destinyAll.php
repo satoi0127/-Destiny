@@ -54,4 +54,6 @@
 ?>
 
 <?php require "G0-0footer.php"; ?>
-<?php require "../modules/footer.php"; ?>
+
+    </body>
+</html>

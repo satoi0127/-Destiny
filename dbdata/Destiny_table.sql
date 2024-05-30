@@ -14,4 +14,4 @@ CREATE TABLE party(party_id INTEGER PRIMARY KEY, party_name VARCHAR(64) NOT NULL
 
 CREATE TABLE partyInterest(paryInterest_id INTEGER PRIMARY KEY, party_id INTEGER NOT NULL, interest_id INTEGER NOT NULL, FOREIGN KEY (party_id) REFERENCES party(party_id), FOREIGN KEY (interest_id) REFERENCES interest(interest_id));
 
-CREATE TABLE Message(message_id INTEGER PRIMARY KEY,message_text VARCHAR(300) NOT NULL,user_id INTEGER NOT NULL,chatmember_id INTEGER NOT NULL,FOREIGN KEY (user_id) REFERENCES user(user_id),FOREIGN KEY (chatmember_id) REFERENCES chatmember(chatmember_id));
+CREATE TABLE Message(message_id INTEGER PRIMARY KEY,message_text VARCHAR(300) NOT NULL,user_id INTEGER NOT NULL,chatmember_id INTEGER NOT NULL,FOREIGN KEY (user_id) REFERENCES user(user_id),FOREIGN KEY (chatmember_id) REFERENCES chatmember(chatmember_id)); //message_idをAUTO_INCREMENT
