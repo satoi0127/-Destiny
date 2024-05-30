@@ -3,3 +3,4 @@ DBconnect.php
 /.vscode
 .DS_Store
 .DS_Store
+src/modules/DBconnect.php
