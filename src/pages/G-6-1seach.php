@@ -1,3 +1,4 @@
+<?php require '<modules>DBconect.php'; ?>
 
 <!DOCTYPE html>
 <html lang="ja">
