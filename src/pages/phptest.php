@@ -15,5 +15,5 @@
     
 ?>
 
-
-<?php require '../modules/footer.php'; ?>
+</body>
+</html>
