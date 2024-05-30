@@ -1,11 +1,11 @@
-.topbutton{
+.topbutton {
     border: 0px;
     border-bottom: 1px solid black;
     height: 100%;
-    width:33.33%;
+    width: 33.33%;
     padding: 0px;
     margin: 0px;
-    float:left;
+    float: left;
     background-color: white;
 }
 
@@ -15,7 +15,7 @@
 
 .user_list_individual {
     border-bottom: 1px solid black;
-    display: flex;
+    display: flexbox;
 }
 
 .user_list_individual_image {

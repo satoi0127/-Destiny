@@ -6,7 +6,7 @@ CREATE TABLE profile(profile_id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL ,u
 
 CREATE TABLE interest(interest_id INTEGER AUTO_INCREMENT PRIMARY KEY, interest_name VARCHAR(32) NOT NULL);
 
-CREATE TABLE userInterest(uinterest_id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL, interest_id INTEGER NOT NULL, FOREIGN KEY (user_id) REFERENCES user(user_id), FOREIGN KEY(interest_id) REFERENCES interest(interest_id));
+CREATE TABLE userInterest(uinterest_id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL, interest_id INTEGER NOT NULL, FOREIGN KEY (user_id) REFERENCES user(user_id), FOREIGN KEY(interest_id) REFERENCES interest(interest_id)); //interest_idをなくしてユーザidと趣味idを複合主キーにするパーティ趣味を同様
 
 CREATE TABLE chatmember(chatmember_id INTEGER,user_id INTEGER NOT NULL,FOREIGN KEY (user_id) REFERENCES user(user_id),PRIMARY KEY(chatmember_id, user_id));
 
