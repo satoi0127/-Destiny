@@ -24,10 +24,15 @@ $kariid=3;
 $sql = $pdo->query('select * from user
 join chatmember on user.user_id = chatmember.user_id
 join Message on user.user_id = Message.user_id
-where user.user_id = 6');
-
-echo'<div>';
+where user.user_id = 3');
+foreach($sql as $row){
+    echo'<div>';
     echo'<hr>';
+    $chatid = $row['chatmember_id'];
+    $sql = $pdo->query('select * from user
+    join chatmember on user.user_id = chatmember.user_id
+    join Message on user.user_id = Message.user_id
+    where user.user_id = 3');
     echo'<img src="../image/hukai.png" alt="" class="icon">';
     foreach($sql as $row){
         echo'<h4 class="text2">',$row['user_name'],'</h4>';
@@ -37,6 +42,8 @@ echo'<div>';
     echo'<hr>';
 
 echo'</div>';
+}
+
 ?>
 
 
