@@ -32,10 +32,10 @@
     foreach ($sql as $user_data) {
         echo "<div class=\"user_list_individual\">";
         echo '<div class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;"></div>';
-        echo '<p style="font-size: 18px;">', $user_data["user_name"], "</p>";
+        echo '<div style="font-size: 18px;">', $user_data["user_name"], "</div>";
         echo "<br>";
         echo "<br>";
-        echo '<p style="font-size: 12px; display: block;">',
+        echo '<p style="font-size: 12px;">',
             "家に泊まらせてください",
             "</p>";
         echo "</div>";
