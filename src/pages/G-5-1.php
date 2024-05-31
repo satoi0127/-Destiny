@@ -1,8 +1,4 @@
 <?php require '../modules/DBconnect.php'; ?>
-<?php
-$pdo = new PDO($connect,USER,PASS);
-$sql = $pdo->query('select * from interest');
-    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,30 +17,27 @@ $sql = $pdo->query('select * from interest');
 <img src="../image/gray.png" alt="">
 <br><h3>メッセージ</h3>
 
-<div>
+
 <?php
 $pdo = new PDO($connect,USER,PASS);
 $kariid=3;
-$sql = $pdo->query('select * from chatmember where user_id != 3');
-foreach($sql as $row){
-    $sendid=$row['user_id'];
-}
-echo $sendid;
+$sql = $pdo->query('select * from user
+join chatmember on user.user_id = chatmember.user_id
+join Message on user.user_id = Message.user_id
+where user.user_id = 6');
+
+echo'<div>';
     echo'<hr>';
     echo'<img src="../image/hukai.png" alt="" class="icon">';
-    $sql = $pdo->query('select * from user where user_id = 6');
     foreach($sql as $row){
         echo'<h4 class="text2">',$row['user_name'],'</h4>';
-    }
-    $sql = $pdo->query('select * from Message where user_id = 6');
-    foreach($sql as $row){
         echo'<p class="text3">',$row['message_text'],'</p>';
     }
    
     echo'<hr>';
-?>
-</div>
 
+echo'</div>';
+?>
 
 
 <div>

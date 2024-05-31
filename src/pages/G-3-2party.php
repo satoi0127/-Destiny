@@ -14,8 +14,8 @@
         <input type="text"> 
         <h3>詳細（任意）</h3>
         <p><input type="text" class="large-input"></p>
-        <p><button onclick="location.href=''" class="large-button">＋　趣味一覧</button></p>
-        <button class="large-button">作成</button>
+        <p><button onclick="location.href='./G-3-3party.php'" class="large-button">＋　趣味一覧</button></p>
+        <button onclick="location.href='./G-3-4.php'" class="large-button">作成</button>
     </div>
     
     

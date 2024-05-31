@@ -9,9 +9,9 @@
 </head>
 <body>
 <div class="container">
-    <a href="#" class="arrow_btn arrow_01"><span style="color:#ff0000;">退出</span></a>
+    <a href="./G-3-1party.php" class="arrow_btn arrow_01"><span style="color:#ff0000;">退出</span></a>
 
-<div class="bar"><a href="#" class="bars"><img src="../image/bars.png" alt="" class="barsimg"></a></div>
+<div class="bar"><a href="./G-3-5.php" class="bars"><img src="../image/bars.png" alt="" class="barsimg"></a></div>
     <h2 class="text1">パーティー名</h2><br>
     <!-- 左の吹き出し -->
     <div class="balloon-color left">

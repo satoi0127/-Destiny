@@ -8,7 +8,7 @@
     <title>パーティー</title>
 </head>
 <body>
-    <a href="#" class="arrow_btn arrow_01"></a>
+    <a href="./G-3-5.php" class="arrow_btn arrow_01"></a>
     <div class="follo"><p>フォロワー</p></div>
     
     <input type="checkbox"  class="checkbox-round" id="option1" name="options[]" value="option1">
@@ -23,7 +23,7 @@
     <label for="option3"><img src="../image/hukai.png" width="50px" height="50px">名前</label><br>
     
     <div class="center">
-        <button>招待</button>
+        <button onclick="location.href='./G-3-4.php'">招待</button>
     </div>
 </body>
 </html>
