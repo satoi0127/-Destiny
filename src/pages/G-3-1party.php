@@ -16,6 +16,9 @@
         <input type="text" placeholder="詳細" class="textbox">
         <input type="text" placeholder="メンバー" class="textboxb">
     </div>
+    <div onclick="location.href='./G-3-2party.php'" class="post-btn">
+    <i class="fas fa-plus"></i>
+    </div>
     <?php require 'G0-0footer.php'; ?>
     
 </body>

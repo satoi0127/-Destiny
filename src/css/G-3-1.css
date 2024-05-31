@@ -71,3 +71,19 @@
 .large-input {
     height:100px;
   }
+/* 投稿ボタン */
+
+.post-btn {
+    position: fixed;
+    bottom: 10%;
+    right: 5%;
+    width: 70px;
+    height: 70px;
+    line-height:70px;
+    color:white;
+    font-weight: bold;
+    font-size: 30px;
+    background: aqua;
+    border-radius: 50%;
+    text-align: center;
+  }
