@@ -17,11 +17,12 @@
     color: #000;
     text-align: left;
     font-family: "SF Pro";
-    font-size: 37px;
+    font-size: 40px;
     font-style: normal;
-    font-weight: 1000;
-    line-height: 1.9vh;
-    margin: 4vh auto 4vh 7vw;
+    font-weight: 910;
+    line-height: 4vh;
+    word-break: break-all;
+    margin: 2vh auto 4vh 7vw;
 }
 
 .textbox {
@@ -30,8 +31,8 @@
     width: 86.66666666666667vw;
     display: flex;
     text-align: left;
-    margin: 5vh auto auto auto;
-    font-size: 20px;
+    margin: auto auto auto auto;
+    font-size: 16px;
 }
 
 input:focus {
@@ -39,32 +40,27 @@ input:focus {
     border-bottom: 2px solid #000000;
 }
 
-.text1, .text2 {
-    text-align: center;
+.text1{
+    text-align: left;
     font-family: "SF Pro Text";
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-}
-
-.text1 {
     color: #A2A2A2;
-    margin-top: 3vw;
+    margin-top: 5vw;
+    margin-left: 3vw;
 }
 
-.text2 {
-    color: #222;
-}
-
-.text3 {
+.text2{
     text-align: left;
     font-family: "SF Pro Text";
     font-size: 18px;
     font-style: normal;
-    font-weight: 550;
+    font-weight: 500;
     line-height: normal;
-    margin: 5vh auto 3vh 6vw;
+    color: #A2A2A2;
+    margin-left: 3vw;
 }
 
 .font {
@@ -123,4 +119,21 @@ input:focus {
 .backbutton {
     border: none;
     background: transparent;
+}
+
+.birth-input{
+    font-family: "SF Pro";
+    width: 22px;
+    height: 33px;
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
+    text-align: center;
+    border: none;
+    border-bottom: 2px solid #888080;
+    font-size: 20px;
+}
+
+.div {
+    font-size: 16px;
+    color: #888080;;
 }
