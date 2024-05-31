@@ -2,7 +2,7 @@ CREATE TABLE user(user_id INTEGER AUTO_INCREMENT PRIMARY KEY ,user_password VARC
 
 CREATE TABLE profileImage(profileImage_id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL, user_profile_image_path VARCHAR(120), FOREIGN KEY (user_id) REFERENCES user(user_id));
 
-CREATE TABLE profile(profile_id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL ,user_profile_image_path VARCHAR(120), user_description VARCHAR(320), FOREIGN KEY (user_id) REFERENCES user(user_id));
+CREATE TABLE profile(profile_id INTEGER AUTO_INCREMENT PRIMARY KEY, user_id INTEGER NOT NULL ,user_profile_image_path VARCHAR(120), user_description VARCHAR(320), FOREIGN KEY (user_id) REFERENCES user(user_id));
 
 CREATE TABLE interest(interest_id INTEGER AUTO_INCREMENT PRIMARY KEY, interest_name VARCHAR(32) NOT NULL);
 

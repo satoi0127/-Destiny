@@ -8,7 +8,7 @@
     <title>パーティー</title>
 </head>
 <body>
-    <a href="#" class="arrow_btn arrow_01"></a>
+    <a href="./G-3-2party.php" class="arrow_btn arrow_01"></a>
     <p><div class="text">趣味一覧</div></p>
 <div id="buttonContainer">
     <div class="checkbox-container">

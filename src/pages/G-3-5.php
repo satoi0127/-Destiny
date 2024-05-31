@@ -8,9 +8,9 @@
     <title>パーティー</title>
 </head>
 <body>
-    <a href="#" class="arrow_btn arrow_01"></a>
+    <a href="./G-3-4.php" class="arrow_btn arrow_01"></a>
     <div class="container">
-        <button class="large-button">パーティーへ招待</button>
+        <button onclick="location.href='./G-3-6.php'" class="large-button">パーティーへ招待</button>
     </div>
 </body>
 </html>
