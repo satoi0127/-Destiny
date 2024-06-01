@@ -38,9 +38,8 @@ foreach($sql as $row){
         echo'<h4 class="text2">',$row['user_name'],'</h4>';
         echo'<p class="text3">',$row['message_text'],'</p>';
     }
-   
+     
     echo'<hr>';
-
 echo'</div>';
 }
 
