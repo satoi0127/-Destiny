@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="container">
+    <?php require 'DBconnect.php'; ?>
         <img src="../image/hukai.png" alt="写真" class="photo">
         <div class="text">
             <input type="text" placeholder="パーティー名">
