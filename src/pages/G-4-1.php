@@ -1,16 +1,5 @@
 <?php require '../modules/DBconnect.php'; 
-try {
-    // PDOによるデータベース接続
-    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // エラーモードを例外モードに設定
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // 文字コードをUTF-8に設定（必要に応じて変更してください）
-    $pdo->exec("SET NAMES utf8");
-} catch(PDOException $e) {
-    // エラーが発生した場合はエラーメッセージを表示
-    echo "データベースに接続できませんでした。エラー: " . $e->getMessage();
-    exit(); // スクリプトの実行を終了
-}
+$pdo = new PDO($connect,USER,PASS);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -30,8 +19,6 @@ try {
     <a href="ruma_page.php"><img src="../image/ruma.png" alt=""></a>
     </div>
     <?php
-// データベース接続
-require 'DBconnect.php';
 
 // プロフィール情報の取得
 $sql = "SELECT * FROM profiles WHERE user_id = :user_id"; // profilesはプロフィール情報が保存されているテーブル名、user_idはユーザーIDが保存されているカラム名
