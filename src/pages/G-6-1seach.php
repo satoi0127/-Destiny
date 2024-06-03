@@ -21,7 +21,7 @@ $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
     <a href="javascript:history.back();" class="arrow_btn arrow_01"></a>
 
     <div class="form">
-        <form method="get" id="form2" action="G-6-1serch.php">
+        <form method="get" id="form2" action="G-6-1seach.php">
             <input id="sbox3" name="keyword" type="text" placeholder="キーワードを入力">
             <button id="sbtn4" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             <!-- <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet"> -->
