@@ -89,4 +89,4 @@ try {
     <!-- <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script> -->
     
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="./javascript/G-6-1seach.js"></script>
+    <script src="http://localhost/src/javascript/G-6-1seach.js"></script>
