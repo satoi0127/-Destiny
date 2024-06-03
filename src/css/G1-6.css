@@ -17,11 +17,12 @@
     color: #000;
     text-align: left;
     font-family: "SF Pro";
-    font-size: 37px;
+    font-size: 40px;
     font-style: normal;
-    font-weight: 1000;
-    line-height: 1.9vh;
-    margin: 4vh auto 4vh 7vw;
+    font-weight: 910;
+    line-height: 4vh;
+    word-break: break-all;
+    margin: 2vh auto 4vh 6vw;
 }
 
 .textbox {
@@ -30,41 +31,41 @@
     width: 86.66666666666667vw;
     display: flex;
     text-align: left;
-    margin: 5vh auto auto auto;
-    font-size: 20px;
+    margin: auto auto auto auto;
+    font-size: 16px;
 }
 
-input:focus {
-    outline: none;
-    border-bottom: 2px solid #000000;
-}
-
-.text1, .text2 {
-    text-align: center;
+.text1{
+    text-align: left;
     font-family: "SF Pro Text";
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-}
-
-.text1 {
     color: #A2A2A2;
-    margin-top: 3vw;
+    margin-top: 5vw;
+    margin-left: 6vw;
 }
 
-.text2 {
-    color: #222;
-}
-
-.text3 {
+.text2{
     text-align: left;
     font-family: "SF Pro Text";
     font-size: 18px;
     font-style: normal;
-    font-weight: 550;
+    font-weight: 500;
     line-height: normal;
-    margin: 5vh auto 3vh 6vw;
+    color: #A2A2A2;
+    margin-left: 6vw;
+}
+
+.text3{
+    text-align: left;
+    font-family: "SF Pro Text";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    color: #000;
 }
 
 .font {
@@ -123,4 +124,21 @@ input:focus {
 .backbutton {
     border: none;
     background: transparent;
+}
+
+.distance{
+    margin-top: 5vh;
+    width: 100%;
+}
+
+.distance-container {
+    display: flex;
+    align-items: center;
+}
+
+.value {
+    font-weight: bold;
+    position: fixed;
+    right: 0;
+    margin-right: 2vw;
 }

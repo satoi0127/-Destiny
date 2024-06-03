@@ -4,65 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/G1-3.css">
-    <title>G1-3</title>
+    <title>G1-2</title>
 </head>
 <body>
     <div id="page2">
         <div class="base">
-            <hr size="7px" class="border">
-            <button type="button" class="backbutton" onclick="history.back()">
-                <img src="../image/left.png" class="left" width="15.56" height="25.68"><br>
-            </button>
-            <div class="subject">ジェンダーは？</div>
-            <div class="text1">自分に最も合うと感じるものを、次の選択肢の中から１つお選びください</div>
-
-            <form class="form">
-                <div class="inputGroup">
-                    <input id="man" name="check" class="check" type="checkbox" />
-                    <label for="man"><div class="font2">男性</div></label>
-                </div>
-                
-                <div class="inputGroup">
-                    <input id="woman" name="check" class="check" type="checkbox" />
-                    <label for="woman"><div class="font2">女性</div></label>
-                </div>
-
-                <div class="inputGroup">
-                    <input id="other" name="check" class="check" type="checkbox" />
-                    <label for="other"><div class="font2">その他</div></label>
-                </div>
-            </form>          
-
-            <button type="button" class="button" id="nextButton" onclick="location.href='aa.html'"><div class="font" id="nextFont">次へ</div></button>
-        </div>
-    </div>
+        <hr size="7px" class="border">
+        <button type="button" class="backbutton" onclick="history.back()">
+            <img src="../image/left.png" class="left" width="15.56" height="25.68"><br>
+        </button>
+        <div class="subject">個人情報を</div>
+        <div class="subject">入力してください</div>
+        <div class="text3">メールアドレスを入力してください</div>
+        <input type="email" class="textbox" id="nextEmail">
+        <div class="text3">パスワードを入力してください</div>
+        <input type="password" class="textbox" id="nextPassword1">
+        <div class="text3">もう一度パスワードを入力してください</div>
+        <input type="password" class="textbox" id="nextPassword2">
+        <button type="button" class="nextbutton" id="nextButton" onclick="location.href='aa.html'"><div class="font" id="nextFont">次へ</div></button>
+    <div class="base">
 </div>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+</div>
+</div>
+<script src="../js/test.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
 <script>
-    $(document).ready(function(){
-        $('.check').on('click', function() {
-            if ($(this).prop('checked')) {
-                // 他のチェックボックスをクリア
-                $('.check').not(this).prop('checked', false);
-            }
-            updateButtonState();
-        });
-        function updateButtonState() {
-                var isChecked = $('.check').is(':checked');
-                var nextButton = $('#nextButton');
-                var nextFont = $('#nextFont');
+    var Email = document.getElementById('nextEmail');
+    var Password1 = document.getElementById("nextPassword1");
+    var Password2 = document.getElementById("nextPassword2");
+    var nextbutton = document.getElementById('nextButton');
+    var font = document.getElementById('nextFont');
 
-                if (isChecked) {
-                    nextButton.addClass('active');
-                    nextFont.addClass('active');
-                } else {
-                    nextButton.removeClass('active');
-                    nextFont.removeClass('active');
-                }
-            }
-        });
+    function updateButtonState() {
+        if (Password1.value === Password2.value && Password1.value.trim() !== "") {
+            nextbutton.classList.add('active');
+            font.classList.add('active');
+        } else {
+            nextbutton.classList.remove('active');
+            font.classList.remove('active');
+        }
+    }
 
+    Password1.addEventListener('focus', function(){
+        if (!Email.value.match(/.+@.+\..+/)) {
+            window.alert('メールアドレスの書式が間違っています'); 
+            Email.focus();
+        }
+    });
+
+    Password1.addEventListener('input', updateButtonState);
+    Password2.addEventListener('input', updateButtonState);
 </script>
 </body>
 </html>

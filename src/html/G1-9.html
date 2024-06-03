@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/G1-5.css">
+    <link rel="stylesheet" href="../css/G1-9.css">
     <title>G1-4</title>
 </head>
 <body>
@@ -13,21 +13,25 @@
             <button type="button" class="backbutton" onclick="history.back()">
                 <img src="../image/left.png" class="left" width="15.56" height="25.68"><br>
             </button>
-            <div class="subject">あなたの</div>
-            <div class="subject">誕生日は？</div>
+            <div class="subject">電機番号を</div>
+            <div class="subject">入力してください</div>
             <div class="input-group">
-                <input type="tel" maxlength="1" class="birth-input" placeholder="Y">
-                <input type="tel" maxlength="1" class="birth-input" placeholder="Y">
-                <input type="tel" maxlength="1" class="birth-input" placeholder="Y">
-                <input type="tel" maxlength="1" class="birth-input" placeholder="Y">
-                <span>/</span>
-                <input type="tel" maxlength="1" class="birth-input" placeholder="M">
-                <input type="tel" maxlength="1" class="birth-input" placeholder="M">
-                <span>/</span>
-                <input type="tel" maxlength="1" class="birth-input" placeholder="D">
-                <input type="tel" maxlength="1" class="birth-input" placeholder="D">
+                <input type="tel" maxlength="1" class="phonumber" placeholder="N">
+                <input type="tel" maxlength="1" class="phonumber" placeholder="N">
+                <input type="tel" maxlength="1" class="phonumber" placeholder="N">
+                <span>-</span>
+                <input type="tel" maxlength="1" class="phonumber" placeholder="N">
+                <input type="tel" maxlength="1" class="phonumber" placeholder="N">
+                <input type="tel" maxlength="1" class="phonumber" placeholder="N">
+                <input type="tel" maxlength="1" class="phonumber" placeholder="N">
+                <span>-</span>
+                <input type="tel" maxlength="1" class="phonumber" placeholder="N">
+                <input type="tel" maxlength="1" class="phonumber" placeholder="N">
+                <input type="tel" maxlength="1" class="phonumber" placeholder="N">
+                <input type="tel" maxlength="1" class="phonumber" placeholder="N">
             </div>
-            <div class="text1">プロフィールには誕生日ではなく、年齢が表示されます。</div>
+            <div class="text1">電話番号として使用される、</div>
+            <div class="text2">数字11桁を入力してください。、</div>
             <button type="button" class="nextbutton" id="nextButton" onclick="location.href='G1-5.html'"><div class="font" id="nextFont">次へ</div></button>
         </div>
     </div>
@@ -35,7 +39,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var inputs = document.querySelectorAll('.birth-input');
+            var inputs = document.querySelectorAll('.phonumber');
             var nextButton = document.getElementById('nextButton');
             var nextFont = document.getElementById('nextFont');
 
