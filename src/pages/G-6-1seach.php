@@ -13,6 +13,7 @@ $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
     <!-- <meta charset="UTF-8"> -->
  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
  <link rel="stylesheet" href="../css/G-6-1 search.css">
+
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>kaihatu</title>
 </head>
@@ -65,7 +66,8 @@ try {
     if ($results) {
         echo "<h2>Search Results:</h2>";
         foreach ($results as $row) {
-            echo "<div class='box'>";
+            $a= 1;
+            echo "<div class='box' data-id='".$a."'>";
             echo "<img src='" . htmlspecialchars($row["user_profile_image_path"]) . "' alt='Profile Image'></p><hr>";
             echo "<div class='text'>";
             echo "<p>Name: " . htmlspecialchars($row["user_name"]) . "<br>";
@@ -84,3 +86,7 @@ try {
 
     </body>
     </html>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script> -->
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="http://localhost/src/javascript/G-6-1seach.js"></script>
