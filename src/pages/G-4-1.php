@@ -51,12 +51,6 @@ if ($profile) {
 </body>
 </html>
 
-<?php
-} else {
-    // プロフィール情報が見つからない場合はエラーメッセージを表示
-    echo "プロフィールが見つかりませんでした。";
-}
-?>
     <div class="huka">
         <img src="../image/hukai.png" alt="">
         <h2>深井君 〇〇歳 </h2>
