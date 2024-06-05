@@ -14,43 +14,36 @@
 }
 
 .subject {
-    color: #000;
-    text-align: left;
-    font-family: "SF Pro";
+    background: linear-gradient(270deg, #F5B2B2 0%, #7BC0FF 50%, #B2F5F5 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-align: center;
+    font-family: Caveat;
     font-size: 40px;
     font-style: normal;
-    font-weight: 910;
-    line-height: 4vh;
-    word-break: break-all;
-    margin: 2vh auto 4vh 7vw;
-}
-
-input:focus {
-    outline: none;
-    border-bottom: 2px solid #000000;
+    font-weight: 400;
+    line-height: normal;
+    margin: 4vh auto 4vh auto;
 }
 
 .text1{
-    text-align: left;
+    width: 70vw;
+    margin: 5vw auto auto auto;
+    text-align: center;
     font-family: "SF Pro Text";
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     color: #A2A2A2;
-    margin-top: 5vw;
-    margin-left: 7vw;
+    word-break: normal;
 }
 
-.text2{
-    text-align: left;
-    font-family: "SF Pro Text";
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    color: #A2A2A2;
-    margin-left: 7vw;
+.earth{
+    margin: auto auto auto auto;
+    display: block;
 }
 
 .font {
@@ -59,7 +52,7 @@ input:focus {
     font-family: "SF Pro";
     font-size: 18px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 400;
     line-height: normal;
     z-index: 3;
     position: relative;
@@ -115,14 +108,10 @@ input:focus {
     font-family: "SF Pro";
     width: 14px;
     height: 30px;
-    margin: 2vh 0.8vw 2vh 0.8vw;
+    margin: 2vh 1.1vw 2vh 1.1vw;
     text-align: center;
     border: none;
     border-bottom: 2px solid #888080;
     font-size: 20px;
 }
 
-.div {
-    font-size: 16px;
-    color: #888080;;
-}
