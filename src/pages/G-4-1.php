@@ -18,22 +18,29 @@ $pdo = new PDO($connect,USER,PASS);
     <a href="http://localhost/src/pages/G-4-2.php"><img src="../image/pitu.png" alt=""></a>
     <a href="ruma_page.php"><img src="../image/ruma.png" alt=""></a>
     </div>
+
     <?php
 
 // プロフィール情報の取得
-$sql = "SELECT * FROM profiles WHERE user_id = :user_id"; // profilesはプロフィール情報が保存されているテーブル名、user_idはユーザーIDが保存されているカラム名
-$stmt = $pdo->prepare($sql);
-$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT); // ユーザーIDを適切な値に置き換える
-$stmt->execute();
-$profile = $stmt->fetch(PDO::FETCH_ASSOC);
+$sql = "SELECT DISTINCT user_profile_image_path, u.user_name, user_description, i.interest_name
+FROM profile p
+JOIN user u ON p.user_id = u.user_id
+JOIN userinterest ui ON p.user_id = ui.user_id
+JOIN interest i ON ui.interest_id = i.interest_id
+WHERE u.user_id = 2 AND i.interest_id = ui.interest_id" ; 
+$stmt = $pdo->query($sql);
 
-// プロフィール情報が取得できた場合は表示する
-if ($profile) {
-    $name = $profile['name'];
-    $introduction = $profile['introduction'];
-    $hobby = $profile['hobby'];
-    $image_path = $profile['image_path']; // 画像のファイルパスが保存されているカラム名
+$userdata = $stmt->fetchAll()[0];
+$profile_image_path = $userdata['user_profile_image_path'];
+
+
+
+$profile_image_path = "../image/". $profile_image_path;
+
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -44,20 +51,17 @@ if ($profile) {
 </head>
 <body>
     <h1>プロフィール</h1>
-    <img src="<?php echo $image_path; ?>" alt="プロフィール画像">
-    <p>名前: <?php echo $name; ?></p>
-    <p>自己紹介: <?php echo $introduction; ?></p>
-    <p>趣味: <?php echo $hobby; ?></p>
+    <img src="<?php echo $profile_image_path; ?>" alt="プロフィール画像">
+    <p>名前: <?php echo $userdata['user_name']; ?></p>
+    <p>自己紹介: <?php echo $userdata['user_description']; ?></p>
+    <p>趣味: <?php echo $userdata['interest_name']; ?></p>
 </body>
 </html>
 
 <?php
-} else {
-    // プロフィール情報が見つからない場合はエラーメッセージを表示
-    echo "プロフィールが見つかりませんでした。";
-}
+
 ?>
-    <div class="huka">
+    <!-- <div class="huka">
         <img src="../image/hukai.png" alt="">
         <h2>深井君 〇〇歳 </h2>
     </div>  
@@ -65,7 +69,7 @@ if ($profile) {
     <div class="ai"><h4>会いたいです</h4></div>
     <br>
     <h2>趣味</h2>
-    <div class="ai"><h4>ゲーム テニス アウトドア</h4></div>
+    <div class="ai"><h4>ゲーム テニス アウトドア</h4></div> -->
     <?php require 'G0-0footer.php'; ?>
 </body>
 </html>
