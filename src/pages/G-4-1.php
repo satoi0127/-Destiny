@@ -21,7 +21,7 @@ $pdo = new PDO($connect,USER,PASS);
     <?php
 
 // プロフィール情報の取得
-$sql = "SELECT * FROM profiles WHERE user_id = :user_id"; // profilesはプロフィール情報が保存されているテーブル名、user_idはユーザーIDが保存されているカラム名
+$sql = "SELECT * FROM profile WHERE user_id = :user_id"; // profilesはプロフィール情報が保存されているテーブル名、user_idはユーザーIDが保存されているカラム名
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT); // ユーザーIDを適切な値に置き換える
 $stmt->execute();
