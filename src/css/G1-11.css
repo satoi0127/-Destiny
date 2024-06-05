@@ -15,42 +15,32 @@
 
 .subject {
     color: #000;
-    text-align: left;
+    text-align: center;
     font-family: "SF Pro";
     font-size: 40px;
     font-style: normal;
     font-weight: 910;
     line-height: 4vh;
     word-break: break-all;
-    margin: 2vh auto 4vh 7vw;
-}
-
-input:focus {
-    outline: none;
-    border-bottom: 2px solid #000000;
+    margin: 4vh auto 4vh auto;
 }
 
 .text1{
-    text-align: left;
+    width: 70vw;
+    margin: 5vw auto auto auto;
+    text-align: center;
     font-family: "SF Pro Text";
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     color: #A2A2A2;
-    margin-top: 5vw;
-    margin-left: 7vw;
+    word-break: normal;
 }
 
-.text2{
-    text-align: left;
-    font-family: "SF Pro Text";
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    color: #A2A2A2;
-    margin-left: 7vw;
+.earth{
+    margin: auto auto auto auto;
+    display: block;
 }
 
 .font {
@@ -115,14 +105,10 @@ input:focus {
     font-family: "SF Pro";
     width: 14px;
     height: 30px;
-    margin: 2vh 0.8vw 2vh 0.8vw;
+    margin: 2vh 1.1vw 2vh 1.1vw;
     text-align: center;
     border: none;
     border-bottom: 2px solid #888080;
     font-size: 20px;
 }
 
-.div {
-    font-size: 16px;
-    color: #888080;;
-}
