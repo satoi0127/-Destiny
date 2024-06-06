@@ -24,7 +24,7 @@ $kariid=3;
 $sql = $pdo->query('select * from user
 join chatmember on user.user_id = chatmember.user_id
 join Message on user.user_id = Message.user_id
-where user.user_id = 3');
+where chatmember.user_id = 3');
 foreach($sql as $row){
     echo'<div>';
     echo'<hr>';
