@@ -32,7 +32,7 @@ foreach($sql as $row){
     $sql = $pdo->query('select * from user
     join chatmember on user.user_id = chatmember.user_id
     join Message on user.user_id = Message.user_id
-    where user.user_id = 3');
+    where chatmember.chatmember_id = 1');
     echo'<img src="../image/hukai.png" alt="" class="icon">';
     foreach($sql as $row){
         echo'<h4 class="text2">',$row['user_name'],'</h4>';
