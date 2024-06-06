@@ -11,11 +11,12 @@
     <div style="width:100%; height:10px;
     background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(9,9,221,1) 35%, rgba(200,45,64,1) 100%); "></div>
 
-    <div style="width: 100%; height: 54px; border: 1px solid black;">
-            <button class="topbutton" >全て</button>
-            <button class="topbutton" >近くのメンバー</button>
+        <div style="width: 100%; height: 54px; border: 1px solid black;">
+            <a href="G-2-1destinyAll.php"><button class="topbutton" >全て</button></a>
+            <a href="G-2-2destinyNearUser.php"><button class="topbutton" >近くのメンバー</button></a>
             <button class="topbutton" >趣味</button>
-    </div>
+        </div>
+
     <style>
         hr{
             border: none;
@@ -31,12 +32,17 @@
     $sql = $pdo->query("select * from user");
     foreach ($sql as $user_data) {
         echo "<div class=\"user_list_individual\">";
+        echo "<div class=\"image_and_name\">";
         echo '<div class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;"></div>';
-        echo '<div style="font-size: 18px;">', $user_data["user_name"], "</div>";
-        echo "<br>";
-        echo "<br>";
+        echo '<p style="font-size: 18px;">', $user_data["user_name"], "</p>";
+        echo "</div>";
+
+        $user_description = $pdo->prepare("SELECT user_description FROM profile WHERE user_id = ?");
+        $user_description->execute([$user_data['user_id']]);
+        $description = $user_description->fetchAll()[0]["user_description"];
+
         echo '<p style="font-size: 12px;">',
-            "家に泊まらせてください",
+            $description,
             "</p>";
         echo "</div>";
     }

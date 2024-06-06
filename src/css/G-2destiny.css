@@ -15,7 +15,10 @@
 
 .user_list_individual {
     border-bottom: 1px solid black;
-   
+}
+
+.image_and_name {
+    display:flex;
 }
 
 .user_list_individual_image {
