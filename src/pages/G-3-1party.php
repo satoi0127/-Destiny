@@ -1,4 +1,6 @@
-<?php require "../modules/DBconnect.php"; ?>
+<?php require '../modules/DBconnect.php'; 
+$pdo = new PDO($connect,USER,PASS);
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -9,14 +11,26 @@
     <title>パーティー</title>
 </head>
 <body>
+<?php
+// パーティー情報の取得
+    $party_name = $_POST['party_name'];
+    $party_description = $_POST['party_description'];
+
+    $sql = "INSERT INTO party(party_name,party_description) VALUES(:party_name,:party_description)";
+    $stmt = $PDO->prepare($sql);
+    $params = array(':party_name' => $party_name,':party_description' => $party_description);
+    $stmt->execute($params);
+?>
+
     <div class="container">
-    
-        <img src="../image/hukai.png" alt="写真" class="photo">
-        <div class="text">
-            <input type="text" placeholder="パーティー名">
-        </div>
-        <input type="text" placeholder="詳細" class="textbox">
-        <input type="text" placeholder="メンバー" class="textboxb">
+    <?php
+        //<img src="../image/hukai.png" alt="写真" class="photo">
+        echo '<div class="text">';
+        echo $party_name;
+        echo '</div>';
+        echo $party_description;
+        //<input type="text" placeholder="メンバー" class="textboxb">
+    ?>
     </div>
     <div onclick="location.href='./G-3-2party.php'" class="post-btn">
     <i class="fas fa-plus"></i>
