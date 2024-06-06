@@ -28,11 +28,9 @@
     -webkit-transform: rotate(225deg);
     transform: rotate(225deg);
 }
-.huka{ 
-    
+.huka{
         text-align: center;
-    
-    
+
   }
   .hen{ 
     
@@ -48,5 +46,14 @@
         color:black;
         display:flex;
     }
+h3{
+    margin-top: 30px;
+}
 
+.profile{
+    width:200px;
+    margin-right:10px;
+    height:200px;
+    border-radius:50%;
+  }
 

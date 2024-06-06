@@ -15,7 +15,8 @@ $pdo = new PDO($connect,USER,PASS);
 <!-- → -->
     <a href="#" class="arrow_btn arrow_01" style="position: absolute;"></a>
     <div class="hen">
-    <a href="http://localhost/src/pages/G-4-2.php"><img src="../image/pitu.png" alt=""></a>
+    <a href="http://localhost/src/pages/G-4-2.php">
+    <img src="../image/pitu.png" alt=""></a>
     <a href="ruma_page.php"><img src="../image/ruma.png" alt=""></a>
     </div>
 
@@ -51,10 +52,19 @@ $profile_image_path = "../image/". $profile_image_path;
 </head>
 <body>
     <h1>プロフィール</h1>
-    <img src="<?php echo $profile_image_path; ?>" alt="プロフィール画像">
-    <p>名前: <?php echo $userdata['user_name']; ?></p>
-    <p>自己紹介: <?php echo $userdata['user_description']; ?></p>
-    <p>趣味: <?php echo $userdata['interest_name']; ?></p>
+    <div class="huka">
+    <img class="profile" src="<?php echo $profile_image_path; ?>" alt="プロフィール画像">
+
+   <h2> <?php echo $userdata['user_name']; ?> </h2>
+   </div>
+    <h2>自己紹介</h2>
+    <div class=ai>
+        <h4> <?php echo $userdata['user_description']; ?> </h4>
+</div>
+    <h2>趣味</h2> 
+    <div class=ai>
+        <h4> <?php echo $userdata['interest_name']; ?></h4>
+</div>
 </body>
 </html>
 
