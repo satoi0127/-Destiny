@@ -1,29 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
 .body {
     position: relative;
-    width: auto; /* ビューポートの幅いっぱいに */
-    height: auto; /* ビューポートの高さいっぱいに */
+    display: block;
 }
 
-.base {
+.content{
+    width: 100vw;
+    height: 100vh;
     background: linear-gradient(90deg, #B2F5F5 0%, #7BC0FF 100%);
     background-blend-mode: multiply;
-    /*flex-direction: column;*/
-}
-
-.content {
-    margin:  auto auto 40.28436018957346vw auto;
-    display:  flex;
-    align-items: center;
 }
 
 .logo {
-    margin:  auto auto 1.8957345971563981vw auto;
-    display:  flex;
+    margin:  20vh auto auto auto;
+    display:  block;
     align-items: center;
 }
 
 .textzone {
-    display:  flex;
+    display:  block;
     align-items: center;
     word-break: normal;
     width: 76.92307692307693vw;
@@ -32,25 +31,41 @@
 
     color: #FFF;
     font-family: "SF Pro";
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 510;
+    line-height: normal;
+}
+
+.bottomtext {
+    color: #ffffff;
+    text-align: center;
+    font-family: "SF Pro";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 510;
+    line-height: normal;
+    width: 100%;
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.font {
+    color: #000;
+    text-align: center;
+    font-family: "SF Pro";
     font-size: 18px;
     font-style: normal;
     font-weight: 510;
     line-height: normal;
 }
 
-.textzone2 {
-    display:  flex;
-    align-items: flex-end;
-    word-break: normal;
-
-    width: 76.92307692307693vw;
-    word-break: break-all;
-    margin-top: 19.938388625592417vw;
-}
-
 .button {
     width: 96.15384615384616vw;
-    height: 11.282051282051283vw;
+    height: 6.7vh;
     flex-shrink: 0;
 
     border-radius: 90px;
@@ -61,6 +76,8 @@
 
     overflow: hidden;
     position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 1;
 }
 
@@ -74,34 +91,18 @@
     height: 100%;
     transform: scale(0, 1);
     transform-origin: left top;
-    transition: .2s cubic-bezier(0.45, 0, 0.55, 1);
+    transition: .3s cubic-bezier(0.45, 0, 0.55, 1);
     z-index: -1;
 }
 
-.button:hover{
+.button:hover {
+    color: #fff;
+}
+
+.button:hover .font {
     color: #fff;
 }
 
 .button:hover::after {
     transform: scale(1, 1);
-}
-
-.font {
-    color: #000;
-    text-align: center;
-    font-family: "SF Pro";
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 510;
-    line-height: normal;
-}
-
-.font2 {
-    color: #FFF;
-    text-align: center;
-    font-family: "SF Pro";
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 510;
-    line-height: normal;
 }
