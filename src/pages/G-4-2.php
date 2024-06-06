@@ -10,8 +10,8 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="#" class="arrow_btn arrow_01" style="position: absolute;"></a>
-    <br><h3 class="kann">完了</h3>
+    <a href="G-4-1.php" class="arrow_btn arrow_01" style="position: absolute;"></a>
+    <a href="G-4-1.php" class="kann">完了</a>
     <br><h2 class="henn">編集</h2>
     <hr>
     <div class="conn">
