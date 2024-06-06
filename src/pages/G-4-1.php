@@ -1,19 +1,27 @@
-<?php require '../modules/DBconnect.php'; 
+
+<?php
+const SERVER = "localhost";
+const DBNAME = "destiny";
+const USER = "root";
+const PASS = "root";
+$connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
+//test
 $pdo = new PDO($connect,USER,PASS);
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/G-4-1.css">
+    <link rel="stylesheet" href="../css/G-4-1.css?v=<?php echo time(); ?>" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>kaihatu</title>
 </head>
 <body>
 <!-- → -->
-    <a href="#" class="arrow_btn arrow_01" style="position: absolute;"></a>
+    <a href="javascript:history.back();" class="arrow_btn arrow_01" style="position: absolute;"></a>
     <div class="hen">
     <a href="http://localhost/src/pages/G-4-2.php">
     <img src="../image/pitu.png" alt=""></a>
@@ -41,16 +49,6 @@ $profile_image_path = "../image/". $profile_image_path;
 ?>
 
 
-
-
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>プロフィール</title>
-</head>
-<body>
 <div class="huka">
     <h1>プロフィール</h1>
     
@@ -66,21 +64,12 @@ $profile_image_path = "../image/". $profile_image_path;
     <div class=ai>
         <h4> <?php echo $userdata['interest_name']; ?></h4>
 </div>
-</body>
-</html>
+
 
 <?php
 
 ?>
-    <!-- <div class="huka">
-        <img src="../image/hukai.png" alt="">
-        <h2>深井君 〇〇歳 </h2>
-    </div>  
-    <h2>自己紹介</h2>
-    <div class="ai"><h4>会いたいです</h4></div>
-    <br>
-    <h2>趣味</h2>
-    <div class="ai"><h4>ゲーム テニス アウトドア</h4></div> -->
+    
     <?php require 'G0-0footer.php'; ?>
 </body>
 </html>

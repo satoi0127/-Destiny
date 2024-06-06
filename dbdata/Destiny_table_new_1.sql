@@ -1,8 +1,8 @@
-CREATE TABLE user(user_id INTEGER AUTO_INCREMENT PRIMARY KEY ,user_password VARCHAR(32) NOT NULL, user_name VARCHAR(64) NOT NULL , user_tel VARCHAR(32) NOT NULL, mail_address VARCHAR(64) NOT NULL, user_sex BIT NOT NULL, user_coordinate VARCHAR(520));
+CREATE TABLE user(user_id INTEGER AUTO_INCREMENT PRIMARY KEY ,user_password VARCHAR(32) NOT NULL, user_name VARCHAR(64) NOT NULL , user_tel VARCHAR(32) NOT NULL, mail_address VARCHAR(64) NOT NULL, user_sex BIT NOT NULL, user_coordinate VARCHAR(520), user_age INTEGER);
 
 CREATE TABLE profileImage(profileImage_id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL, user_profile_image_path VARCHAR(120), FOREIGN KEY (user_id) REFERENCES user(user_id));
 
-CREATE TABLE profile(profile_id INTEGER AUTO_INCREMENT PRIMARY KEY, user_id INTEGER NOT NULL ,user_profile_image_path VARCHAR(120), user_description VARCHAR(320), FOREIGN KEY (user_id) REFERENCES user(user_id));
+CREATE TABLE profile(profile_id INTEGER AUTO_INCREMENT PRIMARY KEY, user_id INTEGER UNIQUE NOT NULL ,user_profile_image_path VARCHAR(120), user_description VARCHAR(320), FOREIGN KEY (user_id) REFERENCES user(user_id));
 
 CREATE TABLE interest(interest_id INTEGER AUTO_INCREMENT PRIMARY KEY, interest_name VARCHAR(32) NOT NULL);
 

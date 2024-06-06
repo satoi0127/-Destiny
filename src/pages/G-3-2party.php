@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -14,8 +15,8 @@
         <h3>パーティー名</h3>
         <input type="text" name="party_name"> 
         <h3>詳細（任意）</h3>
-        <p><input type="text" class="large-input" name="syousai"></p>
-        <p><button onclick="location.href='./G-3-3party.php'" class="large-button" name="hobby">＋　趣味一覧</button></p>
+        <p><input type="text" class="large-input" name="party_description"></p>
+        <p><button onclick="location.href='./G-3-3party.php'" class="large-button" name="paryInterest_id">＋　趣味一覧</button></p>
         <input type="submit" value="作成" />
     </div>
     

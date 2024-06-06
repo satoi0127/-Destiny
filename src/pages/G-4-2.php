@@ -48,7 +48,8 @@
         <input id="syumi" name="b" type="text" placeholder="ゲーム テニス アウトドア">
         </div>
         <!-- //後でfor文 -->
-        
+        <!-- //セレクトボックス↓-->
+
         <div style="border: 1px solid black; display: flex;" class="tatikawa">
         <h2>身長</h2>
         <input style="border: 0px; margin: auto; height: 32px;" id="syumi" name="b" type="text" placeholder="172㎝">
