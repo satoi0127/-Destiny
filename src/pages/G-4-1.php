@@ -51,9 +51,10 @@ $profile_image_path = "../image/". $profile_image_path;
     <title>プロフィール</title>
 </head>
 <body>
+<div class="huka">
     <h1>プロフィール</h1>
-    <div class="huka">
-    <img class="profile" src="<?php echo $profile_image_path; ?>" alt="プロフィール画像">
+    
+    <img  src="<?php echo $profile_image_path; ?>" alt="プロフィール画像">
 
    <h2> <?php echo $userdata['user_name']; ?> </h2>
    </div>

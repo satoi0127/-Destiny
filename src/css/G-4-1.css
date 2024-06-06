@@ -32,6 +32,12 @@
         text-align: center;
 
   }
+  .huka img{
+    width:250px;
+    margin-right:10px;
+    height:250px;
+    border-radius:50%;
+  }
   .hen{ 
     
         position: fixed;
@@ -50,10 +56,5 @@ h3{
     margin-top: 30px;
 }
 
-.profile{
-    width:200px;
-    margin-right:10px;
-    height:200px;
-    border-radius:50%;
-  }
+
 
