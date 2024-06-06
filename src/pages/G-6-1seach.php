@@ -10,8 +10,8 @@ $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <!-- <meta charset="UTF-8"> -->
- <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="stylesheet" href="../css/G-6-1 search.css">
 
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -60,15 +60,16 @@ try {
         ");
     }
 
-    $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+    $results = $sql->fetchAll();
 
     // 検索結果を表示する
     if ($results) {
         echo "<h2>Search Results:</h2>";
         foreach ($results as $row) {
+            $image = "../image/";
             $a= 1;
             echo "<div class='box' data-id='".$a."'>";
-            echo "<img src='" . htmlspecialchars($row["user_profile_image_path"]) . "' alt='Profile Image'></p><hr>";
+            echo "<img src=  '" . $image . htmlspecialchars($row["user_profile_image_path"]) . "' alt='Profile Image'></p><hr>";
             echo "<div class='text'>";
             echo "<p>Name: " . htmlspecialchars($row["user_name"]) . "<br>";
             echo "<p>Hobby: " . htmlspecialchars($row["interest_name"]) . "<br>";
