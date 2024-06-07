@@ -1,6 +1,4 @@
-<?php require '../modules/DBconnect.php'; 
-$pdo = new PDO($connect,USER,PASS);
-?>
+<?php require '../modules/DBconnect.php'; ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -11,6 +9,25 @@ $pdo = new PDO($connect,USER,PASS);
     <title>パーティー</title>
 </head>
 <body>
+<?php
+
+// プロフィール情報の取得
+$sql = "SELECT DISTINCT user_profile_image_path, u.user_name, user_description, i.interest_name
+FROM profile p
+JOIN user u ON p.user_id = u.user_id
+JOIN userinterest ui ON p.user_id = ui.user_id
+JOIN interest i ON ui.interest_id = i.interest_id
+WHERE u.user_id = 2 AND i.interest_id = ui.interest_id" ; 
+$stmt = $pdo->query($sql);
+
+$userdata = $stmt->fetchAll()[0];
+$profile_image_path = $userdata['user_profile_image_path'];
+
+
+
+$profile_image_path = "../image/". $profile_image_path;
+
+?>
 <?php
 // パーティー情報の取得
     $party_name = $_POST['party_name'];
@@ -24,12 +41,13 @@ $pdo = new PDO($connect,USER,PASS);
 
     <div class="container">
     <?php
-        //<img src="../image/hukai.png" alt="写真" class="photo">
+        $pdo = new PDO($connect,USER,PASS);
+        echo '<img src="<?php echo $profile_image_path; ?>" alt="写真" class="photo">';
         echo '<div class="text">';
         echo $party_name;
         echo '</div>';
         echo $party_description;
-        //<input type="text" placeholder="メンバー" class="textboxb">
+        echo '<input type="text" placeholder="メンバー" class="textboxb">';
     ?>
     </div>
     <div onclick="location.href='./G-3-2party.php'" class="post-btn">
