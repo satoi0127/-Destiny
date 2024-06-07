@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/G1-2.css">
+    <title>G1-2</title>
+</head>
+<body>
+    <div id="page2">
+        <div class="base">
+        <hr size="7px" class="border">
+        <button type="button" class="backbutton" onclick="history.back()">
+            <img src="../image/left.png" class="left" width="15.56" height="25.68"><br>
+        </button>
+        <div class="subject">あなたの名前は？</div>
+        <input type="text" class="textbox" id="nameTextbox">
+        <div class="text1">sample,sample,sample,sample,sample,</div>
+        <div class="text2">sample,sample,sample,sample,sample,</div>
+        <button type="button" class="nextbutton" id="nextButton" onclick="location.href='aa.html'"><div class="font" id="nextFont">次へ</div></button>
+    <div class="base">
+</div>
+</div>
+</div>
+<script src="../js/test.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+<script>
+        var textbox = document.getElementById('nameTextbox');
+        var nextbutton = document.getElementById('nextButton');
+        var font = document.getElementById('nextFont');
+
+        textbox.addEventListener('input', function() {
+            if (textbox.value.trim() !== "") {
+                nextbutton.classList.add('active');
+                font.classList.add('active');
+            } else {
+                nextbutton.classList.remove('active');
+                font.classList.remove('active');
+            }
+        });
+</script>
+</body>
+</html>
