@@ -62,13 +62,15 @@
     
         <div style="border: 1px solid black; display: flex;" class="tatikawa">
             <h2>血液型</h2>
+            <div class="Bllod">
             <form action="index.php" method = "POST">
             <select name= "Blood">
             <option value = "A型">A型</option>
             <option value = "B型">B型</option>
             <option value = "AB型">AB型</option>
             <option value = "O型">O型</option>
-    </select>
+        </div>
+        </select>
             </div>
     
         <div style="border: 1px solid black; display: flex;" class="tatikawa">
