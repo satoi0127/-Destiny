@@ -66,7 +66,7 @@ $profile_image_path = "../image/". $profile_image_path;
 </div>
 
 
-<?php
+<?php 
 
 ?>
     
