@@ -27,7 +27,7 @@
     </div>
     </div>
 
-    <div class="balloon-color left">
+    <!-- <div class="balloon-color left">
     <figure class="icon-color"><img src="../image/hukai.png" alt="代替えテキスト" >    
     </figure>
     <div class="chatting-color">
@@ -40,7 +40,7 @@
         <div class="chatting-color">
           <p class="text-color">まじまじマジンガー</p>
         </div>
-    </div>
+    </div> -->
     
     <footer>
         <div class="sendbox">

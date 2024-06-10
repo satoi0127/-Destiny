@@ -32,7 +32,7 @@ $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
 
     <?php
 
-try {
+
     // データベース接続を確立する
     $pdo = new PDO($connect,USER,PASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -41,7 +41,7 @@ try {
 
         // SQLクエリの準備
         $sql = $pdo->prepare("
-            SELECT DISTINCT u.user_name, i.interest_name, p.user_profile_image_path
+            SELECT DISTINCT u.user_name, i.interest_name, p.user_profile_image_path 
             FROM user u
             JOIN userinterest ui ON u.user_id = ui.user_id
             JOIN interest i ON ui.interest_id = i.interest_id
@@ -79,9 +79,7 @@ try {
     } else {
         echo "No results found.";
     }
-} catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
+
 ?>
 <?php require 'G0-0footer.php'; ?>
 
