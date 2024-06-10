@@ -15,12 +15,14 @@
 
 .subject {
     color: #000;
-    text-align: center;
+    text-align: left;
     font-family: "SF Pro";
     font-size: 40px;
     font-style: normal;
     font-weight: 910;
-    line-height: normal;
+    line-height: 4vh;
+    word-break: break-all;
+    margin: 2vh auto 4vh 6vw;
 }
 
 .textbox {
@@ -33,27 +35,37 @@
     font-size: 16px;
 }
 
-input:focus {
-    outline: none;
-    border-bottom: 2px solid #000000;
-}
-
-.text1, .text2 {
-    text-align: center;
+.text1{
+    text-align: left;
     font-family: "SF Pro Text";
-    font-size: 14px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-}
-
-.text1 {
     color: #A2A2A2;
-    margin-top: 3vw;
+    margin-top: 5vw;
+    margin-left: 6vw;
 }
 
-.text2 {
-    color: #222;
+.text2{
+    text-align: left;
+    font-family: "SF Pro Text";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    color: #A2A2A2;
+    margin-left: 6vw;
+}
+
+.text3{
+    text-align: left;
+    font-family: "SF Pro Text";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    color: #000;
 }
 
 .font {
@@ -69,8 +81,9 @@ input:focus {
 }
 
 .nextbutton {
-    position: absolute;
+    position: fixed;
     bottom: 0;
+    margin: auto auto 10vw auto;
     width: 96.15384615384616vw;
     height: 44px;
     flex-shrink: 0;
@@ -111,4 +124,21 @@ input:focus {
 .backbutton {
     border: none;
     background: transparent;
+}
+
+.distance{
+    margin-top: 5vh;
+    width: 100%;
+}
+
+.distance-container {
+    display: flex;
+    align-items: center;
+}
+
+.value {
+    font-weight: bold;
+    position: fixed;
+    right: 0;
+    margin-right: 2vw;
 }

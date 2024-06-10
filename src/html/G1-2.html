@@ -7,7 +7,7 @@
     <title>G1-2</title>
 </head>
 <body>
-    <div id="page2">
+    <div id="content" class="fadeIn">
         <div class="base">
         <hr size="7px" class="border">
         <button type="button" class="backbutton" onclick="history.back()">
@@ -15,15 +15,13 @@
         </button>
         <div class="subject">あなたの名前は？</div>
         <input type="text" class="textbox" id="nameTextbox">
-        <div class="text1">sample,sample,sample,sample,sample,</div>
-        <div class="text2">sample,sample,sample,sample,sample,</div>
-        <button type="button" class="nextbutton" id="nextButton" onclick="location.href='aa.html'"><div class="font" id="nextFont">次へ</div></button>
+        <div class="text1">プロフィールにはこの名前がそのまま表示されます。</div>
+        <div class="text2">悪意のある名前を使用しないようにお気を付けください。</div>
+        <button type="button" class="nextbutton" id="nextButton" onclick="location.href='G1-3.html'"><div class="font" id="nextFont">次へ</div></button>
     <div class="base">
 </div>
 </div>
 </div>
-<script src="../js/test.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
 <script>
         var textbox = document.getElementById('nameTextbox');
         var nextbutton = document.getElementById('nextButton');
@@ -39,5 +37,30 @@
             }
         });
 </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+<style>
+    /* CSSにアニメーション用のクラスを追加 */
+    #content.transitioning {
+        transition: transform 0.5s ease;
+    }
+</style>
+
+<script>
+    $(document).pjax('a', '#content');
+
+    $(document).on('pjax:start', function() {
+        // 遷移前のアニメーション
+        $('#content').addClass('transitioning');
+        $('#content').css('transform', 'translateX(-100%)');
+    });
+
+    $(document).on('pjax:end', function() {
+        // 遷移後のアニメーション
+        $('#content').removeClass('transitioning');
+        $('#content').css('transform', 'translateX(0)');
+    });
+</script>
+
 </body>
 </html>
