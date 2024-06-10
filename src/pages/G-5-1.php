@@ -16,31 +16,38 @@
 <img src="../image/gray.png" alt="">
 <img src="../image/gray.png" alt="">
 <br><h3>メッセージ</h3>
-
+<hr>
 
 <?php
 $pdo = new PDO($connect,USER,PASS);
 $kariid=3;
-$sql = $pdo->query('select * from user
-join chatmember on user.user_id = chatmember.user_id
-join Message on user.user_id = Message.user_id
-where chatmember.user_id = 3');
+$sql = $pdo->query('select chatmember_id from chatmember where user_id = 3');
 foreach($sql as $row){
-    echo'<div>';
+    
+    echo $row['chatmember_id'];
+    $sql2 = $pdo->prepare('select user_id from chatmember where chatmember_id = ?');
+    $sql2->execute([$row['chatmember_id']]);
+    foreach($sql2 as $users){  
+        if($users['user_id']!=3){
+            echo'<div>';
+            echo'<img src="../image/hukai.png" alt="" class="icon">';
+            $sql3 = $pdo->prepare('select * from user where user_id=?');
+            $sql3 -> execute([$users['user_id']]);
+            foreach($sql3 as $name){
+                echo'<h4 class="text2">',$name['user_name'],'</h4>';
+            }
+            $sql4 = $pdo->prepare('select * from user
+            join chatmember on user.user_id = chatmember.user_id
+            join Message on user.user_id = Message.user_id
+            where Message.chatmember_id = ? and Message.user_id = ?');
+            $sql4 -> execute([$row['chatmember_id'],$users['user_id']]);
+            foreach($sql4 as $message)
+         echo'<p class="text3">',$message['message_text'],'</p>';
+    
+    
     echo'<hr>';
-    $chatid = $row['chatmember_id'];
-    $sql = $pdo->query('select * from user
-    join chatmember on user.user_id = chatmember.user_id
-    join Message on user.user_id = Message.user_id
-    where chatmember.chatmember_id = 1');
-    echo'<img src="../image/hukai.png" alt="" class="icon">';
-    foreach($sql as $row){
-        echo'<h4 class="text2">',$row['user_name'],'</h4>';
-        echo'<p class="text3">',$row['message_text'],'</p>';
-    }
-    echo'<hr>';
-echo'</div>';
-}
+    echo'</div>';}
+}}
 
 ?>
 
