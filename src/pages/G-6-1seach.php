@@ -32,7 +32,7 @@ $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
 
     <?php
 
-try {
+
     // データベース接続を確立する
     $pdo = new PDO($connect,USER,PASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -41,12 +41,13 @@ try {
 
         // SQLクエリの準備
         $sql = $pdo->prepare("
-            SELECT DISTINCT u.user_name, i.interest_name, p.user_profile_image_path
+            SELECT DISTINCT u.user_name, i.interest_name, p.user_profile_image_path ,GROUP_CONCAT(i.interest_name SEPARATOR ", ") AS interest
             FROM user u
             JOIN userinterest ui ON u.user_id = ui.user_id
             JOIN interest i ON ui.interest_id = i.interest_id
             JOIN profile p ON u.user_id = p.user_id
             WHERE u.user_name LIKE ? OR i.interest_name LIKE ?
+            GROUP BY u.user_id, u.user_name, p.user_profile_image_path
         ");
         $sql->execute(['%' . $keyword . '%', '%' . $keyword . '%']);
     } else {
@@ -65,23 +66,21 @@ try {
     // 検索結果を表示する
     if ($results) {
         echo "<h2>Search Results:</h2>";
-        foreach ($results as $row) {
+        foreach ($results as $user) {
             $image = "../image/";
             $a= 1;
             echo "<div class='box' data-id='".$a."'>";
-            echo "<img src=  '" . $image . htmlspecialchars($row["user_profile_image_path"]) . "' alt='Profile Image'></p><hr>";
+            echo "<img src=  '" . $image . htmlspecialchars($user["user_profile_image_path"]) . "' alt='Profile Image'></p><hr>";
             echo "<div class='text'>";
-            echo "<p>Name: " . htmlspecialchars($row["user_name"]) . "<br>";
-            echo "<p>Hobby: " . htmlspecialchars($row["interest_name"]) . "<br>";
+            echo "<p>Name: " . htmlspecialchars($user["user_name"]) . "<br>";
+            echo "<p>Hobby: " . htmlspecialchars($user["interest_name"]) . "<br>";
             echo "</div>";
             echo "</div>";
         }
     } else {
         echo "No results found.";
     }
-} catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
+
 ?>
 <?php require 'G0-0footer.php'; ?>
 
