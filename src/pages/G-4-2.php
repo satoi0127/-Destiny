@@ -52,19 +52,16 @@ $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
     
         <div>
         <h2>趣味</h2>
-        <input id="syumi" name="b" type="text" placeholder="ゲーム テニス アウトドア">
         <?php
         $pdo = new PDO($connect,USER,PASS);
     $sql = $pdo->query('select * from interest');
     foreach($sql as $row){
-        echo '<button class="interest_blob">',$row['interest_name'],'</button>';
+        echo '<button class="syumi">',$row['interest_name'],'</button>';
     }
     echo 'test'; 
-
-    
     ?>
-        
         </div>
+        
         <!-- //後でfor文 -->
         <!-- //セレクトボックス↓-->
 

@@ -107,3 +107,15 @@
     bottom:-25px; left:50px;
 
 }
+.syumi {
+    background-color: deeppink;
+    height: auto;
+    width:auto;
+    border: 0px;
+    border-radius: 10px;
+    color: white
+
+}
+.syumi.clicked {
+    background-color: lightblue; /* クリックしたら背景色を変更 */
+}
