@@ -1,12 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
 .body {
     width: 100vw;
     height: 100vh;
     position: relative;
     display: block;
-}
-
-.border {
-    background: linear-gradient(90deg, #afb3fe 0%, #F5B2B2 100%);
 }
 
 .left {
@@ -61,7 +62,9 @@
 .nextbutton {
     position: fixed;
     bottom: 0;
-    margin: auto auto 10vw auto;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: auto auto 5vh auto;
     width: 96.15384615384616vw;
     height: 44px;
     flex-shrink: 0;

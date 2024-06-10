@@ -1,0 +1,26 @@
+.prog {
+    width: 100vw;
+    height: 7px;
+    /*-webkit-appearance: none;  プログレスバーのスタイルをリセット 
+    -moz-appearance: none; プログレスバーのスタイルをリセット */
+    background-color: #F1F1F1; /* プログレスバーの背景色 */
+    border: none; /* ボーダーを削除 */
+}
+
+/* WebKit系ブラウザ用 */
+.prog::-webkit-progress-bar {
+    background-color: #F1F1F1; /* プログレスバーの背景色 */
+}
+.prog::-webkit-progress-value {
+    background: linear-gradient(90deg, #B2F5F5 0%, #7BC0FF 50%, #F5B2B2 100%); /* プログレスバーの進捗部分色 */
+}
+
+/* Firefox用 */
+.prog::-moz-progress-bar {
+    background: linear-gradient(90deg, #B2F5F5 0%, #7BC0FF 50%, #F5B2B2 100%); /* プログレスバーの進捗部分色 */
+}
+
+/* IE/Edge用 */
+.prog::-ms-fill {
+    background: linear-gradient(90deg, #B2F5F5 0%, #7BC0FF 50%, #F5B2B2 100%); /* プログレスバーの進捗部分色 */
+}
