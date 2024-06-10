@@ -31,14 +31,14 @@ $pdo = new PDO($connect,USER,PASS);
     <?php
 
 // プロフィール情報の取得
-$sql = "SELECT DISTINCT user_profile_image_path, u.user_name, user_description, i.interest_name
+$sql = "SELECT DISTINCT user_profile_image_path, u.user_name, user_description, i.interest_name,u.user_id
 FROM profile p
 JOIN user u ON p.user_id = u.user_id
 JOIN userinterest ui ON p.user_id = ui.user_id
 JOIN interest i ON ui.interest_id = i.interest_id
-WHERE u.user_id = 2 AND i.interest_id = ui.interest_id" ; 
-$stmt = $pdo->query($sql);
-
+WHERE u.user_id = ? AND i.interest_id = ui.interest_id" ; 
+$stmt = $pdo->prepare($sql);
+$stmt -> execute([$_GET['user_id']]);
 $userdata = $stmt->fetchAll()[0];
 $profile_image_path = $userdata['user_profile_image_path'];
 

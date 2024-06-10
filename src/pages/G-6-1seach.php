@@ -41,18 +41,21 @@ $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
 
         // SQLクエリの準備
         $sql = $pdo->prepare("
-            SELECT DISTINCT u.user_name, i.interest_name, p.user_profile_image_path 
+            
+
+             SELECT u.user_name, i.interest_name, p.user_profile_image_path, u.user_id
             FROM user u
             JOIN userinterest ui ON u.user_id = ui.user_id
             JOIN interest i ON ui.interest_id = i.interest_id
             JOIN profile p ON u.user_id = p.user_id
             WHERE u.user_name LIKE ? OR i.interest_name LIKE ?
+            GROUP BY u.user_id;
         ");
         $sql->execute(['%' . $keyword . '%', '%' . $keyword . '%']);
     } else {
         // 検索キーワードがない場合、全てのレコードを取得
         $sql = $pdo->query("
-            SELECT DISTINCT u.user_name, i.interest_name, p.user_profile_image_path
+            SELECT DISTINCT u.user_name, i.interest_name, p.user_profile_image_path, u.user_id
             FROM user u
             JOIN userinterest ui ON u.user_id = ui.user_id
             JOIN interest i ON ui.interest_id = i.interest_id
@@ -61,13 +64,14 @@ $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
     }
 
     $results = $sql->fetchAll();
+    // var_dump($results);
 
     // 検索結果を表示する
     if ($results) {
         echo "<h2>Search Results:</h2>";
         foreach ($results as $row) {
             $image = "../image/";
-            $a= 1;
+            $a= $row['user_id'];
             echo "<div class='box' data-id='".$a."'>";
             echo "<img src=  '" . $image . htmlspecialchars($row["user_profile_image_path"]) . "' alt='Profile Image'></p><hr>";
             echo "<div class='text'>";
@@ -89,3 +93,10 @@ $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
     
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="http://localhost/src/javascript/G-6-1seach.js"></script>
+
+    <!-- // SELECT DISTINCT u.user_name, i.interest_name, p.user_profile_image_path, u.user_id
+            // FROM user u
+            // JOIN userinterest ui ON u.user_id = ui.user_id
+            // JOIN interest i ON ui.interest_id = i.interest_id
+            // JOIN profile p ON u.user_id = p.user_id
+            // WHERE u.user_name LIKE ? OR i.interest_name LIKE ? -->
