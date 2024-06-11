@@ -52,6 +52,17 @@
     height:250px;
     border-radius:50%;
 }
+.chat{
+    
+    position: relative;
+    bottom:630px; 
+    left:20px;
+    
+}
+.chat img{
+    width:70px;
+    height: 70px;
+}
 
 
 

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 
 <?php
 const SERVER = "localhost";
@@ -8,27 +9,27 @@ $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
 //test
 $pdo = new PDO($connect,USER,PASS);
 ?>
+<?php require "../modules/header.php"; ?>
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/G-4-1.css?v=<?php echo time(); ?>" >
+<link rel="stylesheet" href="../css/G-4-1.css?v=<?php echo time(); ?>" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <title>kaihatu</title>
-</head>
+
 <body>
 <!-- → -->
     <a href="javascript:history.back();" class="arrow_btn arrow_01" style="position: absolute;"></a>
-    <div class="hen">
+    <!-- <div class="hen">
     <a href="http://localhost/src/pages/G-4-2.php">
     <img src="../image/pitu.png" alt=""></a>
     <a href="ruma_page.php"><img src="../image/ruma.png" alt=""></a>
-    </div>
+    </div> -->
 
     <?php
+
+$profileUserId = $_SESSION['user']['id'];
+
+if (isset($_GET['user_id'])) {
+    $profileUserId = $_GET['user_id'];
+}
 
 // プロフィール情報の取得
 $sql = "SELECT DISTINCT user_profile_image_path, u.user_name, user_description, i.interest_name,u.user_id
@@ -38,13 +39,15 @@ JOIN userinterest ui ON p.user_id = ui.user_id
 JOIN interest i ON ui.interest_id = i.interest_id
 WHERE u.user_id = ? AND i.interest_id = ui.interest_id" ; 
 $stmt = $pdo->prepare($sql);
-$stmt -> execute([$_GET['user_id']]);
+$stmt -> execute([$profileUserId]);
 $userdata = $stmt->fetchAll()[0];
 $profile_image_path = $userdata['user_profile_image_path'];
 
 
 
 $profile_image_path = "../image/". $profile_image_path;
+
+$isCurrentUser = ($profileUserId === $_SESSION['user']['id']);
 
 ?>
 
@@ -66,10 +69,18 @@ $profile_image_path = "../image/". $profile_image_path;
 </div>
 
 
-<?php 
-
-?>
+<?php if ($isCurrentUser): ?>
+    <div class="hen">
+    <a href="http://localhost/src/pages/G-4-2.php">
+    <img src="../image/pitu.png" alt=""></a>
+    <a href="ruma_page.php"><img src="../image/ruma.png" alt=""></a>
+    </div>
+    <?php else: ?>
+       
+        <p class="chat"><a href="chat.php?user_id=<?php echo $profileUserId; ?>"><img src="../image/image.png" alt=""> </a></p>
+    <?php endif; ?>
     
     <?php require 'G0-0footer.php'; ?>
 </body>
 </html>
+<!-- [$_GET['user_id']] -->

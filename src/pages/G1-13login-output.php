@@ -7,13 +7,8 @@ const PASS = "root";
 $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
 
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>ログイン</title>
-</head>
-<body>
+<?php require "../modules/header.php"; ?>
+
 
 <?php
 unset($_SESSION['user']);

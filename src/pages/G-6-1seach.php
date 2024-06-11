@@ -7,18 +7,11 @@ $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
 //test
 ?>
 
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="../css/G-6-1 search.css">
+<?php require "../modules/header.php"; ?>
 
+<link rel="stylesheet" href="../css/G-6-1 search.css">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <title>kaihatu</title>
-</head>
-<body>
-    
+  
     <a href="javascript:history.back();" class="arrow_btn arrow_01"></a>
 
     <div class="form">
@@ -60,6 +53,8 @@ $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
             JOIN userinterest ui ON u.user_id = ui.user_id
             JOIN interest i ON ui.interest_id = i.interest_id
             JOIN profile p ON u.user_id = p.user_id
+            GROUP BY u.user_id;
+
         ");
     }
 
