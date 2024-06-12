@@ -109,3 +109,6 @@ body {
 .login input[type="submit"]:focus {
   border-color: #05a;
 }
+label{
+  margin-left:12px;
+}
