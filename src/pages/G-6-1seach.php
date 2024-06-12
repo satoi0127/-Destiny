@@ -1,4 +1,6 @@
+
 <?php
+session_start();
 const SERVER = "localhost";
 const DBNAME = "destiny";
 const USER = "root";
@@ -24,6 +26,7 @@ $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
     </div>
 
     <?php
+$loggedInUserId = $_SESSION['user']['id'];
 
 
     // データベース接続を確立する
@@ -41,21 +44,25 @@ $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
             JOIN userinterest ui ON u.user_id = ui.user_id
             JOIN interest i ON ui.interest_id = i.interest_id
             JOIN profile p ON u.user_id = p.user_id
-            WHERE u.user_name LIKE ? OR i.interest_name LIKE ?
+            WHERE (u.user_name LIKE ? OR i.interest_name LIKE ?)
+            AND u.user_id != ?
             GROUP BY u.user_id;
         ");
-        $sql->execute(['%' . $keyword . '%', '%' . $keyword . '%']);
+        $sql->execute(['%' . $keyword . '%', '%' . $keyword . '%' , $loggedInUserId]);
     } else {
         // 検索キーワードがない場合、全てのレコードを取得
-        $sql = $pdo->query("
+        $sql = $pdo->prepare("
             SELECT DISTINCT u.user_name, i.interest_name, p.user_profile_image_path, u.user_id
             FROM user u
             JOIN userinterest ui ON u.user_id = ui.user_id
             JOIN interest i ON ui.interest_id = i.interest_id
             JOIN profile p ON u.user_id = p.user_id
+            WHERE u.user_id != ?
             GROUP BY u.user_id;
 
         ");
+        $sql->execute([$loggedInUserId]);
+
     }
 
     $results = $sql->fetchAll();

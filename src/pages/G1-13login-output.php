@@ -5,8 +5,10 @@ const DBNAME = "destiny";
 const USER = "root";
 const PASS = "root";
 $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
+//  require "../modules/DBconnect.php";
 
 ?>
+
 <?php require "../modules/header.php"; ?>
 
 
@@ -31,7 +33,8 @@ $pdo = new PDO($connect,USER,PASS);
     if(isset($_SESSION['user'])) {
         header('Location:G-6-1seach.php');
     }else {
-        echo 'メールアドレスまたはパスワードが違います。';
+        header('Location:G1-13login-input.php?hogeA=メールアドレスまたはパスワードが違います');
+        exit;
     }
 
 ?>

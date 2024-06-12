@@ -64,5 +64,19 @@
     height: 70px;
 }
 
+.btn--orange,
+a.btn--orange {
+  color: black;
+  background-color:white;
+  margin-top: 10px;
+  margin-left: 280px;
+}
+.btn--orange:hover,
+a.btn--orange:hover {
+  color: white;
+  background: black;
+}
+
+
 
 

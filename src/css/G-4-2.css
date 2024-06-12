@@ -119,3 +119,8 @@
 .syumi.clicked {
     background-color: lightblue; /* クリックしたら背景色を変更 */
 }
+
+.purpose{ 
+    position: relative;
+    bottom:-100px; left:100px;
+}
