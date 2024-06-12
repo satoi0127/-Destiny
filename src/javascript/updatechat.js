@@ -18,7 +18,7 @@
 function updatechat(){
     $.ajax({
         type: 'POST',
-        url: 'module/updatechat.php',
+        url: 'modules/updatechat.php',
         dataType: 'text',
         data: {chatroom_id: $("#chatroom_id").val()},
     }).done(function(data){

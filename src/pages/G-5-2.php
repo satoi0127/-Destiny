@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/G-5-2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="../javascript/jquery-3.7.0.min.js" ></script>
+<script src="../javascript/sendmessage.js"></script>
     <title>チャット詳細画面</title>
 </head>
 <body>
-<script src="modules/js/jquery.js" ></script>
+
 <?php
 $pdo = new PDO($connect,USER,PASS);
   $chatroom_id=$_GET['chatid'];
@@ -61,11 +63,12 @@ $pdo = new PDO($connect,USER,PASS);
         <div class="sendbox">
         <input type="hidden" id="chatroom_id" value=<?= $chatroom_id?> >
     <input type="hidden" id="user_id" value=<?= $user_id ?> >
-         <input type="textarea" id="message" placeholder="Aa" name="sendtext" class="sendtext" style="width: 200px; height: 30px;">
-         <button id="sendbutton"><img src="../image/send.png" alt="" class="sendimg" ></button>
+         <input type="textarea" id="message" placeholder="Aa" class="sendtext" style="width: 200px; height: 30px;">
+         <button  id="sendbutton">aaa</button>
+         <button><img src="../image/send.png" alt="" class="sendimg" ></button>
         </div>
     </footer>
 </div>
-<script src="../javascript/sendmessage.js"></script>
+
 </body>
 </html>
