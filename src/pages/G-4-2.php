@@ -56,10 +56,17 @@ $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
         $pdo = new PDO($connect,USER,PASS);
     $sql = $pdo->query('select * from interest');
     foreach($sql as $row){
-        echo '<button class="syumi">',$row['interest_name'],'</button>';
+        echo '<button class="syumi" onclick="changeColor(this)">', $row['interest_name'], '</button>';
     }
     echo 'test'; 
     ?>
+    <input type="text" id="clickedText" readonly>
+    <script>
+        function changeColor(button){
+            button.classList.toggle('clicked');
+            document.getElementById('clickedText').innerText = button.innerText;
+            }
+        </script>
         </div>
         
         <!-- //後でfor文 -->
