@@ -25,11 +25,12 @@ $sql = $pdo->query('select chatmember_id from chatmember where user_id = 3');
 foreach($sql as $row){
     
     echo $row['chatmember_id'];
+    $chatid=$row['chatmember_id'];
     $sql2 = $pdo->prepare('select user_id from chatmember where chatmember_id = ?');
     $sql2->execute([$row['chatmember_id']]);
     foreach($sql2 as $users){  
         if($users['user_id']!=3){
-            echo'<div>';
+            echo'<div><a href="G-5-2.php?chatid=',$chatid,'">';
             echo'<img src="../image/hukai.png" alt="" class="icon">';
             $sql3 = $pdo->prepare('select * from user where user_id=?');
             $sql3 -> execute([$users['user_id']]);
@@ -46,7 +47,7 @@ foreach($sql as $row){
     
     
     echo'<hr>';
-    echo'</div>';}
+    echo'</a></div>';}
 }}
 
 ?>
