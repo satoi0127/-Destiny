@@ -64,8 +64,8 @@ $pdo = new PDO($connect,USER,PASS);
         <input type="hidden" id="chatroom_id" value=<?= $chatroom_id?> >
     <input type="hidden" id="user_id" value=<?= $user_id ?> >
          <input type="textarea" id="message" placeholder="Aa" class="sendtext" style="width: 200px; height: 30px;">
-         <button  id="sendbutton">aaa</button>
-         <button><img src="../image/send.png" alt="" class="sendimg" ></button>
+         
+         <button id="sendbutton"><img src="../image/send.png" alt="" class="sendimg" ></button>
         </div>
     </footer>
 </div>
