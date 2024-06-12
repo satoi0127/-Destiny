@@ -79,7 +79,22 @@ $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
         
         <div style="border: 1px solid black; display: flex;" class="tatikawa">
             <h2>星座</h2>
-            <input style="border: 0px; margin: auto; height: 32px;" id="syumi" name="b" type="text" placeholder="おひつじ座">
+            <div class="star">
+            <form action="index.php" method = "POST">
+            <select name= "star">
+            <option value = "おひつじ座">おひつじ座</option>
+            <option value = "おうし座">おうし座</option>
+            <option value = "ふたご座">ふたご座</option>
+            <option value = "かに座">かに座</option>
+            <option value = "しし座">しし座</option>
+            <option value = "おとめ座">おとめ座</option>
+            <option value = "てんびん座">てんびん座</option>
+            <option value = "さそり座">さそり座</option>
+            <option value = "いて座">いて座</option>
+            <option value = "やぎ座">やぎ座</option>
+            <option value = "みずがめ座">みずがめ座</option>
+            <option value = "うお座">うお座</option>
+        </select>
             </div>
     
         <div style="border: 1px solid black; display: flex;" class="tatikawa">
