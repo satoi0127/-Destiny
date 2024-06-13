@@ -7,6 +7,8 @@ const USER = "root";
 const PASS = "root";
 $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
 //test
+// require "../modules/DBconnect.php";
+
 ?>
 
 <?php require "../modules/header.php"; ?>
