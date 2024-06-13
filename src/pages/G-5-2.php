@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php require '../modules/DBconnect.php'; ?>
 <?php require "../modules/showchat.php"; ?>
 <!DOCTYPE html>
@@ -8,7 +9,9 @@
     <link rel="stylesheet" href="../css/G-5-2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="../javascript/jquery-3.7.0.min.js" ></script>
-<script src="../javascript/sendmessage.js"></script>
+   
+   <script src="../javascript/updatechat.js"></script>
+  
     <title>チャット詳細画面</title>
 </head>
 <body>
@@ -16,18 +19,29 @@
 <?php
 $pdo = new PDO($connect,USER,PASS);
   $chatroom_id=$_GET['chatid'];
-  $user_id=3;
+  $user_id=$_SESSION['user']['user_id'];
+  $sql = $pdo->prepare('select * from chatmember where user_id != ?');
+  $sql->execute([$user_id]);
+  foreach($sql as $row){
+    $otherid=$row['user_id'];
+  }
+  $sql2 = $pdo->query('select * from user where user_id = ?');
+  $sql2 ->execute([$otherid]);
+  foreach($sql as $result){
+    $other_name=$result['user_name'];
+  }
   echo $chatroom_id;
 ?>
-<div class="container" id="ajax">
-  
+<div class="container" >
     <a href="G-5-1.php" class="arrow_btn arrow_01"></a>
-    <h2 class="text1">深井君</h2><br>
+    <h2 class="text1"><?= $other_name?></h2><br>
+    <div id="ajax">
     <?php
 
   showchat($connect,$chatroom_id);
 
 ?>
+</div>
     <!-- 左の吹き出し -->
     <!-- <div class="balloon-color left">
     <figure class="icon-color"><img src="../image/hukai.png" alt="代替えテキスト" >    
@@ -69,6 +83,7 @@ $pdo = new PDO($connect,USER,PASS);
         </div>
     </footer>
 </div>
+<script src="../javascript/sendmessage.js"></script>
 
 </body>
 </html>
