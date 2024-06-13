@@ -7,6 +7,8 @@ const USER = "root";
 const PASS = "root";
 $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
 //test
+// require "../modules/DBconnect.php";
+
 $pdo = new PDO($connect,USER,PASS);
 ?>
 <?php require "../modules/header.php"; ?>
@@ -66,6 +68,7 @@ $isCurrentUser = ($profileUserId === $_SESSION['user']['id']);
     <h2>趣味</h2> 
     <div class=ai>
         <h4> <?php echo $userdata['interest_name']; ?></h4>
+        
 </div>
 
 
@@ -73,8 +76,9 @@ $isCurrentUser = ($profileUserId === $_SESSION['user']['id']);
     <div class="hen">
     <a href="http://localhost/src/pages/G-4-2.php">
     <img src="../image/pitu.png" alt=""></a>
-    <a href="ruma_page.php"><img src="../image/ruma.png" alt=""></a>
     </div>
+    <a href="http://localhost/src/pages/logout.php"  class="btn btn--orange btn--radius">ログアウト</a>
+
     <?php else: ?>
        
         <p class="chat"><a href="chat.php?user_id=<?php echo $profileUserId; ?>"><img src="../image/image.png" alt=""> </a></p>

@@ -9,14 +9,23 @@
   <h2 class="login-header">ログイン</h2>
     <form action="G1-13login-output.php" method="post">
 
+    <?php unset($_SESSION['user']); ?>
+
     <div class="login-container">
     <p><input type="email" name="mail_address" placeholder="メールアドレス" required></p>
     <p><input type="password" name="user_password" placeholder="パスワード" required></p>
     <p><input type="submit" value="ログイン"></p>
-    </div>
-</div>
-   
+    <label>アカウント新規作成は<a href="customer-input.php">こちら</a></label>
 
+    </div>
+   <?php
+  if(isset($_GET['hogeA'])){
+        echo '<p style="color:red">',htmlspecialchars($_GET['hogeA']),'</p>';
+    }else{
+        echo '<p style="color:red"><br></p>';
+    }
+?>
     </form>
+    </div>
 </body>
 </html>
