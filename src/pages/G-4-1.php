@@ -7,7 +7,7 @@ const USER = "root";
 const PASS = "root";
 $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
 //test
-// require "../modules/DBconnect.php";
+ require "../modules/DBconnect.php";
 
 $pdo = new PDO($connect,USER,PASS);
 ?>
@@ -64,24 +64,23 @@ $isCurrentUser = ($profileUserId === $_SESSION['user']['id']);
     <h2>自己紹介</h2>
     <div class=ai>
         <h4> <?php echo $userdata['user_description']; ?> </h4>
-</div>
+    </div>
     <h2>趣味</h2> 
     <div class=ai>
         <h4> <?php echo $userdata['interest_name']; ?></h4>
-        
-</div>
+    </div>
 
 
 <?php if ($isCurrentUser): ?>
     <div class="hen">
-    <a href="http://localhost/src/pages/G-4-2.php">
+    <a href="G-4-2.php">
     <img src="../image/pitu.png" alt=""></a>
     </div>
-    <a href="http://localhost/src/pages/logout.php"  class="btn btn--orange btn--radius">ログアウト</a>
+    <a href="logout.php"  class="btn btn--orange btn--radius">ログアウト</a>
 
     <?php else: ?>
        
-        <p class="chat"><a href="chat.php?user_id=<?php echo $profileUserId; ?>"><img src="../image/image.png" alt=""> </a></p>
+        <p class="chat"><a href="G-5-2.php?user_id=<?php echo $profileUserId; ?>"><img src="../image/image.png" alt=""> </a></p>
     <?php endif; ?>
     
     <?php require 'G0-0footer.php'; ?>

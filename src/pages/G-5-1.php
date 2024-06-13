@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php require '../modules/DBconnect.php'; ?>
 
 <!DOCTYPE html>
@@ -20,8 +21,9 @@
 
 <?php
 $pdo = new PDO($connect,USER,PASS);
-$kariid=3;
-$sql = $pdo->query('select chatmember_id from chatmember where user_id = 3');
+$userid=$_SESSION['user']['user_id'];
+$sql = $pdo->prepare('select chatmember_id from chatmember where user_id = ?');
+$sql -> execute([$userid]);
 foreach($sql as $row){
     
     echo $row['chatmember_id'];
@@ -29,7 +31,7 @@ foreach($sql as $row){
     $sql2 = $pdo->prepare('select user_id from chatmember where chatmember_id = ?');
     $sql2->execute([$row['chatmember_id']]);
     foreach($sql2 as $users){  
-        if($users['user_id']!=3){
+        if($users['user_id']!=$userid){
             echo'<div><a href="G-5-2.php?chatid=',$chatid,'">';
             echo'<img src="../image/hukai.png" alt="" class="icon">';
             $sql3 = $pdo->prepare('select * from user where user_id=?');
@@ -42,37 +44,16 @@ foreach($sql as $row){
             join Message on user.user_id = Message.user_id
             where Message.chatmember_id = ? and Message.user_id = ?');
             $sql4 -> execute([$row['chatmember_id'],$users['user_id']]);
-            foreach($sql4 as $message)
-         echo'<p class="text3">',$message['message_text'],'</p>';
+            foreach($sql4 as $message){
+            echo'<p class="text3">',$message['message_text'],'</p>';}
     
     
     echo'<hr>';
-    echo'</a></div>';}
+    echo'</a></div>';
+}
 }}
 
 ?>
-
-
-<div>
-    <img src="../image/虎.jpg" alt="" class="icon">
-    <h4 class="text2">とらのすけ</h4>
-    <p class="text3">とらですよーーー</p>
-    <hr>
-</div>
-
-<div>
-    <img src="../image/hukai.png" alt="" class="icon">
-    <h4 class="text2">名前</h4>
-    <p class="text3">よろしく！</p>
-    <hr>
-</div>
-
-<div>
-    <img src="../image/hukai.png" alt="" class="icon">
-    <h4 class="text2">名前</h4>
-    <p class="text3">よろしく！</p>
-    <hr>
-</div>
 <?php require 'G0-0footer.php'; ?>
 </body>
 </html>
