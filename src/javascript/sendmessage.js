@@ -9,7 +9,7 @@ $(function(){
             dataType: 'text',
             data: {message: $("#message").val(), chatroom_id: $("#chatroom_id").val(), user_id : $("#user_id").val()},
         }).done(function(data){
-            //$("#ajax").html(data);
+            $("#message").val("");
             //console.log(data);
         });
     });

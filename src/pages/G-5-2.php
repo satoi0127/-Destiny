@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="../css/G-5-2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="../javascript/jquery-3.7.0.min.js" ></script>
-<script src="../javascript/sendmessage.js"></script>
+   
+   <script src="../javascript/updatechat.js"></script>
+  
     <title>チャット詳細画面</title>
 </head>
 <body>
@@ -19,8 +21,8 @@ $pdo = new PDO($connect,USER,PASS);
   $user_id=3;
   echo $chatroom_id;
 ?>
-<div class="container" id="ajax">
-  
+<div class="container" >
+  <div id="ajax">
     <a href="G-5-1.php" class="arrow_btn arrow_01"></a>
     <h2 class="text1">深井君</h2><br>
     <?php
@@ -28,6 +30,7 @@ $pdo = new PDO($connect,USER,PASS);
   showchat($connect,$chatroom_id);
 
 ?>
+</div>
     <!-- 左の吹き出し -->
     <!-- <div class="balloon-color left">
     <figure class="icon-color"><img src="../image/hukai.png" alt="代替えテキスト" >    
@@ -69,6 +72,7 @@ $pdo = new PDO($connect,USER,PASS);
         </div>
     </footer>
 </div>
+<script src="../javascript/sendmessage.js"></script>
 
 </body>
 </html>
