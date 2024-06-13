@@ -1,3 +1,4 @@
+<?php if(session_status() === PHP_SESSION_NONE)session_start(); ?>
 <?php
 
 function showchat($connect,$chatroom_id){
@@ -15,7 +16,7 @@ foreach($sql as $query){
   
     
 
-    if(3 == $query['user_id']){
+    if($_SESSION['user']['user_id'] == $query['user_id']){
         echo'<div class="balloon-color right">
         <div class="chatting-color">
         <p class="text-color">',$query['message_text'],'</p>
