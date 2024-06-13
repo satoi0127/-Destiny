@@ -1,12 +1,6 @@
 <?php session_start(); ?>
 <?php
-const SERVER = "localhost";
-const DBNAME = "destiny";
-const USER = "root";
-const PASS = "root";
-$connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
-//  require "../modules/DBconnect.php";
-
+require "../modules/DBconnect.php";
 ?>
 
 <?php require "../modules/header.php"; ?>
@@ -27,7 +21,15 @@ $pdo = new PDO($connect,USER,PASS);
                 'tel'=>$row['user_tel'],
                 'address'=>$row['mail_address'], 
                 'sex'=>$row['user_sex'],
-                'coordinate'=>$row['user_coordinate']];
+                'coordinate_latitude'=>$row['user_coordinate_latitude'],
+                'coordinate_longitude'=>$row['user_coordinate_longitude'],
+                'current_country'=>$row['user_current_country'],
+                'current_city'=>$row['user_current_city'],
+                'current_province'=>$row['user_current_province'],
+                'current_suburb'=>$row['user_current_suburb'],
+                'age'=>$row['user_age'],
+            
+            ];
         }
     }
     if(isset($_SESSION['user'])) {
