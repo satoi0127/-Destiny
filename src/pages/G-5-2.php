@@ -20,17 +20,18 @@
 $pdo = new PDO($connect,USER,PASS);
   $chatroom_id=$_GET['chatid'];
   $user_id=$_SESSION['user']['id'];
-  $sql = $pdo->prepare('select * from chatmember where user_id != ?');
-  $sql->execute([$user_id]);
-  foreach($sql as $row){
-    $otherid=$row['user_id'];
+  $sql = $pdo->prepare('select user_id from chatmember where chatmember_id = ?');
+  $sql->execute([$chatroom_id]);
+    foreach($sql as $row){
+      if($row['user_id']!=$user_id){
+      $otherid=$row['user_id'];
+      }
   }
   $sql2 = $pdo->prepare('select * from user where user_id = ?');
   $sql2 ->execute([$otherid]);
   foreach($sql2 as $result){
     $other_name=$result['user_name'];
   }
-  echo $chatroom_id;
 ?>
 <div class="container" >
     <a href="G-5-1.php" class="arrow_btn arrow_01"></a>
