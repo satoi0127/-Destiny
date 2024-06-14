@@ -1,13 +1,5 @@
-
 <?php session_start();?>
-
-<?php require "../modules/DBconnect.php";
-// const SERVER = "localhost";
-// const DBNAME = "destiny";
-// const USER = "root";
-// const PASS = "root";
-// $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
-// ?>
+<?php require "../modules/DBconnect.php";?>
 <?php require "../modules/header.php"; ?>
 
 <link rel="stylesheet" href="../css/G-6-1 search.css">
@@ -40,7 +32,7 @@ $loggedInUserId = $_SESSION['user']['id'];
 
              SELECT u.user_name, i.interest_name, p.user_profile_image_path, u.user_id
             FROM user u
-            JOIN userinterest ui ON u.user_id = ui.user_id
+            JOIN userInterest ui ON u.user_id = ui.user_id
             JOIN interest i ON ui.interest_id = i.interest_id
             JOIN profile p ON u.user_id = p.user_id
             WHERE (u.user_name LIKE ? OR i.interest_name LIKE ?)
@@ -53,7 +45,7 @@ $loggedInUserId = $_SESSION['user']['id'];
         $sql = $pdo->prepare("
             SELECT DISTINCT u.user_name, i.interest_name, p.user_profile_image_path, u.user_id
             FROM user u
-            JOIN userinterest ui ON u.user_id = ui.user_id
+            JOIN userInterest ui ON u.user_id = ui.user_id
             JOIN interest i ON ui.interest_id = i.interest_id
             JOIN profile p ON u.user_id = p.user_id
             WHERE u.user_id != ?
