@@ -19,7 +19,7 @@
 <?php
 $pdo = new PDO($connect,USER,PASS);
   $chatroom_id=$_GET['chatid'];
-  $user_id=$_SESSION['user']['user_id'];
+  $user_id=$_SESSION['user']['id'];
   $sql = $pdo->prepare('select * from chatmember where user_id != ?');
   $sql->execute([$user_id]);
   foreach($sql as $row){
