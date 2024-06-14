@@ -1,10 +1,6 @@
 <?php session_start(); ?>
-<?php
-require "../modules/DBconnect.php";
-?>
-
+<?phprequire "../modules/DBconnect.php";?>
 <?php require "../modules/header.php"; ?>
-
 
 <?php
 unset($_SESSION['user']);
@@ -33,7 +29,7 @@ $pdo = new PDO($connect,USER,PASS);
         }
     }
     if(isset($_SESSION['user'])) {
-        header('Location:G-6-1seach.php');
+        header('Location:G-2-1destinyAll.php');
     }else {
         header('Location:G1-13login-input.php?hogeA=メールアドレスまたはパスワードが違います');
         exit;
