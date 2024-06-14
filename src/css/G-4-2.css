@@ -122,5 +122,9 @@
 
 .purpose{ 
     position: relative;
-    bottom:-100px; left:100px;
+    bottom:100px; left:100px;
+}
+.star{ 
+    position: relative;
+    bottom:0px; left:100px;
 }
