@@ -1,13 +1,13 @@
 <?php session_start(); ?>
 
 <?php
-const SERVER = "localhost";
-const DBNAME = "destiny";
-const USER = "root";
-const PASS = "root";
-$connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
+// const SERVER = "localhost";
+// const DBNAME = "destiny";
+// const USER = "root";
+// const PASS = "root";
+// $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
 //test
- require "../modules/DBconnect.php";
+require "../modules/DBconnect.php";
 
 $pdo = new PDO($connect,USER,PASS);
 ?>
@@ -80,7 +80,7 @@ $isCurrentUser = ($profileUserId === $_SESSION['user']['id']);
 
     <?php else: ?>
        
-        <p class="chat"><a href="G-5-2.php?user_id=<?php echo $profileUserId; ?>"><img src="../image/image.png" alt=""> </a></p>
+        <p class="chat"><a href="G-5-2.php?user_id=<?php echo $profileUserId; ?>"><img src="../image/Chat(gray).png" alt=""> </a></p>
     <?php endif; ?>
     
     <?php require 'G0-0footer.php'; ?>
