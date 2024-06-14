@@ -25,8 +25,6 @@ $userid=$_SESSION['user']['id'];
 $sql = $pdo->prepare('select chatmember_id from chatmember where user_id = ?');
 $sql -> execute([$userid]);
 foreach($sql as $row){
-    
-    echo $row['chatmember_id'];
     $chatid=$row['chatmember_id'];
     $sql2 = $pdo->prepare('select user_id from chatmember where chatmember_id = ?');
     $sql2->execute([$row['chatmember_id']]);
@@ -39,11 +37,9 @@ foreach($sql as $row){
             foreach($sql3 as $name){
                 echo'<h4 class="text2">',$name['user_name'],'</h4>';
             }
-            $sql4 = $pdo->prepare('select * from user
-            join chatmember on user.user_id = chatmember.user_id
-            join Message on user.user_id = Message.user_id
-            where Message.chatmember_id = ? and Message.user_id = ?');
-            $sql4 -> execute([$row['chatmember_id'],$users['user_id']]);
+            $sql4 = $pdo->prepare('select * from Message
+            where chatmember_id = ? order by message_id desc limit 1');
+            $sql4 -> execute([$row['chatmember_id']]);
             foreach($sql4 as $message){
             echo'<p class="text3">',$message['message_text'],'</p>';}
     
