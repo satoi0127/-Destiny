@@ -21,7 +21,7 @@
 
 <?php
 $pdo = new PDO($connect,USER,PASS);
-$userid=$_SESSION['user']['user_id'];
+$userid=$_SESSION['user']['id'];
 $sql = $pdo->prepare('select chatmember_id from chatmember where user_id = ?');
 $sql -> execute([$userid]);
 foreach($sql as $row){
