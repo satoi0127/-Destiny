@@ -25,16 +25,16 @@ $pdo = new PDO($connect,USER,PASS);
   foreach($sql as $row){
     $otherid=$row['user_id'];
   }
-  $sql2 = $pdo->query('select * from user where user_id = ?');
+  $sql2 = $pdo->prepare('select * from user where user_id = ?');
   $sql2 ->execute([$otherid]);
-  foreach($sql as $result){
+  foreach($sql2 as $result){
     $other_name=$result['user_name'];
   }
   echo $chatroom_id;
 ?>
 <div class="container" >
     <a href="G-5-1.php" class="arrow_btn arrow_01"></a>
-    <h2 class="text1"><?= $other_name?></h2><br>
+    <h2 class="text1"><?php echo $other_name; ?></h2><br>
     <div id="ajax">
     <?php
 

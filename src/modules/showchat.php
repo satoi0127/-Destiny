@@ -16,7 +16,7 @@ foreach($sql as $query){
   
     
 
-    if($_SESSION['user']['user_id'] == $query['user_id']){
+    if($_SESSION['user']['id'] == $query['user_id']){
         echo'<div class="balloon-color right">
         <div class="chatting-color">
         <p class="text-color">',$query['message_text'],'</p>
