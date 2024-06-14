@@ -3,6 +3,7 @@
 
     <link rel="stylesheet" href="../css/G-2-2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="../javascript/jquery-3.7.0.min.js" ></script>
 
     <a href="#" class="arrow_btn arrow_01"></a>
 
@@ -29,7 +30,7 @@
         
 
     <div class="border">
-        <p class="aaa">現在地 <i class="fa fa-refresh" aria-hidden="true"></i> </p>
+        <p class="aaa">現在地 <button id="updatelocation"><i class="fa fa-refresh" aria-hidden="true"></i></button> </p>
 
         <?php
         $pdo = new PDO($connect,USER,PASS);
@@ -82,4 +83,6 @@
     <?php require "G0-0footer.php"; ?>
 
     </body>
+
+    <script src="..javascript/updatelocation.js"></script>
 </html>

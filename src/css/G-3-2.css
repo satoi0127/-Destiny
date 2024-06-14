@@ -39,14 +39,6 @@
     margin: 0 auto;
     text-align: center;
 }
-/* 写真のスタイル */
-.photo {
-    float: left;
-    width: 80px;
-    height: auto;
-    margin-right: 20px;
-}
-/* テキストボックスのスタイル */
 .textbox {
     width: 100%;
     padding: 10px;
@@ -97,7 +89,7 @@
     display: none;
 }
 .checkbox-container label {
-    padding: 10px 20px;
+    padding: auto;
     border: 1px solid #ccc;
     background-color: #f0f0f0;
     cursor: pointer;
@@ -108,14 +100,3 @@
     color: white;
     border-color: #007bff;
 }
-
-
-
-   
-   
-   
-   
-   
-  
-  
-  
