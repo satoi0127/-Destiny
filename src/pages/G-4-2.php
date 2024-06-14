@@ -36,7 +36,7 @@ $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
     <img class="aa" src="../image/gray.png" alt="">
     <img class="aa" src="../image/gray.png" alt="">
     <img class="aa" src="../image/gray.png" alt="">
-    <img class="mai" src="../image/mai.png" alt="">   
+    <img class="mai" src="../image/mai.png" alt="">  
     <img class="pura1" src="../image/pura.png" alt="">   
     <img class="pura2" src="../image/pura.png" alt="">
     <img class="pura3" src="../image/pura.png" alt="">   
