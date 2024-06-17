@@ -1,11 +1,5 @@
 
-<?php 
-const SERVER = "localhost";
-const DBNAME = "destiny";
-const USER = "root";
-const PASS = "root";
-$connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
-?>
+<?php require "../modules/DBconnect.php"; ?>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -21,31 +15,7 @@ $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
     <a href="G-4-1.php" class="kann">完了</a>
     <br><h2 class="henn">編集</h2>
     <hr>
-    <div class="conn">
-   
-    <img class="aa" src="../image/虎.jpg" alt="">
-    <img class="aa" src="../image/gray.png" alt="">
-    <img class="aa" src="../image/gray.png" alt="">
-    </div>
-    <div class="conn">
-    <img class="aa" src="../image/gray.png" alt="">
-    <img class="aa" src="../image/gray.png" alt="">
-    <img class="aa" src="../image/gray.png" alt="">
-    </div>
-    <div class="conn">
-    <img class="aa" src="../image/gray.png" alt="">
-    <img class="aa" src="../image/gray.png" alt="">
-    <img class="aa" src="../image/gray.png" alt="">
-    <img class="mai" src="../image/mai.png" alt="">
-    <img class="pura1" src="../image/pura.png" alt="">   
-    <img class="pura2" src="../image/pura.png" alt="">
-    <img class="pura3" src="../image/pura.png" alt="">   
-    <img class="pura4" src="../image/pura.png" alt="">
-    <img class="pura5" src="../image/pura.png" alt="">   
-    <img class="pura6" src="../image/pura.png" alt="">
-    <img class="pura7" src="../image/pura.png" alt="">   
-    <img class="pura8" src="../image/pura.png" alt=""> 
-    <div>
+    
         <h2>自己紹介</h2>
         <input id="ziko" name="a" type="text" placeholder="会いたいです">
         </div>
