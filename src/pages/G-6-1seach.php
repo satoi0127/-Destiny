@@ -1,16 +1,5 @@
-
-<?php
-session_start();
-const SERVER = "localhost";
-const DBNAME = "destiny";
-const USER = "root";
-const PASS = "root";
-$connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
-//test
-// require "../modules/DBconnect.php";
-
-?>
-
+<?php session_start();?>
+<?php require "../modules/DBconnect.php";?>
 <?php require "../modules/header.php"; ?>
 
 <link rel="stylesheet" href="../css/G-6-1 search.css">
@@ -43,7 +32,7 @@ $loggedInUserId = $_SESSION['user']['id'];
 
              SELECT u.user_name, i.interest_name, p.user_profile_image_path, u.user_id
             FROM user u
-            JOIN userinterest ui ON u.user_id = ui.user_id
+            JOIN userInterest ui ON u.user_id = ui.user_id
             JOIN interest i ON ui.interest_id = i.interest_id
             JOIN profile p ON u.user_id = p.user_id
             WHERE (u.user_name LIKE ? OR i.interest_name LIKE ?)
@@ -56,7 +45,7 @@ $loggedInUserId = $_SESSION['user']['id'];
         $sql = $pdo->prepare("
             SELECT DISTINCT u.user_name, i.interest_name, p.user_profile_image_path, u.user_id
             FROM user u
-            JOIN userinterest ui ON u.user_id = ui.user_id
+            JOIN userInterest ui ON u.user_id = ui.user_id
             JOIN interest i ON ui.interest_id = i.interest_id
             JOIN profile p ON u.user_id = p.user_id
             WHERE u.user_id != ?
@@ -96,7 +85,7 @@ $loggedInUserId = $_SESSION['user']['id'];
     <!-- <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script> -->
     
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="http://localhost/src/javascript/G-6-1seach.js"></script>
+    <script src="../javascript/G-6-1seach.js"></script>
 
     <!-- // SELECT DISTINCT u.user_name, i.interest_name, p.user_profile_image_path, u.user_id
             // FROM user u

@@ -1,16 +1,6 @@
 <?php session_start(); ?>
-
-<?php
-const SERVER = "localhost";
-const DBNAME = "destiny";
-const USER = "root";
-const PASS = "root";
-$connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
-//test
- require "../modules/DBconnect.php";
-
-$pdo = new PDO($connect,USER,PASS);
-?>
+<?phprequire "../modules/DBconnect.php";?>
+<?php$pdo = new PDO($connect,USER,PASS);?>
 <?php require "../modules/header.php"; ?>
 
 <link rel="stylesheet" href="../css/G-4-1.css?v=<?php echo time(); ?>" >
@@ -37,7 +27,7 @@ if (isset($_GET['user_id'])) {
 $sql = "SELECT DISTINCT user_profile_image_path, u.user_name, user_description, i.interest_name,u.user_id
 FROM profile p
 JOIN user u ON p.user_id = u.user_id
-JOIN userinterest ui ON p.user_id = ui.user_id
+JOIN userInterest ui ON p.user_id = ui.user_id
 JOIN interest i ON ui.interest_id = i.interest_id
 WHERE u.user_id = ? AND i.interest_id = ui.interest_id" ; 
 $stmt = $pdo->prepare($sql);
@@ -80,7 +70,7 @@ $isCurrentUser = ($profileUserId === $_SESSION['user']['id']);
 
     <?php else: ?>
        
-        <p class="chat"><a href="G-5-2.php?user_id=<?php echo $profileUserId; ?>"><img src="../image/image.png" alt=""> </a></p>
+        <p class="chat"><a href="G-5-2.php?user_id=<?php echo $profileUserId; ?>"><img src="../image/Chat(gray).png" alt=""> </a></p>
     <?php endif; ?>
     
     <?php require 'G0-0footer.php'; ?>
