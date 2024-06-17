@@ -1,47 +1,31 @@
-
-
-.body-content {
-    min-height: 90vh; /* コンテンツの最小高さを設定 */
-    display: flex;
-    flex-direction: column;
+*{
     margin: 0;
     padding: 0;
 }
 
 .base {
     width: 100vw;
-    height: 10vh;
+    height: 12.5vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    margin: 0;
-    padding: 0;
 }
 
-.footermenu {
+.fm1, .fm2, .fm3, .fm4, .fm5{
     width: 20vw;
     border: none;
+    height: 10%;
+    width: 10%;
     background-color: white;
-    display: flex;
-    flex-direction: column;
+    display: inline-block;
     justify-content: center;
-    align-items: center;
-    margin: auto 4vw;
-    margin: 0;
-    padding: 0;
+    margin: auto 3vw auto 3vw;
 }
 
-.footer {
+.footer{
     position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    bottom: 0;  
     z-index: 999;
-    background-color: white; /* 必要に応じて背景色を設定 */
-    border-top: 1px solid #ccc; /* 必要に応じてボーダーを設定 */
-    margin: 0;
-    padding: 0;
 }
 
 .font {
@@ -51,6 +35,4 @@
     font-style: normal;
     font-weight: 510;
     line-height: 16px;
-    margin: 0;
-    padding: 0;
 }
