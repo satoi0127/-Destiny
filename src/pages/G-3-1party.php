@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require '../modules/DBconnect.php'; ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -9,46 +10,53 @@
     <title>パーティー</title>
 </head>
 <body>
-<?php
-
-// プロフィール情報の取得
-$sql = "SELECT DISTINCT user_profile_image_path, u.user_name, user_description, i.interest_name
-FROM profile p
-JOIN user u ON p.user_id = u.user_id
-JOIN userinterest ui ON p.user_id = ui.user_id
-JOIN interest i ON ui.interest_id = i.interest_id
-WHERE u.user_id = 2 AND i.interest_id = ui.interest_id" ; 
-$stmt = $pdo->query($sql);
-
-$userdata = $stmt->fetchAll()[0];
-$profile_image_path = $userdata['user_profile_image_path'];
-
-
-
-$profile_image_path = "../image/". $profile_image_path;
-
-?>
-<?php
-// パーティー情報の取得
-    $party_name = $_POST['party_name'];
-    $party_description = $_POST['party_description'];
-
-    $sql = "INSERT INTO party(party_name,party_description) VALUES(:party_name,:party_description)";
-    $stmt = $PDO->prepare($sql);
-    $params = array(':party_name' => $party_name,':party_description' => $party_description);
-    $stmt->execute($params);
-?>
-
-    <div class="container">
     <?php
         $pdo = new PDO($connect,USER,PASS);
-        echo '<img src="<?php echo $profile_image_path; ?>" alt="写真" class="photo">';
-        echo '<div class="text">';
-        echo $party_name;
-        echo '</div>';
-        echo $party_description;
-        echo '<input type="text" placeholder="メンバー" class="textboxb">';
+        if(!empty($_POST)){
+            $party_id = $_SESSION['party_name']['party_id'];
+            $party_member_id = ['chatmember_id'];
+        }else{
+
+        }
     ?>
+    <div class="container">
+    <?php
+        $sql = $pdo->prepare("select party_name,party_description from party where party_name = ?,party_description = ?");
+
+        $sql ->execute([$_SESSION['party_name']['party_description']]);
+
+        foreach($sql as $results){
+            
+            echo '<form action="G-3-4.php" method="post">';
+            echo '<input type="hidden" name="party_id" value="'$results['party_id']'">';
+
+            echo $results['party_name'];
+            echo $results['party_description'];
+            echo $results['interest_id'];
+            echo '<button type="submit" >チャット開始</button>';
+
+            $query = $pdo->prepare("select party_name,party_description from party where party_name = ?,party_description = ?");
+            $query->execute([$results['party_id']]);
+
+            echo '<br>';
+
+            foreach($query as $users){
+                echo '<div style="display:flex; float:left;">';
+                $img_path_query = $pdo->prepare("SELECT user_image_path FROM user WHERE user_id = ?");
+                $img_path_query->execute([$users['user_id']]);
+                $img_path = $img_path_query->fetchAll()[0]['user_image_path'];
+                echo '<img class="icon_small" src="uploads/',$img_path,'" alt="">';
+                echo '</div>';
+            }
+           
+            echo '</form>';
+
+        }
+
+        $group_query = "SELECT * FROM user WHERE user_id IN (SELECT user_id FROM chatroom WHERE chatroom_id = 2);";
+
+    ?>
+
     </div>
     <div onclick="location.href='./G-3-2party.php'" class="post-btn">
     <i class="fas fa-plus"></i>

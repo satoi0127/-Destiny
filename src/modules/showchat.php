@@ -13,7 +13,9 @@ $users = $users->fetchAll();
 foreach($sql as $query){
 
     $message_uid = $query['user_id'];
-  
+    $img_path = $pdo->prepare("select user_profile_image_path from profile where user_id = ?");
+    $img_path->execute([$message_uid]);
+    $img_path = $img_path->fetchAll()[0]['user_profile_image_path'];
     
 
     if($_SESSION['user']['id'] == $query['user_id']){
@@ -24,7 +26,7 @@ foreach($sql as $query){
         </div>';
     }else{
         echo'<div class="balloon-color left">
-        <figure class="icon-color"><img src="../image/hukai.png" alt="代替えテキスト" >    
+        <figure class="icon-color"><img src="../image/',$img_path,'" alt="代替えテキスト" >    
         </figure>
         <div class="chatting-color">
         <p class="text-color">',$query['message_text'],'</p>

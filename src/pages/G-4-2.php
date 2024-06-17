@@ -1,11 +1,5 @@
-
-<?php 
-const SERVER = "localhost";
-const DBNAME = "destiny";
-const USER = "root";
-const PASS = "root";
-$connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
-?>
+<?php session_start(); ?>
+<?php require "../modules/DBconnect.php"; ?>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -21,31 +15,27 @@ $connect = "mysql:host=" . SERVER . ";dbname=" . DBNAME . ";charset=utf8";
     <a href="G-4-1.php" class="kann">完了</a>
     <br><h2 class="henn">編集</h2>
     <hr>
-    <div class="conn">
-   
-    <img class="aa" src="../image/虎.jpg" alt="">
-    <img class="aa" src="../image/gray.png" alt="">
-    <img class="aa" src="../image/gray.png" alt="">
-    </div>
-    <div class="conn">
-    <img class="aa" src="../image/gray.png" alt="">
-    <img class="aa" src="../image/gray.png" alt="">
-    <img class="aa" src="../image/gray.png" alt="">
-    </div>
-    <div class="conn">
-    <img class="aa" src="../image/gray.png" alt="">
-    <img class="aa" src="../image/gray.png" alt="">
-    <img class="aa" src="../image/gray.png" alt="">
-    <img class="mai" src="../image/mai.png" alt="">
-    <img class="pura1" src="../image/pura.png" alt="">   
-    <img class="pura2" src="../image/pura.png" alt="">
-    <img class="pura3" src="../image/pura.png" alt="">   
-    <img class="pura4" src="../image/pura.png" alt="">
-    <img class="pura5" src="../image/pura.png" alt="">   
-    <img class="pura6" src="../image/pura.png" alt="">
-    <img class="pura7" src="../image/pura.png" alt="">   
-    <img class="pura8" src="../image/pura.png" alt=""> 
-    <div>
+    <?php
+
+$profileUserId = $_SESSION['user']['id'];
+
+if (isset($_GET['user_id'])) {
+    $profileUserId = $_GET['user_id'];
+}
+
+// プロフィール情報の取得
+$sql = "SELECT DISTINCT user_profile_image_path, u.user_name, user_description, i.interest_name,u.user_id
+FROM profile p
+JOIN user u ON p.user_id = u.user_id
+JOIN userInterest ui ON p.user_id = ui.user_id
+JOIN interest i ON ui.interest_id = i.interest_id
+WHERE u.user_id = ? AND i.interest_id = ui.interest_id" ; 
+$stmt = $pdo->prepare($sql);
+$stmt -> execute([$profileUserId]);
+$userdata = $stmt->fetchAll()[0];
+$profile_image_path = $userdata['user_profile_image_path'];
+?>
+<img  src="<?php echo $profile_image_path; ?>" alt="プロフィール画像">
         <h2>自己紹介</h2>
         <input id="ziko" name="a" type="text" placeholder="会いたいです">
         </div>

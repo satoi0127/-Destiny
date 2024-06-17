@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require "../modules/DBconnect.php"; ?>
 <?php require "../modules/header.php"; ?>
 
