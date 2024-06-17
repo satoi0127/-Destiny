@@ -15,7 +15,27 @@
     <a href="G-4-1.php" class="kann">完了</a>
     <br><h2 class="henn">編集</h2>
     <hr>
-    
+    <?php
+
+$profileUserId = $_SESSION['user']['id'];
+
+if (isset($_GET['user_id'])) {
+    $profileUserId = $_GET['user_id'];
+}
+
+// プロフィール情報の取得
+$sql = "SELECT DISTINCT user_profile_image_path, u.user_name, user_description, i.interest_name,u.user_id
+FROM profile p
+JOIN user u ON p.user_id = u.user_id
+JOIN userInterest ui ON p.user_id = ui.user_id
+JOIN interest i ON ui.interest_id = i.interest_id
+WHERE u.user_id = ? AND i.interest_id = ui.interest_id" ; 
+$stmt = $pdo->prepare($sql);
+$stmt -> execute([$profileUserId]);
+$userdata = $stmt->fetchAll()[0];
+$profile_image_path = $userdata['user_profile_image_path'];
+?>
+<img  src="<?php echo $profile_image_path; ?>" alt="プロフィール画像">
         <h2>自己紹介</h2>
         <input id="ziko" name="a" type="text" placeholder="会いたいです">
         </div>
