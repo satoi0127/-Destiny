@@ -12,10 +12,10 @@
 </head>
 <body>
     <a href="#" class="arrow_btn arrow_01"></a>
-<br><h3 class="text1">新しいマッチ</h3>
+<!-- <br><h3 class="text1">新しいマッチ</h3>
 <img src="../image/gray.png" alt="">
 <img src="../image/gray.png" alt="">
-<img src="../image/gray.png" alt="">
+<img src="../image/gray.png" alt=""> -->
 <br><h3>メッセージ</h3>
 <hr>
 
@@ -31,7 +31,12 @@ foreach($sql as $row){
     foreach($sql2 as $users){  
         if($users['user_id']!=$userid){
             echo'<div><a href="G-5-2.php?chatid=',$chatid,'">';
-            echo'<img src="../image/hukai.png" alt="" class="icon">';
+         
+            $img = $pdo->prepare('select * from profile where user_id=?');
+            $img -> execute([$users['user_id']]);
+            foreach($img as $img2){
+                echo'<img src="../image/',$img2['user_profile_image_path'],'" alt="" class="icon">';
+            }
             $sql3 = $pdo->prepare('select * from user where user_id=?');
             $sql3 -> execute([$users['user_id']]);
             foreach($sql3 as $name){

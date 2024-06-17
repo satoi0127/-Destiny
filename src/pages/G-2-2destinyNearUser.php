@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require "../modules/DBconnect.php"; ?>
 <?php require "../modules/header.php"; ?>
 
@@ -30,16 +31,19 @@
         
 
     <div class="border">
-        <p class="aaa">現在地 <button id="updatelocation"><i class="fa fa-refresh" aria-hidden="true"></i></button> </p>
-
+        
+        <input type="hidden" value=<?= $_SESSION['user']['user_id'] ?>>
         <?php
         $pdo = new PDO($connect,USER,PASS);
         $sql = $pdo->prepare("SELECT * FROM user WHERE user_id = 1");
         $sql->execute([]);
-        $location = $sql->fetchAll()[0]["user_coordinate"];
+        $location = $sql->fetchAll()[0]["user_coordinate_latitude"];
         ?>
 
-        <p class="bbb"><?= $location ?>Fukuoka, japan</p>
+        <div id="user_location">
+        <p class="aaa">現在地 <button id="updatelocation"><i class="fa fa-refresh" aria-hidden="true"></i></button> </p>
+        <p class="bbb">緯度:<div id="latitude"></div> 経度:<div id="longitude"></div>Fukuoka, japan</p>
+        </div>
         
     </div>
 
@@ -80,9 +84,9 @@
         <p style="font-size: 12px; display: block;">テスト</p>
     </div>
 
+    <script src="../javascript/updatelocation.js"></script>
+
     <?php require "G0-0footer.php"; ?>
 
     </body>
-
-    <script src="..javascript/updatelocation.js"></script>
 </html>
