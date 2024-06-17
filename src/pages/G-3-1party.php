@@ -27,7 +27,8 @@
 
         foreach($sql as $results){
             
-            echo ''
+            echo '<form action="G-3-4.php" method="post">';
+            
         }
 
     ?>
