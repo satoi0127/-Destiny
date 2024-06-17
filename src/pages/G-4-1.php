@@ -1,6 +1,6 @@
 <?php session_start(); ?>
-<?phprequire "../modules/DBconnect.php";?>
-<?php$pdo = new PDO($connect,USER,PASS);?>
+<?php require "../modules/DBconnect.php"; ?>
+<?php $pdo = new PDO($connect,USER,PASS); ?>
 <?php require "../modules/header.php"; ?>
 
 <link rel="stylesheet" href="../css/G-4-1.css?v=<?php echo time(); ?>" >

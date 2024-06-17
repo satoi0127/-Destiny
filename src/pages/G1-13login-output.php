@@ -28,7 +28,7 @@ foreach ($sql as $row) {
     }
 }
 if (isset($_SESSION['user'])) {
-    header('Location:https://aso2301334.moo.jp/-Destiny/src/pages/G-2-1destinyAll.php');
+    header('Location:G-2-1destinyAll.php');
 } else {
     header('Location:G1-13login-input.php?hogeA=メールアドレスまたはパスワードが違います');
 }
