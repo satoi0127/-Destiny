@@ -67,7 +67,7 @@ $profile_image_path = $userdata['user_profile_image_path'];
         <input style="border: 0px; margin: auto; height: 32px;" id="syumi" name="b" type="text" placeholder="172㎝">
         </div>
         
-        <div style="border: 1px solid black; display: flex;" class="tatikawa">
+        <div style="border: 1px solid black;" class="tatikawa">
             <h2>星座</h2>
             <div class="star">
             <form action="index.php" method = "POST">
