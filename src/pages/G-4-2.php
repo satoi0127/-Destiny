@@ -18,7 +18,7 @@
     <?php
 
 $profileUserId = $_SESSION['user']['id'];
-
+$pdo = new PDO($connect,USER,PASS);
 if (isset($_GET['user_id'])) {
     $profileUserId = $_GET['user_id'];
 }
@@ -35,7 +35,7 @@ $stmt -> execute([$profileUserId]);
 $userdata = $stmt->fetchAll()[0];
 $profile_image_path = $userdata['user_profile_image_path'];
 ?>
-<img  src="<?php echo $profile_image_path; ?>" alt="プロフィール画像">
+<img  src="../image/<?php echo $profile_image_path; ?>" alt="プロフィール画像">
         <h2>自己紹介</h2>
         <input id="ziko" name="a" type="text" placeholder="会いたいです">
         </div>
@@ -43,7 +43,7 @@ $profile_image_path = $userdata['user_profile_image_path'];
         <div>
         <h2>趣味</h2>
         <?php
-        $pdo = new PDO($connect,USER,PASS);
+        
     $sql = $pdo->query('select * from interest');
     foreach($sql as $row){
         echo '<button class="syumi" onclick="changeColor(this)">', $row['interest_name'], '</button>';
