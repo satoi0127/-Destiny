@@ -24,7 +24,7 @@ if (isset($_GET['user_id'])) {
 }
 
 // プロフィール情報の取得
-$sql = "SELECT DISTINCT user_profile_image_path, u.user_name, user_description, i.interest_name,u.user_id
+$sql = "SELECT DISTINCT user_profile_image_path, u.user_name, user_description, i.interest_name,u.user_id, p.starsign, p.height, p.blood_type, p.purpose
 FROM profile p
 JOIN user u ON p.user_id = u.user_id
 JOIN userInterest ui ON p.user_id = ui.user_id
