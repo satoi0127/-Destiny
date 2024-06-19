@@ -11,6 +11,7 @@
     <title>Document</title>
 </head>
 <body>
+
     <a href="G-4-1.php" class="arrow_btn arrow_01" style="position: absolute;"></a>
     <a href="G-4-1.php" class="kann">完了</a>
     <br><h2 class="henn">編集</h2>
@@ -35,6 +36,7 @@ $stmt -> execute([$profileUserId]);
 $userdata = $stmt->fetchAll()[0];
 $profile_image_path = $userdata['user_profile_image_path'];
 ?>
+
 <img  src="../image/<?php echo $profile_image_path; ?>" alt="プロフィール画像">
         <h2>自己紹介</h2>
         <input id="ziko" name="a" type="text" placeholder="会いたいです">
@@ -67,10 +69,10 @@ $profile_image_path = $userdata['user_profile_image_path'];
         <input style="border: 0px; margin: auto; height: 32px;" id="syumi" name="b" type="text" placeholder="172㎝">
         </div>
         
-        <div style="border: 1px solid black;" class="tatikawa">
+        <div style="border: 1px solid black;">
             <h2>星座</h2>
             <div class="star">
-            <form action="index.php" method = "POST">
+      
             <select name= "star">
             <option value = "1">おひつじ座</option>
             <option value = "2">おうし座</option>
@@ -87,10 +89,9 @@ $profile_image_path = $userdata['user_profile_image_path'];
         </select>
             </div>
     
-        <div style="border: 1px solid black; display: flex;" class="tatikawa">
+        <div style="border: 1px solid black; display: flex;">
             <h2>血液型</h2>
             <div class="Bllod">
-            <form action="index.php" method = "POST">
             <select name= "Bllod">
             <option value = "A型">A型</option>
             <option value = "B型">B型</option>
@@ -99,10 +100,9 @@ $profile_image_path = $userdata['user_profile_image_path'];
         </select>
             </div>
 </div>
-        <div style="border: 1px solid black; display: flex;" class="tatikawa">
+        <div style="border: 1px solid black; display: flex;">
             <h2>目的</h2>
             <div class="purpose">
-            <form action="index.php" method = "POST">
             <select name= "purpose">
             <option value = "暇つぶし">暇つぶし</option>
             <option value = "恋人探し">恋人探し</option>
@@ -110,7 +110,7 @@ $profile_image_path = $userdata['user_profile_image_path'];
             <option value = "わからない">分からない</option>
         </select>
 </div>
-                 
+        </form>
     </body>
     <?php require 'G0-0footer.php'; ?>
 </body>
