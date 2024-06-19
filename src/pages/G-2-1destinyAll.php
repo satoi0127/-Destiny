@@ -34,7 +34,10 @@
     foreach ($sql as $user_data) {
         echo "<div class=\"user_list_individual\">";
         echo "<div class=\"image_and_name\">";
-        echo '<div class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;"></div>';
+        $pfp_path = $pdo->prepare("SELECT user_profile_image_path FROM profile WHERE profile_id = ?");
+        $pfp_path->execute([$user_data['user_id']]);
+        $pfp_path = $pfp_path->fetchAll()[0];
+        echo '<img src="../image/',$pfp_path,'" class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;">';
         echo '<p style="font-size: 18px;">', $user_data["user_name"], "</p>";
         echo "</div>";
 
