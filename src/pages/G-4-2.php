@@ -72,18 +72,18 @@ $profile_image_path = $userdata['user_profile_image_path'];
             <div class="star">
             <form action="index.php" method = "POST">
             <select name= "star">
-            <option value = "おひつじ座">おひつじ座</option>
-            <option value = "おうし座">おうし座</option>
-            <option value = "ふたご座">ふたご座</option>
-            <option value = "かに座">かに座</option>
-            <option value = "しし座">しし座</option>
-            <option value = "おとめ座">おとめ座</option>
-            <option value = "てんびん座">てんびん座</option>
-            <option value = "さそり座">さそり座</option>
-            <option value = "いて座">いて座</option>
-            <option value = "やぎ座">やぎ座</option>
-            <option value = "みずがめ座">みずがめ座</option>
-            <option value = "うお座">うお座</option>
+            <option value = "1">おひつじ座</option>
+            <option value = "2">おうし座</option>
+            <option value = "3">ふたご座</option>
+            <option value = "4">かに座</option>
+            <option value = "5">しし座</option>
+            <option value = "6">おとめ座</option>
+            <option value = "7">てんびん座</option>
+            <option value = "8">さそり座</option>
+            <option value = "9">いて座</option>
+            <option value = "10">やぎ座</option>
+            <option value = "11">みずがめ座</option>
+            <option value = "12">うお座</option>
         </select>
             </div>
     
