@@ -11,7 +11,7 @@
     <title>Document</title>
 </head>
 <body>
-
+<form action="index.php" method = "POST">
     <a href="G-4-1.php" class="arrow_btn arrow_01" style="position: absolute;"></a>
     <a href="G-4-1.php" class="kann">完了</a>
     <br><h2 class="henn">編集</h2>
@@ -21,7 +21,6 @@
 $profileUserId = $_SESSION['user']['id'];
 $pdo = new PDO($connect,USER,PASS);
 if (isset($_GET['user_id'])) {
-    $profileUserId = $_GET['user_id'];
 }
 
 // プロフィール情報の取得
@@ -39,9 +38,8 @@ $profile_image_path = $userdata['user_profile_image_path'];
 
 <img  src="../image/<?php echo $profile_image_path; ?>" alt="プロフィール画像">
         <h2>自己紹介</h2>
-        <input id="ziko" name="a" type="text" placeholder="会いたいです">
+        <input name="self" type="text" placeholder="会いたいです">
         </div>
-    
         <div>
         <h2>趣味</h2>
         <?php
@@ -50,7 +48,6 @@ $profile_image_path = $userdata['user_profile_image_path'];
     foreach($sql as $row){
         echo '<button class="syumi" onclick="changeColor(this)">', $row['interest_name'], '</button>';
     }
-    echo 'test'; 
     ?>
     <input type="text" id="clickedText" readonly>
     <script>
@@ -89,7 +86,7 @@ $profile_image_path = $userdata['user_profile_image_path'];
         </select>
             </div>
     
-        <div style="border: 1px solid black; display: flex;">
+        <div style="border: 1px solid black;">
             <h2>血液型</h2>
             <div class="Bllod">
             <select name= "Bllod">
@@ -100,7 +97,7 @@ $profile_image_path = $userdata['user_profile_image_path'];
         </select>
             </div>
 </div>
-        <div style="border: 1px solid black; display: flex;">
+        <div style="border: 1px solid black;">
             <h2>目的</h2>
             <div class="purpose">
             <select name= "purpose">
