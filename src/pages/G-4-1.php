@@ -60,6 +60,25 @@ $isCurrentUser = ($profileUserId === $_SESSION['user']['id']);
         <h4> <?php echo $userdata['interest_name']; ?></h4>
     </div>
 
+    <h2>星座</h2> 
+    <div class=ai>
+        <h4> <?php echo $userdata['starsign']; ?></h4>
+    </div>
+
+    <h2>身長</h2> 
+    <div class=ai>
+        <h4> <?php echo $userdata['height']; ?></h4>
+    </div>
+
+    <h2>血液型</h2> 
+    <div class=ai>
+        <h4> <?php echo $userdata['blood_type']; ?></h4>
+    </div>
+
+    <h2>目的</h2> 
+    <div class=ai>
+        <h4> <?php echo $userdata['purpose']; ?></h4>
+    </div>
 
 <?php if ($isCurrentUser): ?>
     <div class="hen">
@@ -67,10 +86,8 @@ $isCurrentUser = ($profileUserId === $_SESSION['user']['id']);
     <img src="../image/pitu.png" alt=""></a>
     </div>
     <a href="logout.php"  class="btn btn--orange btn--radius">ログアウト</a>
-
     <?php else: ?>
-       
-        <p class="chat"><a href="G-5-2.php?user_id=<?php echo $profileUserId; ?>"><img src="../image/Chat(gray).png" alt=""> </a></p>
+        <p class="chat"><a href="G-5-2.php?user_id=<?php echo $profileUserId; ?>"><img src="../image/image.png" alt=""> </a></p>
     <?php endif; ?>
     
     <?php require 'G0-0footer.php'; ?>
