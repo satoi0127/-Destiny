@@ -64,7 +64,7 @@ $loggedInUserId = $_SESSION['user']['id'];
         echo "<h2>Search Results:</h2>";
         foreach ($results as $row) {
             $image = "../image/";
-            $defaultImagePath = 'path/to/default/null.jpg'; // 初期アイコンのパス
+            $defaultImagePath = '../image/null.jpg'; // 初期アイコンのパス
             $userImagePath = $row['user_profile_image_path'] ?? null;
             $finalImagePath = $userImagePath ? htmlspecialchars($userImagePath) : $defaultImagePath;
             $a= $row['user_id'];

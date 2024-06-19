@@ -35,7 +35,9 @@ $stmt -> execute([$profileUserId]);
 $userdata = $stmt->fetchAll()[0];
 $profile_image_path = $userdata['user_profile_image_path'];
 
+// $default_image_path = "../image/null.jpg"; 
 
+// $profile_image_path = $profile_image_path ? "../image/" . $profile_image_path : $default_image_path;
 
 $profile_image_path = "../image/". $profile_image_path;
 
@@ -94,4 +96,4 @@ $isCurrentUser = ($profileUserId === $_SESSION['user']['id']);
 </body>
 </html>
 <!-- [$_GET['user_id']] -->
-<!-- , starsign, height, blood_type, purpose -->
+<!-- , p.starsign, p.height, p.blood_type, p.purpose -->
