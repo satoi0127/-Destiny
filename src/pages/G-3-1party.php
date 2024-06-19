@@ -28,7 +28,7 @@
         foreach($sql as $results){
             
             echo '<form action="G-3-4.php" method="post">';
-            echo '<input type="hidden" name="party_id" value="'$results['party_id']'">';
+            echo '<input type="hidden" name="party_id" value="',$results['party_id'],'">';
 
             echo $results['party_name'];
             echo $results['party_description'];
