@@ -55,7 +55,7 @@ CREATE TABLE chatmember(
     );
 
 CREATE TABLE party(
-    party_id INTEGER PRIMARY KEY,
+    party_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     party_name VARCHAR(64) NOT NULL,
     party_description VARCHAR(120) NOT NULL,
     chat_member_id INTEGER NOT NULL,
