@@ -88,7 +88,7 @@ $profile_image_path = $userdata['user_profile_image_path'];
     
         <div style="border: 1px solid black;">
             <h2>血液型</h2>
-            <div class="Bllod">
+            <div class="Blood">
             <select name= "Bllod">
             <option value = "0">A型</option>
             <option value = "1">B型</option>
