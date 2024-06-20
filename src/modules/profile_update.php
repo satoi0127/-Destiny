@@ -7,4 +7,5 @@
     $sql->execute([$_POST['star']],[$_POST['height']],[$_POST['Blood']],[$_POST['purpose']],[$_POST['self']],[$userid]);
     $jiko = $_POST['self'];
     echo $jiko;
+    header('Location:../pages/G-4-1.php');
 ?>
