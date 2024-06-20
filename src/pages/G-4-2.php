@@ -58,19 +58,20 @@ $purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>
         <div>
         <h2>趣味</h2>
         <?php
-        
-    $sql = $pdo->query('select * from interest');
-    foreach($sql as $row){
-        echo '<button class="syumi" onclick="changeColor(this)">', $row['interest_name'], '</button>';
-    }
-    ?>
-    <input type="text" id="clickedText" readonly>
+        $sql = $pdo->query('select * from interest');
+            foreach($sql as $row){
+                // echo '<button class="syumi" onclick="changeColor(this)">', $row['interest_name'], '</button>';
+                echo '<input type="checkbox" name="interest" class="syumi2" id="la'.$row['interest_id'].'" value="'.$row['interest_id'].'"><label class="syumi3" for="la'.$row['interest_id'].'">'. $row['interest_name'].'</label>';
+            }
+        ?>
+    
+    <!-- <input type="text" id="clickedText" readonly>
     <script>
         function changeColor(button){
             button.classList.toggle('clicked');
             document.getElementById('clickedText').innerText = button.innerText;
             }
-        </script>
+        </script> -->
         </div>
         
         <!-- //後でfor文 -->
