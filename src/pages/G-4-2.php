@@ -53,7 +53,7 @@ $purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>
 
 <img  src="../image/<?php echo $profile_image_path; ?>" alt="プロフィール画像">
         <h2>自己紹介</h2>
-        <input name="self" type="text" placeholder="会いたいです">
+        <input name="self" type="text" <?php echo 'value="'.$info.'"'; ?>>
         </div>
         <div>
         <h2>趣味</h2>
@@ -78,25 +78,20 @@ $purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>
 
         <div style="border: 1px solid black;" class="tatikawa">
         <h2>身長</h2>
-        <input id="syumi" name="height" type="text" <?php echo 'value="'.$info.'"'; ?>>
+        <input id="syumi" name="height" type="text" <?php echo 'value="'.$height.'"'; ?>>
         </div>
 <?php        
         echo'<div style="border: 1px solid black;">';
             echo'<h2>星座</h2>';
             echo'<div class="star">';
             echo'<select name= "star">';
-            echo'<option value = "0">'.$star_signs[0].'</option>';
-            echo'<option value = "1">'.$star_signs[1].'</option>';
-            echo'<option value = "2">'.$star_signs[2].'</option>';
-            echo'<option value = "3">'.$star_signs[3].'</option>';
-            echo'<option value = "4">'.$star_signs[4].'</option>';
-            echo'<option value = "5">'.$star_signs[5].'</option>';
-            echo'<option value = "6">'.$star_signs[6].'</option>';
-            echo'<option value = "7">'.$star_signs[7].'</option>';
-            echo'<option value = "8">'.$star_signs[8].'</option>';
-            echo'<option value = "9">'.$star_signs[9].'</option>';
-            echo'<option value = "10">'.$star_signs[10].'</option>';
-            echo'<option value = "11">'.$star_signs[11].'</option>';
+            for($i=0; $i<=11; $i++){
+                if($star == $i){
+                    echo'<option value = "'.$i.'" selected>'.$star_signs[$i].'</option>';   
+                }else{
+                    echo'<option value = "'.$i.'">'.$star_signs[$i].'</option>'; 
+                }
+            }
         echo'</select>';
             echo'</div>';
     
@@ -104,10 +99,14 @@ $purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>
             echo'<h2>血液型</h2>';
             echo'<div class="Blood">';
             echo'<select name= "Blood">';
-            echo'<option value = "0">'.$blood_types[0].'</option>';
-            echo'<option value = "1">'.$blood_types[1].'</option>';
-            echo'<option value = "2">'.$blood_types[2].'</option>';
-            echo'<option value = "3">'.$blood_types[3].'</option>';
+            for($i=0; $i<=3; $i++){
+                if($blood == $i){
+                    echo'<option value = "'.$i.'" selected>'.$blood_types[$i].'</option>';
+                }else{
+                    echo'<option value = "'.$i.'">'.$blood_types[$i].'</option>';
+                }
+                
+            }
         echo'</select>';
             echo'</div>';
 echo'</div>';
@@ -115,10 +114,14 @@ echo'</div>';
             echo'<h2>目的</h2>';
             echo'<div class="purpose">';
             echo'<select name= "purpose">';
-            echo'<option value = "0">'.$purposes[0].'</option>';
-            echo'<option value = "1">'.$purposes[1].'</option>';
-            echo'<option value = "2">'.$purposes[2].'</option>';
-            echo'<option value = "3">'.$purposes[3].'</option>';
+            for($i=0; $i<=3; $i++){
+                if($purpose == $i){
+                    echo'<option value = "'.$i.'" selected>'.$purposes[$i].'</option>';
+                }else{
+                    echo'<option value = "'.$i.'">'.$purposes[$i].'</option>';
+                }
+                
+            }
         echo'</select>';
 echo'</div>';
 ?>
