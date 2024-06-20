@@ -72,45 +72,45 @@ $purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>
         </div>
 <?php        
         echo'<div style="border: 1px solid black;">';
-            <h2>星座</h2>
-            <div class="star">
-            <select name= "star">
-            <option value = "0">おひつじ座</option>
-            <option value = "1">おうし座</option>
-            <option value = "2">ふたご座</option>
-            <option value = "3">かに座</option>
-            <option value = "4">しし座</option>
-            <option value = "5">おとめ座</option>
-            <option value = "6">てんびん座</option>
-            <option value = "7">さそり座</option>
-            <option value = "8">いて座</option>
-            <option value = "9">やぎ座</option>
-            <option value = "10">みずがめ座</option>
-            <option value = "11">うお座</option>
-        </select>
-            </div>
+            echo'<h2>星座</h2>';
+            echo'<div class="star">';
+            echo'<select name= "star">';
+            echo'<option value = "0">おひつじ座</option>';
+            echo'<option value = "1">おうし座</option>';
+            echo'<option value = "2">ふたご座</option>';
+            echo'<option value = "3">かに座</option>';
+            echo'<option value = "4">しし座</option>';
+            echo'<option value = "5">おとめ座</option>';
+            echo'<option value = "6">てんびん座</option>';
+            echo'<option value = "7">さそり座</option>';
+            echo'<option value = "8">いて座</option>';
+            echo'<option value = "9">やぎ座</option>';
+            echo'<option value = "10">みずがめ座</option>';
+            echo'<option value = "11">うお座</option>';
+        echo'</select>';
+            echo'</div>';
     
-        <div style="border: 1px solid black;">
-            <h2>血液型</h2>
-            <div class="Blood">
-            <select name= "Blood">
-            <option value = "0">A型</option>
-            <option value = "1">B型</option>
-            <option value = "2">AB型</option>
-            <option value = "3">O型</option>
-        </select>
-            </div>
-</div>
-        <div style="border: 1px solid black;">
-            <h2>目的</h2>
-            <div class="purpose">
-            <select name= "purpose">
-            <option value = "0">暇つぶし</option>
-            <option value = "1">恋人探し</option>
-            <option value = "2">友達探し</option>
-            <option value = "3">分からない</option>
-        </select>
-</div>
+        echo'<div style="border: 1px solid black;">';
+            echo'<h2>血液型</h2>';
+            echo'<div class="Blood">';
+            echo'<select name= "Blood">';
+            echo'<option value = "0">A型</option>';
+            echo'<option value = "1">B型</option>';
+            echo'<option value = "2">AB型</option>';
+            echo'<option value = "3">O型</option>';
+        echo'</select>';
+            echo'</div>';
+echo'</div>';
+        echo'<div style="border: 1px solid black;">';
+            echo'<h2>目的</h2>';
+            echo'<div class="purpose">';
+            echo'<select name= "purpose">';
+            echo'<option value = "0">暇つぶし</option>';
+            echo'<option value = "1">恋人探し</option>';
+            echo'<option value = "2">友達探し</option>';
+            echo'<option value = "3">分からない</option>';
+        echo'</select>';
+echo'</div>';
 ?>
         </form>
     </body>
