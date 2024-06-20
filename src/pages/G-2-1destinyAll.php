@@ -50,17 +50,6 @@
             "</p>";
         echo "</div>";
     }
-
-/*
-
-    <div class="user_list_individual">
-        <div class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;"></div>
-        <p style="font-size: 18px;">メンズコーチ　立川</p>
-        <br>
-        <p style="font-size: 12px; display: block;">テスト</p>
-    </div>
-
-    */
 ?>
 
 <?php require "G0-0footer.php"; ?>
