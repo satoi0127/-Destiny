@@ -35,6 +35,16 @@ $stmt -> execute([$profileUserId]);
 $userdata = $stmt->fetchAll()[0];
 $profile_image_path = $userdata['user_profile_image_path'];
 
+$sql2 = $pdo->prepare('select * from profile where user_id = ?');
+$sql2->execute([$profileUserId]);
+foreach($sql2 as $i){
+    $info = $i['user_description'];
+    $star = $i['user_starsign'];
+    $blood = $i['user_blood_type'];
+    $purpose = $i['user_purpose'];
+    $height = $i['user_height'];
+}
+
 
 $star_signs = array(0 =>'おひつじ座',1 =>'おうし座',2 =>'ふたご座',3 =>'かに座',4 =>'しし座',5 =>'おとめ座',6 =>'てんびん座',7 =>'さそり座', 8 =>'いて座', 9 =>'やぎ座', 10 =>'みずがめ座', 11 =>'うお座' );
 $blood_types = array(0 => 'A型',1 =>'B型',2 =>'AB型',3 =>'O型' );
@@ -68,7 +78,7 @@ $purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>
 
         <div style="border: 1px solid black;" class="tatikawa">
         <h2>身長</h2>
-        <input id="syumi" name="height" type="text" placeholder="172㎝">
+        <input id="syumi" name="height" type="text" <?php echo 'value="'.$info.'"'; ?>>
         </div>
 <?php        
         echo'<div style="border: 1px solid black;">';
