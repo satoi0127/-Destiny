@@ -63,7 +63,7 @@ $profile_image_path = $userdata['user_profile_image_path'];
 
         <div style="border: 1px solid black;" class="tatikawa">
         <h2>身長</h2>
-        <input style="border: 0px; margin: auto; height: 32px;" id="syumi" name="b" type="text" placeholder="172㎝">
+        <input id="syumi" name="height" type="text" placeholder="172㎝">
         </div>
         
         <div style="border: 1px solid black;">
