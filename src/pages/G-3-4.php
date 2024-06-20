@@ -1,3 +1,6 @@
+<?php session_start(); ?>
+<?php require '../modules/DBconnect.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +11,33 @@
     <title>パーティーチャット画面</title>
 </head>
 <body>
+<?php
+
+if(!isset($_POST['party_id'])){
+    echo 'チャットルームIDが指定されていません。新しくパーティーチャットを作成します';
+    $pdo = new PDO($connect,user,pass);
+    $party_id = $_POST['party_id'];
+    $party_host_id = $_POST['party_host_id'];
+    $newchatroom_id = $pdo->query("SELECT MAX(party_id)+1 as newid FROM party;");
+    $newchatroom_id = $newchatroom_id->fetchAll()[0]['newid'];
+
+    echo 'パーティーID : ' , $party_id , ' パーティーホストID : ', $party_host_id , ' 新しいチャットルームID : ', $newchatroom_id ;
+
+    $sql = $pdo->prepare("INSERT INTO party(party_name,party_description) VALUES (?),(?)");
+    $sql->execute([$newchatroom_id,$party_id,$newchatroom_id,$party_host_id]);
+
+    $party_id = $newchatroom_id;
+
+}else{
+    $chatroom_id = $_POST['party_id'];
+}
+
+?>
 <div class="container">
     <a href="./G-3-1party.php" class="arrow_btn arrow_01"><span style="color:#ff0000;">退出</span></a>
 
 <div class="bar"><a href="./G-3-5.php" class="bars"><img src="../image/bars.png" alt="" class="barsimg"></a></div>
-    <h2 class="text1">パーティー名</h2><br>
+    <h2 class="text1"><?= $party_name?>/h2><br>
     <!-- 左の吹き出し -->
     <div class="balloon-color left">
     <figure class="icon-color"><img src="../image/hukai.png" alt="代替えテキスト" >    
