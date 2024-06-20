@@ -70,11 +70,10 @@ $purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>
         <h2>身長</h2>
         <input id="syumi" name="height" type="text" placeholder="172㎝">
         </div>
-        
-        <div style="border: 1px solid black;">
+<?php        
+        echo'<div style="border: 1px solid black;">';
             <h2>星座</h2>
             <div class="star">
-      
             <select name= "star">
             <option value = "0">おひつじ座</option>
             <option value = "1">おうし座</option>
@@ -112,6 +111,7 @@ $purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>
             <option value = "3">分からない</option>
         </select>
 </div>
+?>
         </form>
     </body>
     <?php require 'G0-0footer.php'; ?>
