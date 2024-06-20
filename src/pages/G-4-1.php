@@ -41,7 +41,22 @@ $profile_image_path = $userdata['user_profile_image_path'];
 
 $profile_image_path = "../image/". $profile_image_path;
 
+
+
 $isCurrentUser = ($profileUserId === $_SESSION['user']['id']);
+
+$sql2 = $pdo->prepare('select * from profile where user_id = ?');
+$sql2->execute([$profileUserId]);
+foreach($sql2 as $i){
+    $star = $i['user_starsign'];
+    $blood = $i['user_blood_type'];
+    $purpose = $i['user_purpose'];
+    $height = $i['user_height'];
+}
+
+$star_signs = array(0 =>'おひつじ座',1 =>'おうし座',2 =>'ふたご座',3 =>'かに座',4 =>'しし座',5 =>'おとめ座',6 =>'てんびん座',7 =>'さそり座', 8 =>'いて座', 9 =>'やぎ座', 10 =>'みずがめ座', 11 =>'うお座' );
+$blood_types = array(0 => 'A型',1 =>'B型',2 =>'AB型',3 =>'O型' );
+$purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>'まだ分からない' );
 
 ?>
 
@@ -64,22 +79,22 @@ $isCurrentUser = ($profileUserId === $_SESSION['user']['id']);
 
     <h2>星座</h2> 
     <div class=ai>
-        <h4> <?php echo $userdata['starsign']; ?></h4>
+        <h4> <?php echo $star_signs[$star]; ?></h4>
     </div>
 
     <h2>身長</h2> 
     <div class=ai>
-        <h4> <?php echo $userdata['height']; ?></h4>
+        <h4> <?php echo $height; ?></h4>
     </div>
 
     <h2>血液型</h2> 
     <div class=ai>
-        <h4> <?php echo $userdata['blood_type']; ?></h4>
+        <h4> <?php echo $blood_types[$blood]; ?></h4>
     </div>
 
     <h2>目的</h2> 
     <div class=ai>
-        <h4> <?php echo $userdata['purpose']; ?></h4>
+        <h4> <?php echo $purposes[$purpose]; ?></h4>
     </div>
 
 <?php if ($isCurrentUser): ?>
