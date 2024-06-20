@@ -74,9 +74,23 @@ $purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>
     </div>
     <h2>趣味</h2> 
     <div class=ai>
-        <h4> <?php echo $userdata['interest_name']; ?></h4>
+    <?php
+        $intid = [];
+        $userint = $pdo->prepare('select * from userInterest where user_id = ?');
+        $userint -> execute([$profileUserId]);
+        foreach($userint as $value){
+            $intid[] =$value['interest_id']; 
+        }
+        foreach( $intid as $i ){ 
+            $sql3 = $pdo->prepare('select * from interest where interest_id = ?');
+            $sql3-> execute([$i]);
+            foreach($sql3 as $userinterest){
+                echo '<h4>'.$userinterest['interest_name'].'</h4>';
+            }
+        } 
+        
+    ?>
     </div>
-
     <h2>星座</h2> 
     <div class=ai>
         <h4> <?php echo $star_signs[$star]; ?></h4>
