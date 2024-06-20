@@ -51,12 +51,29 @@
         
     </div>
 
-    <div class="user_list_individual">
-        <div class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;"></div>
-        <p style="font-size: 18px;">メンズコーチ　立川</p>
-        <br>
-        <p style="font-size: 12px; display: block;">テスト</p>
-    </div>
+    <?php
+    $pdo = new PDO($connect, USER, PASS);
+    $sql = $pdo->query("select * from user");
+    foreach ($sql as $user_data) {
+        echo "<div class=\"user_list_individual\">";
+        echo "<div class=\"image_and_name\">";
+        $pfp_path = $pdo->prepare("SELECT user_profile_image_path FROM profile WHERE profile_id = ?");
+        $pfp_path->execute([$user_data['user_id']]);
+        $pfp_path = $pfp_path->fetchAll()[0]['user_profile_image_path'];
+        echo '<img src="../image/',$pfp_path,'" class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;">';
+        echo '<p style="font-size: 18px;">', $user_data["user_name"], "</p>";
+        echo "</div>";
+
+        $user_description = $pdo->prepare("SELECT user_description FROM profile WHERE user_id = ?");
+        $user_description->execute([$user_data['user_id']]);
+        $description = $user_description->fetchAll()[0]["user_description"];
+
+        echo '<p style="font-size: 12px;">',
+            $description,
+            "</p>";
+        echo "</div>";
+    }
+    ?>
 
     <script type="text/javascript" src="../javascript/updatelocation.js"></script>
 

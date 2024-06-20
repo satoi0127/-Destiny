@@ -58,9 +58,9 @@ CREATE TABLE party(
     party_id INTEGER PRIMARY KEY,
     party_name VARCHAR(64) NOT NULL,
     party_description VARCHAR(120) NOT NULL,
-    party_member_id INTEGER NOT NULL,
+    chat_member_id INTEGER NOT NULL,
     party_host_id INTEGER,
-    FOREIGN KEY (party_member_id) REFERENCES chatmember(chatmember_id),
+    FOREIGN KEY (chat_member_id) REFERENCES chatmember(chatmember_id),
     FOREIGN KEY (party_host_id) REFERENCES user(user_id)
     );
 
@@ -85,6 +85,5 @@ CREATE TABLE party_member(
     party_id INTEGER NOT NULL,
     user_id INTEGER NOT NULL,
     FOREIGN KEY(user_id) REFERENCES user(user_id),
-    FOREIGN KEY(party_id) REFERENCES party(party_id),
-    PRIMARY KEY(user_id,party_id)
+    PRIMARY KEY(party_id,user_id)
 );
