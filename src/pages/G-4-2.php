@@ -11,9 +11,9 @@
     <title>Document</title>
 </head>
 <body>
-<form action="index.php" method = "POST">
+<form action="../modules/profile_update.php" method = "POST" name="selfinfo">
     <a href="G-4-1.php" class="arrow_btn arrow_01" style="position: absolute;"></a>
-    <a href="G-4-1.php" class="kann">完了</a>
+    <a href=# class="kann" onclick="document.selfinfo.submit();">完了</a>
     <br><h2 class="henn">編集</h2>
     <hr>
     <?php
@@ -61,7 +61,7 @@ $profile_image_path = $userdata['user_profile_image_path'];
         <!-- //後でfor文 -->
         <!-- //セレクトボックス↓-->
 
-        <div style="border: 1px solid black; display: flex;" class="tatikawa">
+        <div style="border: 1px solid black;" class="tatikawa">
         <h2>身長</h2>
         <input style="border: 0px; margin: auto; height: 32px;" id="syumi" name="b" type="text" placeholder="172㎝">
         </div>
@@ -71,18 +71,18 @@ $profile_image_path = $userdata['user_profile_image_path'];
             <div class="star">
       
             <select name= "star">
-            <option value = "1">おひつじ座</option>
-            <option value = "2">おうし座</option>
-            <option value = "3">ふたご座</option>
-            <option value = "4">かに座</option>
-            <option value = "5">しし座</option>
-            <option value = "6">おとめ座</option>
-            <option value = "7">てんびん座</option>
-            <option value = "8">さそり座</option>
-            <option value = "9">いて座</option>
-            <option value = "10">やぎ座</option>
-            <option value = "11">みずがめ座</option>
-            <option value = "12">うお座</option>
+            <option value = "0">おひつじ座</option>
+            <option value = "1">おうし座</option>
+            <option value = "2">ふたご座</option>
+            <option value = "3">かに座</option>
+            <option value = "4">しし座</option>
+            <option value = "5">おとめ座</option>
+            <option value = "6">てんびん座</option>
+            <option value = "7">さそり座</option>
+            <option value = "8">いて座</option>
+            <option value = "9">やぎ座</option>
+            <option value = "10">みずがめ座</option>
+            <option value = "11">うお座</option>
         </select>
             </div>
     
@@ -90,10 +90,10 @@ $profile_image_path = $userdata['user_profile_image_path'];
             <h2>血液型</h2>
             <div class="Bllod">
             <select name= "Bllod">
-            <option value = "A型">A型</option>
-            <option value = "B型">B型</option>
-            <option value = "AB型">AB型</option>
-            <option value = "O型">O型</option>
+            <option value = "0">A型</option>
+            <option value = "1">B型</option>
+            <option value = "2">AB型</option>
+            <option value = "3">O型</option>
         </select>
             </div>
 </div>
@@ -101,10 +101,10 @@ $profile_image_path = $userdata['user_profile_image_path'];
             <h2>目的</h2>
             <div class="purpose">
             <select name= "purpose">
-            <option value = "暇つぶし">暇つぶし</option>
-            <option value = "恋人探し">恋人探し</option>
-            <option value = "友達探し">友達探し</option>
-            <option value = "わからない">分からない</option>
+            <option value = "0">暇つぶし</option>
+            <option value = "1">恋人探し</option>
+            <option value = "2">友達探し</option>
+            <option value = "3">分からない</option>
         </select>
 </div>
         </form>
