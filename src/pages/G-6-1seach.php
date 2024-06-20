@@ -64,12 +64,12 @@ $loggedInUserId = $_SESSION['user']['id'];
         echo "<h2>Search Results:</h2>";
         foreach ($results as $row) {
             $image = "../image/";
-            $defaultImagePath = 'path/to/default/icon.jpg'; // 初期アイコンのパス
+            $defaultImagePath = '../image/null.jpg'; // 初期アイコンのパス
             $userImagePath = $row['user_profile_image_path'] ?? null;
-            $finalImagePath = $userImagePath ? htmlspecialchars($userImagePath, ENT_QUOTES, 'UTF-8') : $defaultImagePath;
+            $finalImagePath = $userImagePath ? htmlspecialchars($userImagePath) : $defaultImagePath;
             $a= $row['user_id'];
 
-            echo "<div class='box' data-id='".$a."'>";
+            echo "<div class='box' data-id='" . htmlspecialchars($a) . "'>";
             echo "<img src='" . $image . $finalImagePath . "' alt='Profile Image'></p><hr>";
             echo "<div class='text'>";
             echo "<p>Name: " . htmlspecialchars($row["user_name"]) . "<br>";

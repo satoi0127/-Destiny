@@ -55,21 +55,19 @@
         margin-right:10px;
         height:91px;
 } 
-
-
-.tatikawa{ 
-    margin-top: 20px;
-    
-
+.star{ 
+    position: relative;
+    bottom:40px; left:130px;
 }
+
 .Bllod{ 
     position: relative;
-    bottom:-25px; left:30px;
+    bottom:-25px; left:70px;
 
 }
 .purpose{ 
     position: relative;
-    bottom:-25px; left:50px;
+    bottom:50px; left:50px;
 
 }
 .syumi {
@@ -81,15 +79,8 @@
     color: white
 
 }
+
 .syumi.clicked {
     background-color: lightblue; /* クリックしたら背景色を変更 */
 }
 
-.purpose{ 
-    position: relative;
-    bottom:100px; left:100px;
-}
-.star{ 
-    position: relative;
-    bottom:0px; left:100px;
-}

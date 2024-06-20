@@ -4,7 +4,7 @@
 
     <link rel="stylesheet" href="../css/G-2-2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="../javascript/jquery-3.7.0.min.js" ></script>
+    <script type="text/javascript" src="../javascript/jquery-3.7.0.min.js" ></script>
 
     <a href="#" class="arrow_btn arrow_01"></a>
 
@@ -32,7 +32,7 @@
 
     <div class="border">
         
-        <input type="hidden" value=<?= $_SESSION['user']['user_id'] ?>>
+        <input type="hidden" id="user_id" value=<?= $_SESSION['user']['id'] ?>>
         <?php
         $pdo = new PDO($connect,USER,PASS);
         $sql = $pdo->prepare("SELECT * FROM user WHERE user_id = 1");
@@ -42,7 +42,11 @@
 
         <div id="user_location">
         <p class="aaa">現在地 <button id="updatelocation"><i class="fa fa-refresh" aria-hidden="true"></i></button> </p>
-        <p class="bbb">緯度:<div id="latitude"></div> 経度:<div id="longitude"></div>Fukuoka, japan</p>
+
+        <br>
+        <p>緯度:<div id="latitude"></div></p>
+        <p>経度:<div id="longitude"></div></p>
+        <p>地名:<div id="place_name">Fukuoka, japan</div></p>
         </div>
         
     </div>
@@ -53,38 +57,8 @@
         <br>
         <p style="font-size: 12px; display: block;">テスト</p>
     </div>
-    <div class="user_list_individual">
-        <div class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;"></div>
-        <p style="font-size: 18px;">小関</p>
-        <br>
-        <p style="font-size: 12px; display: block;">テスト</p>
-    </div>
-    <div class="user_list_individual">
-        <div class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;"></div>
-        <p style="font-size: 18px;">野崎</p>
-        <br>
-        <p style="font-size: 12px; display: block;">テスト</p>
-    </div>
-    <div class="user_list_individual">
-        <div class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;"></div>
-        <p style="font-size: 18px;">吉本</p>
-        <br>
-        <p style="font-size: 12px; display: block;">テスト</p>
-    </div>
-    <div class="user_list_individual">
-        <div class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;"></div>
-        <p style="font-size: 18px;">新原</p>
-        <br>
-        <p style="font-size: 12px; display: block;">テスト</p>
-    </div>
-    <div class="user_list_individual">
-        <div class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;"></div>
-        <p style="font-size: 18px;">宇都</p>
-        <br>
-        <p style="font-size: 12px; display: block;">テスト</p>
-    </div>
 
-    <script src="../javascript/updatelocation.js"></script>
+    <script type="text/javascript" src="../javascript/updatelocation.js"></script>
 
     <?php require "G0-0footer.php"; ?>
 

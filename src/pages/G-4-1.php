@@ -24,7 +24,7 @@ if (isset($_GET['user_id'])) {
 }
 
 // プロフィール情報の取得
-$sql = "SELECT DISTINCT user_profile_image_path, u.user_name, user_description, i.interest_name,u.user_id
+$sql = "SELECT DISTINCT user_profile_image_path, u.user_name, user_description, i.interest_name, u.user_id
 FROM profile p
 JOIN user u ON p.user_id = u.user_id
 JOIN userInterest ui ON p.user_id = ui.user_id
@@ -35,7 +35,9 @@ $stmt -> execute([$profileUserId]);
 $userdata = $stmt->fetchAll()[0];
 $profile_image_path = $userdata['user_profile_image_path'];
 
+// $default_image_path = "../image/null.jpg"; 
 
+// $profile_image_path = $profile_image_path ? "../image/" . $profile_image_path : $default_image_path;
 
 $profile_image_path = "../image/". $profile_image_path;
 
@@ -60,6 +62,25 @@ $isCurrentUser = ($profileUserId === $_SESSION['user']['id']);
         <h4> <?php echo $userdata['interest_name']; ?></h4>
     </div>
 
+    <h2>星座</h2> 
+    <div class=ai>
+        <h4> <?php echo $userdata['starsign']; ?></h4>
+    </div>
+
+    <h2>身長</h2> 
+    <div class=ai>
+        <h4> <?php echo $userdata['height']; ?></h4>
+    </div>
+
+    <h2>血液型</h2> 
+    <div class=ai>
+        <h4> <?php echo $userdata['blood_type']; ?></h4>
+    </div>
+
+    <h2>目的</h2> 
+    <div class=ai>
+        <h4> <?php echo $userdata['purpose']; ?></h4>
+    </div>
 
 <?php if ($isCurrentUser): ?>
     <div class="hen">
@@ -67,13 +88,12 @@ $isCurrentUser = ($profileUserId === $_SESSION['user']['id']);
     <img src="../image/pitu.png" alt=""></a>
     </div>
     <a href="logout.php"  class="btn btn--orange btn--radius">ログアウト</a>
-
     <?php else: ?>
-       
-        <p class="chat"><a href="G-5-2.php?user_id=<?php echo $profileUserId; ?>"><img src="../image/Chat(gray).png" alt=""> </a></p>
+        <p class="chat"><a href="G-5-2.php?user_id=<?php echo $profileUserId; ?>"><img src="../image/image.png" alt=""> </a></p>
     <?php endif; ?>
     
     <?php require 'G0-0footer.php'; ?>
 </body>
 </html>
 <!-- [$_GET['user_id']] -->
+<!-- , p.starsign, p.height, p.blood_type, p.purpose -->

@@ -12,27 +12,28 @@
 <body>
     <?php
         $pdo = new PDO($connect,USER,PASS);
+        /*
         if(!empty($_POST)){
             $party_id = $_SESSION['party_name']['party_id'];
             $party_member_id = ['chatmember_id'];
         }else{
 
-        }
+        }*/
     ?>
     <div class="container">
     <?php
-        $sql = $pdo->prepare("select party_name,party_description from party where party_name = ?,party_description = ?");
+        $sql = $pdo->prepare("select * from party");
 
-        $sql ->execute([$_SESSION['party_name']['party_description']]);
+        $sql ->execute([]);
 
         foreach($sql as $results){
             
             echo '<form action="G-3-4.php" method="post">';
-            echo '<input type="hidden" name="party_id" value="'$results['party_id']'">';
+            echo '<input type="hidden" name="party_id" value="',$results['party_id'],'">';
 
             echo $results['party_name'];
             echo $results['party_description'];
-            echo $results['interest_id'];
+            //echo $results['interest_id'];
             echo '<button type="submit" >チャット開始</button>';
 
             $query = $pdo->prepare("select party_name,party_description from party where party_name = ?,party_description = ?");
