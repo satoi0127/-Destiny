@@ -34,6 +34,11 @@ $stmt = $pdo->prepare($sql);
 $stmt -> execute([$profileUserId]);
 $userdata = $stmt->fetchAll()[0];
 $profile_image_path = $userdata['user_profile_image_path'];
+
+
+$star_signs = array(0 =>'おひつじ座',1 =>'おうし座',2 =>'ふたご座',3 =>'かに座',4 =>'しし座',5 =>'おとめ座',6 =>'てんびん座',7 =>'さそり座', 8 =>'いて座', 9 =>'やぎ座', 10 =>'みずがめ座', 11 =>'うお座' );
+$blood_types = array(0 => 'A型',1 =>'B型',2 =>'AB型',3 =>'O型' );
+$purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>'まだ分からない' );
 ?>
 
 <img  src="../image/<?php echo $profile_image_path; ?>" alt="プロフィール画像">
@@ -89,7 +94,7 @@ $profile_image_path = $userdata['user_profile_image_path'];
         <div style="border: 1px solid black;">
             <h2>血液型</h2>
             <div class="Blood">
-            <select name= "Bllod">
+            <select name= "Blood">
             <option value = "0">A型</option>
             <option value = "1">B型</option>
             <option value = "2">AB型</option>
