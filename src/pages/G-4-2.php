@@ -34,28 +34,55 @@ $stmt = $pdo->prepare($sql);
 $stmt -> execute([$profileUserId]);
 $userdata = $stmt->fetchAll()[0];
 $profile_image_path = $userdata['user_profile_image_path'];
+
+$sql2 = $pdo->prepare('select * from profile where user_id = ?');
+$sql2->execute([$profileUserId]);
+foreach($sql2 as $i){
+    $info = $i['user_description'];
+    $star = $i['user_starsign'];
+    $blood = $i['user_blood_type'];
+    $purpose = $i['user_purpose'];
+    $height = $i['user_height'];
+}
+
+
+$star_signs = array(0 =>'おひつじ座',1 =>'おうし座',2 =>'ふたご座',3 =>'かに座',4 =>'しし座',5 =>'おとめ座',6 =>'てんびん座',7 =>'さそり座', 8 =>'いて座', 9 =>'やぎ座', 10 =>'みずがめ座', 11 =>'うお座' );
+$blood_types = array(0 => 'A型',1 =>'B型',2 =>'AB型',3 =>'O型' );
+$purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>'まだ分からない' );
 ?>
 
 <img  src="../image/<?php echo $profile_image_path; ?>" alt="プロフィール画像">
         <h2>自己紹介</h2>
-        <input name="self" type="text" placeholder="会いたいです">
+        <input name="self" type="text" <?php echo 'value="'.$info.'"'; ?>>
         </div>
         <div>
         <h2>趣味</h2>
         <?php
-        
-    $sql = $pdo->query('select * from interest');
-    foreach($sql as $row){
-        echo '<button class="syumi" onclick="changeColor(this)">', $row['interest_name'], '</button>';
-    }
-    ?>
-    <input type="text" id="clickedText" readonly>
+        $intid = [];
+        $userint = $pdo->prepare('select * from userInterest where user_id = ?');
+        $userint -> execute([$profileUserId]);
+        foreach($userint as $value){
+            $intid[] =$value['interest_id']; 
+        }
+        $sql = $pdo->query('select * from interest');
+            foreach($sql as $row){
+                if(in_array($row['interest_id'],$intid)){
+                    echo '<input type="checkbox" name="interest" class="syumi2" id="la'.$row['interest_id'].'" value="'.$row['interest_id'].'" checked><label class="syumi3" for="la'.$row['interest_id'].'">'. $row['interest_name'].'</label>';
+                }else{
+                    echo '<input type="checkbox" name="interest" class="syumi2" id="la'.$row['interest_id'].'" value="'.$row['interest_id'].'"><label class="syumi3" for="la'.$row['interest_id'].'">'. $row['interest_name'].'</label>';
+                }
+                // echo '<button class="syumi" onclick="changeColor(this)">', $row['interest_name'], '</button>';
+                
+            }
+        ?>
+    
+    <!-- <input type="text" id="clickedText" readonly>
     <script>
         function changeColor(button){
             button.classList.toggle('clicked');
             document.getElementById('clickedText').innerText = button.innerText;
             }
-        </script>
+        </script> -->
         </div>
         
         <!-- //後でfor文 -->
@@ -63,50 +90,53 @@ $profile_image_path = $userdata['user_profile_image_path'];
 
         <div style="border: 1px solid black;" class="tatikawa">
         <h2>身長</h2>
-        <input style="border: 0px; margin: auto; height: 32px;" id="syumi" name="b" type="text" placeholder="172㎝">
+        <input id="syumi" name="height" type="text" <?php echo 'value="'.$height.'"'; ?>>
         </div>
-        
-        <div style="border: 1px solid black;">
-            <h2>星座</h2>
-            <div class="star">
-      
-            <select name= "star">
-            <option value = "0">おひつじ座</option>
-            <option value = "1">おうし座</option>
-            <option value = "2">ふたご座</option>
-            <option value = "3">かに座</option>
-            <option value = "4">しし座</option>
-            <option value = "5">おとめ座</option>
-            <option value = "6">てんびん座</option>
-            <option value = "7">さそり座</option>
-            <option value = "8">いて座</option>
-            <option value = "9">やぎ座</option>
-            <option value = "10">みずがめ座</option>
-            <option value = "11">うお座</option>
-        </select>
-            </div>
+<?php        
+        echo'<div style="border: 1px solid black;">';
+            echo'<h2>星座</h2>';
+            echo'<div class="star">';
+            echo'<select name= "star">';
+            for($i=0; $i<=11; $i++){
+                if($star == $i){
+                    echo'<option value = "'.$i.'" selected>'.$star_signs[$i].'</option>';   
+                }else{
+                    echo'<option value = "'.$i.'">'.$star_signs[$i].'</option>'; 
+                }
+            }
+        echo'</select>';
+            echo'</div>';
     
-        <div style="border: 1px solid black;">
-            <h2>血液型</h2>
-            <div class="Blood">
-            <select name= "Bllod">
-            <option value = "0">A型</option>
-            <option value = "1">B型</option>
-            <option value = "2">AB型</option>
-            <option value = "3">O型</option>
-        </select>
-            </div>
-</div>
-        <div style="border: 1px solid black;">
-            <h2>目的</h2>
-            <div class="purpose">
-            <select name= "purpose">
-            <option value = "0">暇つぶし</option>
-            <option value = "1">恋人探し</option>
-            <option value = "2">友達探し</option>
-            <option value = "3">分からない</option>
-        </select>
-</div>
+        echo'<div style="border: 1px solid black;">';
+            echo'<h2>血液型</h2>';
+            echo'<div class="Blood">';
+            echo'<select name= "Blood">';
+            for($i=0; $i<=3; $i++){
+                if($blood == $i){
+                    echo'<option value = "'.$i.'" selected>'.$blood_types[$i].'</option>';
+                }else{
+                    echo'<option value = "'.$i.'">'.$blood_types[$i].'</option>';
+                }
+                
+            }
+        echo'</select>';
+            echo'</div>';
+echo'</div>';
+        echo'<div style="border: 1px solid black;">';
+            echo'<h2>目的</h2>';
+            echo'<div class="purpose">';
+            echo'<select name= "purpose">';
+            for($i=0; $i<=3; $i++){
+                if($purpose == $i){
+                    echo'<option value = "'.$i.'" selected>'.$purposes[$i].'</option>';
+                }else{
+                    echo'<option value = "'.$i.'">'.$purposes[$i].'</option>';
+                }
+                
+            }
+        echo'</select>';
+echo'</div>';
+?>
         </form>
     </body>
     <?php require 'G0-0footer.php'; ?>
