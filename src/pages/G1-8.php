@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/G1-8.css">
+    <link rel="stylesheet" href="../css/border.css">
+    <title>G1-8</title>
+</head>
+<body>
+    <form action="G1-9.php" method="post" class="base">
+        <progress class="prog" max="100" value="70">70%</progress><br>
+            <button type="button" class="backbutton" onclick="history.back()">
+                <img src="../image/left.png" class="left" width="15.56" height="25.68"><br>
+            </button>
+            <div class="subject">興味関心は？</div>
+            <div class="text1">自分に最も合うと感じるものを、次の選択肢の中から5つまでお選びください</div>
+            <hr size="7px" class="border2">
+            <div class="container">
+                <ul class="ks-cboxtags">
+                    <li><input type="checkbox" id="checkboxOne" class="check" value="Rainbow Dash"><label for="checkboxOne">Rainbow Dash</label></li>
+                    <li><input type="checkbox" id="checkboxTwo" class="check" value="Cotton Candy" ><label for="checkboxTwo">Cotton Candy</label></li>
+                    <li><input type="checkbox" id="checkboxThree" class="check" value="Rarity"><label for="checkboxThree">Rarity</label></li>
+                    <li><input type="checkbox" id="checkboxFour" class="check" value="Moondancer"><label for="checkboxFour">Moondancer</label></li>
+                    <li><input type="checkbox" id="checkboxFive" class="check" value="Surprise"><label for="checkboxFive">Surprise</label></li>
+                    <li><input type="checkbox" id="checkboxSix" class="check" value="Twilight Sparkle"><label for="checkboxSix">Twilight Sparkle</label></li>
+                    <li><input type="checkbox" id="checkboxSeven" class="check" value="Fluttershy"><label for="checkboxSeven">Fluttershy</label></li>
+                    <li><input type="checkbox" id="checkboxEight" class="check" value="Derpy Hooves"><label for="checkboxEight">Derpy Hooves</label></li>
+                    <li><input type="checkbox" id="checkboxNine" class="check" value="Princess Celestia"><label for="checkboxNine">Princess Celestia</label></li>
+                    <li><input type="checkbox" id="checkboxTen" class="check" value="Gusty"><label for="checkboxTen">Gusty</label></li>
+                    <li><input type="checkbox" id="checkboxEleven" class="check" value="Discord"><label for="checkboxEleven">Discord</label></li>
+                    <li><input type="checkbox" id="checkboxTwelve" class="check" value="Clover"><label for="checkboxTwelve">Clover</label></li>
+                    <li><input type="checkbox" id="checkboxThirteen" class="check" value="Baby Moondancer"><label for="checkboxThirteen">Baby Moondancer</label></li>
+                    <li><input type="checkbox" id="checkboxFourteen" class="check" value="Medley"><label for="checkboxFourteen">Medley</label></li>
+                    <li><input type="checkbox" id="checkboxFifteen" class="check" value="Firefly"><label for="checkboxFifteen">Firefly</label></li>
+                </ul>
+            </div>    
+            <button type="submit" class="button" id="nextButton"><div class="font" id="nextFont">次へ</div></button>
+    </form>
+<script>
+    $(document).ready(function(){
+        $('.check').on('click', function() {
+            var checkedCount = $('.check:checked').length;
+
+            if (checkedCount > 5) {
+                $(this).prop('checked', false);
+                alert("5つまで選択できます。");
+            }
+
+            updateButtonState();
+        });
+
+        function updateButtonState() {
+            var isChecked = $('.check:checked').length > 0;
+            var nextButton = $('#nextButton');
+            var nextFont = $('#nextFont');
+
+            if (isChecked) {
+                nextButton.addClass('active');
+                nextFont.addClass('active');
+            } else {
+                nextButton.removeClass('active');
+                nextFont.removeClass('active');
+            }
+        }
+
+        updateButtonState();
+    });
+</script>
+<?php
+    session_start();
+    $_SESSION['distance'] = $_POST['distance'];
+?>
+</body>
+</html>
