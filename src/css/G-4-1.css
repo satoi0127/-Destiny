@@ -50,13 +50,14 @@
   .huka img{
     width:250px;
     height:250px;
+    object-fit: cover;
     border-radius:50%;
 }
 .chat{
     
     position: relative;
-    bottom:1270px; 
-    left:20px;
+    bottom:1200px; 
+    left:5px;
     
 }
 .chat img{
