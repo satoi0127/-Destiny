@@ -18,6 +18,41 @@
 
 <?php
 $pdo = new PDO($connect,USER,PASS);
+if(!isset($_GET['chatid'])){
+  $otherid = $_GET['user_id'];
+  $user_id=$_SESSION['user']['id'];
+  $kizonid = 0;
+  $sql = $pdo->prepare("select * from chatmember where user_id=?");
+  $sql->execute([$user_id]);
+  foreach( $sql as $row){
+    $sql2 = $pdo->prepare("select * from chatmember where chatmember_id=?");
+    $sql2->execute([$row['chatmember_id']]);
+    foreach( $sql2 as $row2){
+      if($otherid == $row2['user_id']){
+        $kizonid = 1;
+        $chatroom_id = $row2['chatmember_id'];
+      }
+    }
+  }
+  if($kizonid == 0){
+  $newchatroom_id = $pdo->query("SELECT MAX(chatmember_id)+1 as newid FROM chatmember;");
+  $newchatroom_id = $newchatroom_id->fetchAll()[0]['newid'];
+  echo 'ユーザID : ' , $user_id , ' 相手のユーザID : ', $otherid , ' 新しいチャットルームID : ', $newchatroom_id ;
+  $sql = $pdo->prepare("INSERT INTO chatmember(chatmember_id,user_id) VALUES(?,?),(?,?)");
+  $sql->execute([$newchatroom_id,$user_id,$newchatroom_id,$otherid]);
+  $chatroom_id = $newchatroom_id;
+  }else{
+
+    $user_id=$_SESSION['user']['id'];
+    $sql = $pdo->prepare('select user_id from chatmember where chatmember_id = ?');
+    $sql->execute([$chatroom_id]);
+    foreach($sql as $row){
+      if($row['user_id']!=$user_id){
+      $otherid=$row['user_id'];
+      }
+  }
+}
+}else{
   $chatroom_id=$_GET['chatid'];
   $user_id=$_SESSION['user']['id'];
   $sql = $pdo->prepare('select user_id from chatmember where chatmember_id = ?');
@@ -27,11 +62,15 @@ $pdo = new PDO($connect,USER,PASS);
       $otherid=$row['user_id'];
       }
   }
-  $sql2 = $pdo->prepare('select * from user where user_id = ?');
+  
+}
+$sql2 = $pdo->prepare('select * from user where user_id = ?');
   $sql2 ->execute([$otherid]);
   foreach($sql2 as $result){
     $other_name=$result['user_name'];
   }
+  
+  
 ?>
 <div class="container" >
     <a href="G-5-1.php" class="arrow_btn arrow_01"></a>
