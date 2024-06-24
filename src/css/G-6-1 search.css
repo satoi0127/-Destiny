@@ -88,8 +88,8 @@
     }
     .box img{
         width:100px;
-        margin-right:10px;
         height:100px;
+        object-fit: cover;
         border-radius:50%;
       }
       .text{
