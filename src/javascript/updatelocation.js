@@ -35,7 +35,7 @@ $(function(){
                     type: 'POST',
                     url: '../modules/updatelocation.php',
                     dataType: 'text',
-                    data: {country: country, city: city, province:prov, suburb: suburb, user_id : $("#user_id").val()},
+                    data: {country: country, city: city, province:prov, suburb: suburb, user_id : $("#user_id").val(),lon : lon,lat : lat},
                 }).done(function(data){
                     console.log("php execution successful "+data);
                 });
