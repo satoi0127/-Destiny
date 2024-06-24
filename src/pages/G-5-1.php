@@ -46,7 +46,12 @@ foreach($sql as $row){
             where chatmember_id = ? order by message_id desc limit 1');
             $sql4 -> execute([$row['chatmember_id']]);
             foreach($sql4 as $message){
-            echo'<p class="text3">',$message['message_text'],'</p>';}
+            if(!isset($message['message_text'])){
+                echo'<p class="text3">チャットしてみよう！</p>';
+            }else{
+                echo'<p class="text3">',$message['message_text'],'</p>';
+            }
+        }
     
     
     echo'<hr>';
