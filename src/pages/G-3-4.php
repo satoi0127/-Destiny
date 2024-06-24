@@ -15,7 +15,7 @@
 
 if(!isset($_POST['party_id'])){
     echo 'チャットルームIDが指定されていません。新しくパーティーチャットを作成します';
-    $pdo = new PDO($connect,user,pass);
+    $pdo = new PDO($connect,USER,PASS);
     $party_id = $_POST['party_id'];
     $party_host_id = $_POST['party_host_id'];
     $newchatroom_id = $pdo->query("SELECT MAX(party_id)+1 as newid FROM party;");
@@ -23,9 +23,9 @@ if(!isset($_POST['party_id'])){
 
     echo 'パーティーID : ' , $party_id , ' パーティーホストID : ', $party_host_id , ' 新しいチャットルームID : ', $newchatroom_id ;
 
-    $sql = $pdo->prepare("INSERT INTO party(party_name,party_description) VALUES (?),(?)");
+    $sql = $pdo->prepare("INSERT INTO party(party_name,party_description) VALUES (?,?,?,?)");
     $sql->execute([$newchatroom_id,$party_id,$newchatroom_id,$party_host_id]);
-
+  
     $party_id = $newchatroom_id;
 
 }else{
@@ -33,6 +33,7 @@ if(!isset($_POST['party_id'])){
 }
 
 ?>
+
 <div class="container">
     <a href="./G-3-1party.php" class="arrow_btn arrow_01"><span style="color:#ff0000;">退出</span></a>
 
