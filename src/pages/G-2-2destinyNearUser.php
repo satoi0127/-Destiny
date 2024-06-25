@@ -44,13 +44,10 @@
         $city = $location['user_current_city'];
         $province = $location['user_current_province'];
         $suburb = $location['user_current_suburb'];
-
         ?>
 
         <div id="user_location">
         <p class="aaa">現在地 <button id="updatelocation"><i class="fa fa-refresh" aria-hidden="true"></i></button> </p>
-        <!--<p>緯度:<div id="latitude"></div></p>
-        <p>経度:<div id="longitude"></div></p> -->
         <p class="aaa">地名:<div class="aaa" id="place_name"><?= $country ?> <?= $city ?> <?= $province ?> <?= $suburb ?></div></p>
         </div>
         
@@ -70,8 +67,8 @@
         $profile->execute([$user_data['user_id']]);
         $profile = $profile->fetchAll()[0];
 
-        $user_lat = $_SESSION['user']['coordinate_latitude'];
-        $user_lon = $_SESSION['user']['coordinate_longitude'];
+        $user_lat = $location['user_coordinate_latitude'];
+        $user_lon = $location['user_coordinate_longitude'];
         $other_user_lat = $user_data['user_coordinate_latitude'];
         $other_user_lon = $user_data['user_coordinate_longitude'];
 
@@ -90,60 +87,10 @@
         </form>
 
         <?php
-        /*
-        echo "<div class=\"user_list_individual\">";
-        $dist = getdist($_SESSION['user']['coordinate_latitude'],$_SESSION['user']['coordinate_longitude'],$user_data['user_coordinate_latitude'],$user_data['user_coordinate_longitude']);
-        echo '<p>',$dist,'</p>';
-        echo "<div class=\"image_and_name\">";
-        $pfp_path = $pdo->prepare("SELECT user_profile_image_path FROM profile WHERE user_id = ?");
-        $pfp_path->execute([$user_data['user_id']]);
-        $pfp_path = $pfp_path->fetchAll()[0]['user_profile_image_path'];
-        echo '<img src="../image/',$pfp_path,'" class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;">';
-        echo '<p style="font-size: 18px;">', $user_data["user_name"] , " </p>";
-        echo "</div>";
-        $user_description = $pdo->prepare("SELECT user_description FROM profile WHERE user_id = ?");
-        $user_description->execute([$user_data['user_id']]);
-        $description = $user_description->fetchAll()[0]["user_description"];
-
-        echo '<p style="font-size: 12px;">',
-            $description,
-            "</p>";
-        echo "</div>";
-        */
     }
     ?>
 
-    <?php
-    /*
-
-    $user_logged_id = $_SESSION['user']['id'];
-
-    $pdo = new PDO($connect, USER, PASS);
-    $sql = $pdo->prepare("select * from user WHERE user_id != ?");
-    $sql->execute([$user_logged_id]);
-    
-    foreach ($sql as $user_data) {
-        echo "<div class=\"user_list_individual\">";
-        $dist = getdist($_SESSION['user']['coordinate_latitude'],$_SESSION['user']['coordinate_longitude'],$user_data['user_coordinate_latitude'],$user_data['user_coordinate_longitude']);
-        echo '<p>',$dist,'</p>';
-        echo "<div class=\"image_and_name\">";
-        $pfp_path = $pdo->prepare("SELECT user_profile_image_path FROM profile WHERE user_id = ?");
-        $pfp_path->execute([$user_data['user_id']]);
-        $pfp_path = $pfp_path->fetchAll()[0]['user_profile_image_path'];
-        echo '<img src="../image/',$pfp_path,'" class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;">';
-        echo '<p style="font-size: 18px;">', $user_data["user_name"] , " </p>";
-        echo "</div>";
-        $user_description = $pdo->prepare("SELECT user_description FROM profile WHERE user_id = ?");
-        $user_description->execute([$user_data['user_id']]);
-        $description = $user_description->fetchAll()[0]["user_description"];
-
-        echo '<p style="font-size: 12px;">',
-            $description,
-            "</p>";
-        echo "</div>";
-    }
-        */
-    ?>
+    <div style="height:10vh;"></div> <!--フッターメニューにめり込まないように余白-->
 
     <script type="text/javascript" src="../javascript/updatelocation.js"></script>
 
