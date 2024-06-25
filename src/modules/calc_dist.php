@@ -1,6 +1,6 @@
 <?php
 
-function getdist($lat1,$lat2,$lon1,$lon2){
+function getdist($lat1,$lon1,$lat2,$lon2){
 
 $a = M_PI / 180;
 
@@ -12,7 +12,7 @@ $lon2 *= $a;
 
 $dist = acos(sin($lat1)*sin($lat2)+cos($lat1)*cos($lat2)*cos($lon2-$lon1))*6371;
 
-if($dist > 1000){
+if($dist > 100000){
     echo "too far";
     }else{
     echo $dist ," km";
