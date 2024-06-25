@@ -40,6 +40,15 @@
         $pdo = new PDO($connect,USER,PASS);
         $sql = $pdo->prepare("INSERT INTO user(user_password, user_name, user_tel, mail_address, user_sex) VALUES (?,?,?,?,?);");
         //同じユーザネームなど関係なしに登録してしまっている
+
+        /*
+
+        初期データと一緒に挿入！
+        +プロフィール画像 デフォルト画像5枚のうちどれか
+        +紹介文
+        +趣味　何か一つ
+
+        */
         if($sql->execute([$password,$user_name,$user_tel,$mail_address,false])){
             $result = 0;
             $user_id = $pdo->lastInsertId();
@@ -47,6 +56,8 @@
             $default_pfp = "default".$image_num.".png";
             $sql = $pdo->prepare("INSERT INTO profile(user_id,user_profile_image_path,user_description) values(?,?,'ユーザーは自己紹介文を書いていません')");
             if(!$sql->execute([$user_id,$default_pfp]))$result=-1;
+            $sql = $pdo->prepare("INSERT INTO userInterest(user_id,interest_id) values(?,?)");
+            if(!$sql->execute([$user_id,8]))$result=-1;
         }else{
             $result = -1;
         }

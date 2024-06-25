@@ -29,17 +29,15 @@
         }
         </style>
         <hr>
-        
 
     <div class="border">
         
         <input type="hidden" id="user_id" value=<?= $_SESSION['user']['id'] ?>>
         <?php
 
-
         $pdo = new PDO($connect,USER,PASS);
-        $sql = $pdo->prepare("SELECT * FROM user WHERE user_id = 1");
-        $sql->execute([]);
+        $sql = $pdo->prepare("SELECT * FROM user WHERE user_id = ?");
+        $sql->execute([$_SESSION['user']['id']]);
         $location = $sql->fetchAll()[0];
 
         $country = $location['user_current_country'];
@@ -59,8 +57,71 @@
     </div>
 
     <?php
+
+    $user_logged_id = $_SESSION['user']['id'];
     $pdo = new PDO($connect, USER, PASS);
-    $sql = $pdo->query("select * from user");
+    $sql = $pdo->prepare("SELECT * from user WHERE user_id != ?");
+    $sql->execute([$user_logged_id]);
+    $individual_num = 0;
+    foreach ($sql as $user_data) {
+        $individual_num++;
+
+        $profile = $pdo->prepare("SELECT * FROM profile where user_id = ?");
+        $profile->execute([$user_data['user_id']]);
+        $profile = $profile->fetchAll()[0];
+
+        $user_lat = $_SESSION['user']['coordinate_latitude'];
+        $user_lon = $_SESSION['user']['coordinate_longitude'];
+        $other_user_lat = $user_data['user_coordinate_latitude'];
+        $other_user_lon = $user_data['user_coordinate_longitude'];
+
+        $dist = getdist($user_lat,$user_lon,$other_user_lat,$other_user_lon);
+        ?>
+
+        <form name="individual_user<?=$individual_num?>" id="individual_user<?=$individual_num?>" action="G-4-1.php" method="GET">
+            <input type="hidden" name="user_id" value="<?=$user_data['user_id']?>">
+                <div class="user_list_individual" onClick="document.forms['individual_user<?=$individual_num?>'].submit();">
+                    <div class="image_and_name">
+                        <img src="../image/<?=$profile['user_profile_image_path']?>" alt="" class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;">
+                        <p style="font-size: 18px;"><?=$user_data['user_name']?></p>
+                    </div>
+                    <p style="font-size: 12px;"><?=$profile['user_description']?></p>
+                </div>
+        </form>
+
+        <?php
+        /*
+        echo "<div class=\"user_list_individual\">";
+        $dist = getdist($_SESSION['user']['coordinate_latitude'],$_SESSION['user']['coordinate_longitude'],$user_data['user_coordinate_latitude'],$user_data['user_coordinate_longitude']);
+        echo '<p>',$dist,'</p>';
+        echo "<div class=\"image_and_name\">";
+        $pfp_path = $pdo->prepare("SELECT user_profile_image_path FROM profile WHERE user_id = ?");
+        $pfp_path->execute([$user_data['user_id']]);
+        $pfp_path = $pfp_path->fetchAll()[0]['user_profile_image_path'];
+        echo '<img src="../image/',$pfp_path,'" class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;">';
+        echo '<p style="font-size: 18px;">', $user_data["user_name"] , " </p>";
+        echo "</div>";
+        $user_description = $pdo->prepare("SELECT user_description FROM profile WHERE user_id = ?");
+        $user_description->execute([$user_data['user_id']]);
+        $description = $user_description->fetchAll()[0]["user_description"];
+
+        echo '<p style="font-size: 12px;">',
+            $description,
+            "</p>";
+        echo "</div>";
+        */
+    }
+    ?>
+
+    <?php
+    /*
+
+    $user_logged_id = $_SESSION['user']['id'];
+
+    $pdo = new PDO($connect, USER, PASS);
+    $sql = $pdo->prepare("select * from user WHERE user_id != ?");
+    $sql->execute([$user_logged_id]);
+    
     foreach ($sql as $user_data) {
         echo "<div class=\"user_list_individual\">";
         $dist = getdist($_SESSION['user']['coordinate_latitude'],$_SESSION['user']['coordinate_longitude'],$user_data['user_coordinate_latitude'],$user_data['user_coordinate_longitude']);
@@ -81,6 +142,7 @@
             "</p>";
         echo "</div>";
     }
+        */
     ?>
 
     <script type="text/javascript" src="../javascript/updatelocation.js"></script>
