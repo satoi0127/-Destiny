@@ -54,10 +54,10 @@
             $user_id = $pdo->lastInsertId();
             $image_num = 1+($user_id%5);
             $default_pfp = "default".$image_num.".png";
-            $sql = $pdo->prepare("INSERT INTO profile(user_id,user_profile_image_path,user_description) values(?,?,'ユーザーは自己紹介文を書いていません')");
-            if(!$sql->execute([$user_id,$default_pfp]))$result=-1;
-            $sql = $pdo->prepare("INSERT INTO userInterest(user_id,interest_id,user_starsign,user_blood_type,user_purpose,user_height) values(?,?,?,?,?,?)");
-            if(!$sql->execute([$user_id,8,255,255,255,16]))$result=-1;
+            $sql = $pdo->prepare("INSERT INTO profile(user_id,user_profile_image_path,user_description,user_starsign,user_blood_type,user_purpose,user_height) values(?,?,'ユーザーは自己紹介文を書いていません',?,?,?,?)");
+            if(!$sql->execute([$user_id,$default_pfp,255,255,255,16]))$result=-1;
+            $sql = $pdo->prepare("INSERT INTO userInterest(user_id,interest_id) values(?,?)");
+            if(!$sql->execute([$user_id,8]))$result=-1;
         }else{
             $result = -1;
         }
