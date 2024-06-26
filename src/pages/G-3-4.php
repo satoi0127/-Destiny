@@ -13,6 +13,10 @@
 <body>
 <?php
 
+$party_name = "";
+$party_id = 0;
+$chatroom_id = 0;
+
 if(!isset($_POST['party_id'])){
     echo 'チャットルームIDが指定されていません。新しくパーティーチャットを作成します';
     $pdo = new PDO($connect,USER,PASS);
@@ -24,10 +28,17 @@ if(!isset($_POST['party_id'])){
       echo '失敗';
     }
   
-    $party_id = $newchatroom_id;
+    $party_id = $pdo->lastInsertId();
+    $party_name = $_POST['party_name'];
+
+    $newchatroom_id = $pdo->query("SELECT MAX(chatmember_id)+1 as newid FROM chatmember;");
+    $newchatroom_id = $newchatroom_id->fetchAll()[0]['newid'];
+    $sql = $pdo->prepare("INSERT INTO chatmember(chatmember_id,user_id) VALUES(?,?)");
+    $sql->execute([$newchatroom_id,$_POST['host_id']]);
+    $chatroom_id = $newchatroom_id;
 
 }else{
-    $chatroom_id = $_POST['party_id'];
+    $party_id = $_POST['party_id'];
 }
 
 ?>
@@ -36,7 +47,7 @@ if(!isset($_POST['party_id'])){
     <a href="./G-3-1party.php" class="arrow_btn arrow_01"><span style="color:#ff0000;">退出</span></a>
 
 <div class="bar"><a href="./G-3-5.php" class="bars"><img src="../image/bars.png" alt="" class="barsimg"></a></div>
-    <h2 class="text1"><?= $party_name?>/h2><br>
+    <h2 class="text1"><?= $party_name?></h2><br>
     <!-- 左の吹き出し -->
     <div class="balloon-color left">
     <figure class="icon-color"><img src="../image/hukai.png" alt="代替えテキスト" >    

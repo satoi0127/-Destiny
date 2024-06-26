@@ -54,7 +54,12 @@
     width:91px;
         margin-right:10px;
         height:91px;
+
 } 
+.tatikawa2{
+    position: relative;
+    bottom:50px; left:130px;
+}
 .star{ 
     position: relative;
     bottom:50px; left:130px;
