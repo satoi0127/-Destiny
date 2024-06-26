@@ -36,6 +36,8 @@
             //echo $results['interest_id'];
             echo '<button type="submit" >チャット開始</button>';
 
+            /*
+
             $query = $pdo->prepare("select party_name,party_description from party where party_name = ?,party_description = ?");
             $query->execute([$results['party_id']]);
 
@@ -49,6 +51,7 @@
                 echo '<img class="icon_small" src="uploads/',$img_path,'" alt="">';
                 echo '</div>';
             }
+                */
            
             echo '</form>';
 
