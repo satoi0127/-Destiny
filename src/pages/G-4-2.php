@@ -90,7 +90,9 @@ $purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>
 
         <div style="border: 1px solid black;" class="tatikawa">
         <h2>身長</h2>
+        <div class="tatikawa2">
         <input id="syumi" name="height" type="text" <?php echo 'value="'.$height.'"'; ?>>
+        </div>
         </div>
 <?php        
         echo'<div style="border: 1px solid black;">';
