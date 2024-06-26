@@ -57,17 +57,17 @@
 } 
 .star{ 
     position: relative;
-    bottom:40px; left:130px;
+    bottom:50px; left:130px;
 }
 
 .Blood{ 
     position: relative;
-    bottom:-25px; left:70px;
+    bottom:51px; left:130px;
 
 }
 .purpose{ 
     position: relative;
-    bottom:50px; left:50px;
+    bottom:50px; left:130px;
 
 }
 .syumi {
