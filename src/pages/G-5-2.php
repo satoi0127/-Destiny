@@ -35,9 +35,8 @@ if(!isset($_GET['chatid'])){
     }
   }
   if($kizonid == 0){
-  $newchatroom_id = $pdo->query("SELECT MAX(chatmember_id)+1 as newid FROM chatmember;");
+  $newchatroom_id = $pdo->query("SELECT COUNT(*)+1 as newid FROM chatmember;");
   $newchatroom_id = $newchatroom_id->fetchAll()[0]['newid'];
-  echo 'ユーザID : ' , $user_id , ' 相手のユーザID : ', $otherid , ' 新しいチャットルームID : ', $newchatroom_id ;
   $sql = $pdo->prepare("INSERT INTO chatmember(chatmember_id,user_id) VALUES(?,?),(?,?)");
   $sql->execute([$newchatroom_id,$user_id,$newchatroom_id,$otherid]);
   $chatroom_id = $newchatroom_id;

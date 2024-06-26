@@ -1,5 +1,6 @@
 <?php session_start(); ?>
 <?php require "../modules/DBconnect.php"; ?>
+<?php require "../modules/calc_dist.php"; ?>
 <?php require "../modules/header.php"; ?>
 
     <link rel="stylesheet" href="../css/G-2-2.css">
@@ -28,52 +29,68 @@
         }
         </style>
         <hr>
-        
 
     <div class="border">
         
         <input type="hidden" id="user_id" value=<?= $_SESSION['user']['id'] ?>>
         <?php
+
         $pdo = new PDO($connect,USER,PASS);
-        $sql = $pdo->prepare("SELECT * FROM user WHERE user_id = 1");
-        $sql->execute([]);
-        $location = $sql->fetchAll()[0]["user_coordinate_latitude"];
+        $sql = $pdo->prepare("SELECT * FROM user WHERE user_id = ?");
+        $sql->execute([$_SESSION['user']['id']]);
+        $location = $sql->fetchAll()[0];
+
+        $country = $location['user_current_country'];
+        $city = $location['user_current_city'];
+        $province = $location['user_current_province'];
+        $suburb = $location['user_current_suburb'];
         ?>
 
         <div id="user_location">
         <p class="aaa">現在地 <button id="updatelocation"><i class="fa fa-refresh" aria-hidden="true"></i></button> </p>
-
-        <br>
-        <p>緯度:<div id="latitude"></div></p>
-        <p>経度:<div id="longitude"></div></p>
-        <p>地名:<div id="place_name">Fukuoka, japan</div></p>
+        <p class="aaa">地名:<div class="aaa" id="place_name"><?= $country ?> <?= $city ?> <?= $province ?> <?= $suburb ?></div></p>
         </div>
         
     </div>
 
     <?php
+
+    $user_logged_id = $_SESSION['user']['id'];
     $pdo = new PDO($connect, USER, PASS);
-    $sql = $pdo->query("select * from user");
+    $sql = $pdo->prepare("SELECT * from user WHERE user_id != ?");
+    $sql->execute([$user_logged_id]);
+    $individual_num = 0;
     foreach ($sql as $user_data) {
-        echo "<div class=\"user_list_individual\">";
-        echo "<div class=\"image_and_name\">";
-        $pfp_path = $pdo->prepare("SELECT user_profile_image_path FROM profile WHERE profile_id = ?");
-        $pfp_path->execute([$user_data['user_id']]);
-        $pfp_path = $pfp_path->fetchAll()[0]['user_profile_image_path'];
-        echo '<img src="../image/',$pfp_path,'" class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;">';
-        echo '<p style="font-size: 18px;">', $user_data["user_name"], "</p>";
-        echo "</div>";
+        $individual_num++;
 
-        $user_description = $pdo->prepare("SELECT user_description FROM profile WHERE user_id = ?");
-        $user_description->execute([$user_data['user_id']]);
-        $description = $user_description->fetchAll()[0]["user_description"];
+        $profile = $pdo->prepare("SELECT * FROM profile where user_id = ?");
+        $profile->execute([$user_data['user_id']]);
+        $profile = $profile->fetchAll()[0];
 
-        echo '<p style="font-size: 12px;">',
-            $description,
-            "</p>";
-        echo "</div>";
+        $user_lat = $location['user_coordinate_latitude'];
+        $user_lon = $location['user_coordinate_longitude'];
+        $other_user_lat = $user_data['user_coordinate_latitude'];
+        $other_user_lon = $user_data['user_coordinate_longitude'];
+
+        $dist = getdist($user_lat,$user_lon,$other_user_lat,$other_user_lon);
+        ?>
+
+        <form name="individual_user<?=$individual_num?>" id="individual_user<?=$individual_num?>" action="G-4-1.php" method="GET">
+            <input type="hidden" name="user_id" value="<?=$user_data['user_id']?>">
+                <div class="user_list_individual" onClick="document.forms['individual_user<?=$individual_num?>'].submit();">
+                    <div class="image_and_name">
+                        <img src="../image/<?=$profile['user_profile_image_path']?>" alt="" class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;">
+                        <p style="font-size: 18px;"><?=$user_data['user_name']?></p>
+                    </div>
+                    <p style="font-size: 12px;"><?=$profile['user_description']?></p>
+                </div>
+        </form>
+
+        <?php
     }
     ?>
+
+    <div style="height:10vh;"></div> <!--フッターメニューにめり込まないように余白-->
 
     <script type="text/javascript" src="../javascript/updatelocation.js"></script>
 

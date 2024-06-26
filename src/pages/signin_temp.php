@@ -35,12 +35,29 @@
         $user_name = $_POST['user_name'];
         $user_tel = $_POST['user_tel'];
         $user_sex = $_POST['user_sex'];
+        $user_id = 0;
 
         $pdo = new PDO($connect,USER,PASS);
         $sql = $pdo->prepare("INSERT INTO user(user_password, user_name, user_tel, mail_address, user_sex) VALUES (?,?,?,?,?);");
         //同じユーザネームなど関係なしに登録してしまっている
+
+        /*
+
+        初期データと一緒に挿入！
+        +プロフィール画像 デフォルト画像5枚のうちどれか
+        +紹介文
+        +趣味　何か一つ
+
+        */
         if($sql->execute([$password,$user_name,$user_tel,$mail_address,false])){
             $result = 0;
+            $user_id = $pdo->lastInsertId();
+            $image_num = 1+($user_id%5);
+            $default_pfp = "default".$image_num.".png";
+            $sql = $pdo->prepare("INSERT INTO profile(user_id,user_profile_image_path,user_description,user_starsign,user_blood_type,user_purpose,user_height) values(?,?,'ユーザーは自己紹介文を書いていません',?,?,?,?)");
+            if(!$sql->execute([$user_id,$default_pfp,255,255,255,16]))$result=-1;
+            $sql = $pdo->prepare("INSERT INTO userInterest(user_id,interest_id) values(?,?)");
+            if(!$sql->execute([$user_id,8]))$result=-1;
         }else{
             $result = -1;
         }
