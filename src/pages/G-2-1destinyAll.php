@@ -53,7 +53,7 @@
     }
     ?>
     <div style="height:10vh;"></div> <!--フッターメニューにめり込まないように余白-->
-<?php require "G0-0footer.php"; ?>
+    <?php require "G0-0footer.php"; ?>
 
     </body>
 </html>
