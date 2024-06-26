@@ -67,9 +67,9 @@ $purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>
         $sql = $pdo->query('select * from interest');
             foreach($sql as $row){
                 if(in_array($row['interest_id'],$intid)){
-                    echo '<input type="checkbox" name="interest" class="syumi2" id="la'.$row['interest_id'].'" value="'.$row['interest_id'].'" checked><label class="syumi3" for="la'.$row['interest_id'].'">'. $row['interest_name'].'</label>';
+                    echo '<input type="checkbox" name="interest[]" class="syumi2" id="la'.$row['interest_id'].'" value="'.$row['interest_id'].'" checked><label class="syumi3" for="la'.$row['interest_id'].'">'. $row['interest_name'].'</label>';
                 }else{
-                    echo '<input type="checkbox" name="interest" class="syumi2" id="la'.$row['interest_id'].'" value="'.$row['interest_id'].'"><label class="syumi3" for="la'.$row['interest_id'].'">'. $row['interest_name'].'</label>';
+                    echo '<input type="checkbox" name="interest[]" class="syumi2" id="la'.$row['interest_id'].'" value="'.$row['interest_id'].'"><label class="syumi3" for="la'.$row['interest_id'].'">'. $row['interest_name'].'</label>';
                 }
                 // echo '<button class="syumi" onclick="changeColor(this)">', $row['interest_name'], '</button>';
                 
