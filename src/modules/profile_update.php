@@ -7,8 +7,8 @@
     $sql->execute([$_POST['star'],$_POST['height'],$_POST['Blood'],$_POST['purpose'],$_POST['self'],$userid]);
 
     foreach($_POST['interest'] as $choice){
-    // $userint = $pdo->prepare('INSERT INTO userInterest(uinterest_id, user_id, interest_id) VALUES (null,?,?)');
-    // $userint -> execute($userid,$choice);
+    $userint = $pdo->prepare('INSERT INTO userInterest(uinterest_id, user_id, interest_id) VALUES (null,?,?)');
+    $userint -> execute($userid,$choice);
     $int2[] = $choice;
     }
     $userint2 = $pdo->prepare('select * from userInterest where user_id = ?');
@@ -18,8 +18,8 @@
     }
     $int1_diff = array_diff($int2,$int1);
     foreach($int1_diff as $val){
-        echo $val;
-        echo '<br>';
+      $userdelete = $pdo->prepare('DELETE FROM userInterest WHERE user_id=? and interest_id=?');
+      $userdelete -> execute($userid,$val);
       }
     //   echo'int2';
     //   echo'<br>';
@@ -39,5 +39,5 @@
     // echo '身長：'.$_POST['height'].'<br>';
     // echo '血液型：'.$_POST['Blood'].'<br>';
     // echo '目的：'.$_POST['purpose'].'<br>';
-    //header('Location:../pages/G-4-1.php');
+    header('Location:../pages/G-4-1.php');
 ?>
