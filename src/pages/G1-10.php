@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,8 +22,6 @@
 </div>
 <script>
 </script>
-<?php
-    session_start();
-?>
+
 </body>
 </html>

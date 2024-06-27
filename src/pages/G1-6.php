@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!-- <php require '../modules/DBconnect.php'; ?> -->
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +17,7 @@
             <div class="subject">マッチしたい人は？</div>
             <div class="text1">自分に最も合うと感じるものを、次の選択肢の中から１つお選びください</div>
 
-            <form action="G1-7.php" method="post" class="form">
+            <form action="G1-6.php" method="post" class="form">
                 <div class="inputGroup">
                     <input id="man" name="check" class="check" type="checkbox" />
                     <label for="man"><div class="font2">男性</div></label>
@@ -60,17 +61,13 @@
                 }
             }
         });
-
 </script>
-<?php
-    session_start();
-    $year = $_POST['Y1'] . $_POST['Y2'] . $_POST['Y3'] . $_POST['Y4'];
-    $month = $_POST['M1'] . $_POST['M2'];
-    $day = $_POST['D1'] . $_POST['D2'];
-
-    $_SESSION['year'] = $year;
-    $_SESSION['month'] = $month;
-    $_SESSION['day'] = $day;
-?>
 </body>
 </html>
+<?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $_SESSION['match'] = $_POST['check'];
+        header('Location: G1-7.php');
+        exit;
+    }
+?>

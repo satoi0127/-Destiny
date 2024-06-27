@@ -10,7 +10,7 @@
     <title>G1-3</title>
 </head>
 <body>
-    <form action="G1-4.php" method="post" class="base">
+    <form action="G1-3.php" method="post" class="base">
             <progress class="prog" max="100" value="20">20%</progress><br>
         <button type="button" class="backbutton" onclick="history.back()">
             <img src="../image/left.png" class="left" width="15.56" height="25.68"><br>
@@ -54,8 +54,13 @@
     Password1.addEventListener('input', updateButtonState);
     Password2.addEventListener('input', updateButtonState);
 </script>
-<?php
-    $_SESSION['user_name'] = $_POST['name'];
-?>
 </body>
 </html>
+<?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $_SESSION['email'] = $_POST['email'];
+        $_SESSION['password'] = $_POST['password'];
+        header('Location: G1-4.php');
+        exit;
+    }
+?>
