@@ -1,107 +1,104 @@
-.arrow_btn{ 
-    position: relative;
-    display: inline-block;
-    padding: 0 0 0 16px;
+/* G-4-2.css */
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+.arrow_btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
     color: #000;
-    vertical-align: middle;
     text-decoration: none;
     font-size: 15px;
-    
-    padding: 5px 10px 5px 30px;
-} 
-.arrow_btn::before,
-.arrow_btn::after {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    content: "";
-
-
-    
-    vertical-align: middle;
+    padding: 5px 10px;
 }
 
-.arrow_01::before{
-    width: 10px;
-    height: 10px;
+.arrow_btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%) rotate(225deg);
     border-top: 4px solid #000;
     border-right: 4px solid #000;
-    -webkit-transform: rotate(225deg);
-    transform: rotate(225deg);
+    width: 10px;
+    height: 10px;
 }
-.kann{ 
-    
+
+.kann {
     position: absolute;
-        top: 0;
-        right: 0;
-        color: rgb(114, 114, 235);
-
-
+    top: 10px;
+    right: 10px;
+    color: rgb(114, 114, 235);
+    text-decoration: none;
+    font-size: 16px;
 }
-.henn{ 
-    
+
+.henn {
     text-align: center;
     color: rgb(200, 25, 25);
-
+    margin-top: 20px;
 }
-.conn{ 
-    
+
+/* Form container */
+.conn {
     margin: 30px;
 }
- .aa{ 
-    width:91px;
-        margin-right:10px;
-        height:91px;
 
-} 
-.tatikawa2{
-    position: relative;
-    bottom:50px; left:130px;
-}
-.star{ 
-    position: relative;
-    bottom:50px; left:130px;
+/* Profile image */
+.img-profile {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
 }
 
-.Blood{ 
-    position: relative;
-    bottom:51px; left:130px;
-
-}
-.purpose{ 
-    position: relative;
-    bottom:50px; left:130px;
-
-}
-.syumi {
-    background-color: deeppink;
-    height: auto;
-    width:auto;
-    border: 0px;
-    border-radius: 10px;
-    color: white
-
-}
-
-.syumi.clicked {
-    background-color: lightblue; /* クリックしたら背景色を変更 */
-}
-
-.syumi2{
+/* Checkboxes */
+.syumi2 {
     display: none;
 }
-.syumi2:checked + label {
+
+.syumi2:checked + .syumi3 {
     background: lightblue;
     color: #ffffff;
 }
-.syumi3{
+
+.syumi3 {
+    display: inline-block;
     background-color: deeppink;
-    height: auto;
-    width:20px;
-    border: 0px;
+    padding: 5px 10px;
     border-radius: 10px;
     color: white;
+    margin-right: 10px;
+    margin-bottom: 10px;
     border: 2px solid #000000;
+}
+
+/* Select boxes */
+.select-box {
+    border: 1px solid black;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.select-box h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.select-box select {
+    width: 200px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Footer space */
+.footer-space {
+    height: 10vh;
 }

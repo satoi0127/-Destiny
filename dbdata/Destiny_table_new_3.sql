@@ -87,5 +87,5 @@ CREATE TABLE party_member(
     party_id INTEGER NOT NULL,
     user_id INTEGER NOT NULL,
     FOREIGN KEY(user_id) REFERENCES user(user_id),
-    FOREIGN KEY(party_id) REFERENCES party(party_id);
+    FOREIGN KEY(party_id) REFERENCES party(party_id)
 );
