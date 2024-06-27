@@ -51,7 +51,7 @@ $blood_types = array(0 => 'A型',1 =>'B型',2 =>'AB型',3 =>'O型' );
 $purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>'まだ分からない' );
 ?>
 
-<img  src="../image/<?php echo $profile_image_path; ?>" alt="プロフィール画像">
+<img  class="profile" src="../image/<?php echo $profile_image_path; ?>"  alt="プロフィール画像">
         <h2>自己紹介</h2>
         <input name="self" type="text" <?php echo 'value="'.$info.'"'; ?>>
         </div>
