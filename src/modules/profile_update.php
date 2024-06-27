@@ -7,8 +7,8 @@
     $sql->execute([$_POST['star'],$_POST['height'],$_POST['Blood'],$_POST['purpose'],$_POST['self'],$userid]);
 
     foreach($_POST['interest'] as $choice){
-    $userint = $pdo->prepare('INSERT INTO userInterest(uinterest_id, user_id, interest_id) VALUES (null,?,?)');
-    $userint -> execute($userid,$choice);
+    // $userint = $pdo->prepare('INSERT INTO userInterest(uinterest_id, user_id, interest_id) VALUES (null,?,?)');
+    // $userint -> execute([$userid,$choice]);
     $int2[] = $choice;
     }
     $userint2 = $pdo->prepare('select * from userInterest where user_id = ?');
@@ -16,10 +16,21 @@
     foreach($userint2 as $value){
             $int1[] = $value['interest_id'];
     }
-    $int1_diff = array_diff($int2,$int1);
+
+    $int2_diff = array_diff($int2,$int1);
+    foreach($int2_diff as $val2){
+      // echo $val;
+      // echo '<br>';
+      $userint = $pdo->prepare('INSERT INTO userInterest(uinterest_id, user_id, interest_id) VALUES (null,?,?)');
+      $userint -> execute([$userid,$val2]);
+      }
+
+    $int1_diff = array_diff($int1,$int2);
     foreach($int1_diff as $val){
+      // echo $val;
+      // echo '<br>';
       $userdelete = $pdo->prepare('DELETE FROM userInterest WHERE user_id=? and interest_id=?');
-      $userdelete -> execute($userid,$val);
+      $userdelete -> execute([$userid,$val]);
       }
     //   echo'int2';
     //   echo'<br>';
