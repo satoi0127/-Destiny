@@ -1,104 +1,135 @@
-/* G-4-2.css */
-
-/* Global styles */
+/* 全体のスタイル */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
+    color: #333;
     margin: 0;
     padding: 0;
 }
 
-/* Header styles */
-.arrow_btn {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    color: #000;
-    text-decoration: none;
-    font-size: 15px;
-    padding: 5px 10px;
+/* フォームとボタン */
+form {
+    background: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.arrow_btn::before {
+.arrow_btn {
+    display: inline-block;
+    padding: 10px;
+    background-color: #ff6666;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    margin: 10px;
+    position: relative;
+}
+
+.arrow_btn::before,
+.arrow_btn::after {
     content: "";
     position: absolute;
     top: 50%;
-    left: 5px;
-    transform: translateY(-50%) rotate(225deg);
-    border-top: 4px solid #000;
-    border-right: 4px solid #000;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 10px;
     height: 10px;
+    border-top: 4px solid #fff;
+    border-right: 4px solid #fff;
+}
+
+.arrow_01::before {
+    transform: rotate(225deg) translate(-50%, -50%);
 }
 
 .kann {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0;
+    right: 0;
     color: rgb(114, 114, 235);
+    font-size: 1.2em;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
     text-decoration: none;
-    font-size: 16px;
+    cursor: pointer;
+}
+
+.kann:hover {
+    background-color: #45a049;
 }
 
 .henn {
     text-align: center;
     color: rgb(200, 25, 25);
+    font-size: 1.5em;
     margin-top: 20px;
 }
 
-/* Form container */
 .conn {
     margin: 30px;
 }
 
-/* Profile image */
-.img-profile {
-    width: 100px;
-    height: 100px;
+.aa {
+    width: 91px;
+    margin-right: 10px;
+    height: 91px;
+}
+
+/* 画像 */
+img {
+    display: block;
+    margin: 0 auto 20px;
     border-radius: 50%;
+    max-width: 150px;
+}
+
+/* タイトル */
+h2 {
+    font-size: 1.2em;
+    color: #555;
     margin-bottom: 10px;
 }
 
-/* Checkboxes */
-.syumi2 {
-    display: none;
+/* 入力フィールド */
+input[type="text"],
+select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
-.syumi2:checked + .syumi3 {
-    background: lightblue;
-    color: #ffffff;
+/* 趣味チェックボックス */
+.syumi2 {
+    margin-right: 10px;
 }
 
 .syumi3 {
-    display: inline-block;
-    background-color: deeppink;
-    padding: 5px 10px;
-    border-radius: 10px;
-    color: white;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    border: 2px solid #000000;
+    margin-right: 20px;
 }
 
-/* Select boxes */
-.select-box {
-    border: 1px solid black;
-    margin-top: 20px;
+div {
+    margin-bottom: 20px;
     padding: 10px;
-}
-
-.select-box h2 {
-    font-size: 18px;
-    margin-bottom: 5px;
-}
-
-.select-box select {
-    width: 200px;
-    padding: 5px;
+    background-color: #f9f9f9;
     border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer space */
-.footer-space {
-    height: 10vh;
+/* セレクトボックス */
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
