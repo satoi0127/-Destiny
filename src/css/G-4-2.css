@@ -108,22 +108,17 @@ select {
     box-sizing: border-box;
 }
 
-/* 趣味チェックボックス */
-.syumi2{
-    display: none;
+/* 趣味チェックボックスとラベル */
+.syumi2 {
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
 }
-.syumi2:checked + label {
-    background: lightblue;
-    color: #ffffff;
-}
-.syumi3{
-    background-color: deeppink;
-    height: auto;
-    width:20px;
-    border: 0px;
-    border-radius: 10px;
-    color: white;
-    border: 2px solid #000000;
+
+.syumi3 {
+    margin-right: 20px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 div {
