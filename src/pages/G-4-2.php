@@ -108,6 +108,7 @@ $purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>
             }
         echo'</select>';
             echo'</div>';
+            echo'</div>';
     
         echo'<div style="border: 1px solid black;">';
             echo'<h2>血液型</h2>';
@@ -137,6 +138,7 @@ echo'</div>';
                 
             }
         echo'</select>';
+echo'</div>';
 echo'</div>';
 ?>
         </form>
