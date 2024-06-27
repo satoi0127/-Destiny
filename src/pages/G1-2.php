@@ -10,7 +10,7 @@
     <title>G1-2</title>
 </head>
 <body>
-    <form action="G1-3.php" method="post" class="base">
+    <form action="G1-2.php" method="post" class="base">
         <progress class="prog" max="100" value="10">10%</progress><br>
         <button type="button" class="backbutton" onclick="history.back()">
             <img src="../image/left.png" class="left" width="15.56" height="25.68"><br>
@@ -38,3 +38,10 @@
 </script>
 </body>
 </html>
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $_SESSION['user_name'] = $_POST['name'];
+    header('Location: G1-3.php');
+    exit;
+}
+?>

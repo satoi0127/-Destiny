@@ -1,3 +1,14 @@
+<?php session_start();
+    
+    $selected_interests = isset($_SESSION['selected_interests']) ? $_SESSION['selected_interests'] : [];
+
+    $sql=$db->prepare('inset into user values (NULL, ?, ?, ?, ?, ?, NULL, NULL, NULL, NULL, NULL, NULL, ?)');
+    $sql->execute($_SESSION['password'], $_SESSION['user_name'], $_SESSION['phone_number'],  $_SESSION['email'], $_SESSION['sex'], $_SESSION['age'] );
+    $sql=$db->prepare('inset into user_interest values (NULL, ?, ?)');
+?>
+
+<!-- <php require '../modules/DBconnect.php'; ?> -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

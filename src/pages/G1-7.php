@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
     <title>G1-7</title>
 </head>
 <body>
-    <form action="G1-8.php" method="post" class="base">
+    <form action="G1-7.php" method="post" class="base">
         <progress class="prog" max="100" value="60">60%</progress><br>
             <button type="button" class="backbutton" onclick="history.back()">
                 <img src="../image/left.png" class="left" width="15.56" height="25.68"><br>
@@ -22,7 +23,7 @@
                 <div class="text3">距離</div>
                 <div class="value"><output id="value" name="distance"></output>km</div>
             </div>
-            <input type="range" min="0" max="100" step="1" value="50" class="distance" id="distance" >
+            <input type="range" min="0" max="100" step="1" value="50" class="distance" id="distance" name="distance">
             <button type="submit" class="nextbutton" id="nextButton"><div class="font" id="nextFont">次へ</div></button>
     </form>
     <script src="../js/test.js"></script>
@@ -45,9 +46,12 @@
                 font.classList.add('active');
             };
     </script>
-<?php
-    session_start();
-    $_SESSION['match'] = $_POST['check'];
-?>
 </body>
 </html>
+<?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $_SESSION['distance'] = $_POST['distance'];
+        header('Location: G1-8.php');
+        exit;
+    }
+?>
