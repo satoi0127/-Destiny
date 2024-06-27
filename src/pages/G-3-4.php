@@ -19,12 +19,19 @@ $party_name = "";
 $party_id = 0;
 $chatroom_id = 0;
 
+$pdo = new PDO($connect,USER,PASS);
+
 if(!isset($_POST['party_id'])){
     echo 'チャットルームIDが指定されていません。新しくパーティーチャットを作成します';
-    $pdo = new PDO($connect,USER,PASS);
 
-    $sql = $pdo->prepare("INSERT INTO party(party_name,party_description) VALUES (?,?)");
-    if($sql->execute([$_POST['party_name'],$_POST['party_description']])){
+    $newchatroom_id = $pdo->query("SELECT MAX(chatmember_id)+1 as newid FROM chatmember;");
+    $newchatroom_id = $newchatroom_id->fetchAll()[0]['newid'];
+    $sql = $pdo->prepare("INSERT INTO chatmember(chatmember_id,user_id) VALUES(?,?)");
+    $sql->execute([$newchatroom_id,$_POST['host_id']]);
+    $chatroom_id = $newchatroom_id;
+
+    $sql = $pdo->prepare("INSERT INTO party(party_name,party_description,chat_member_id) VALUES (?,?,?)");
+    if($sql->execute([$_POST['party_name'],$_POST['party_description'],$chatroom_id])){
       echo '成功';
     }else{
       echo '失敗';
@@ -33,14 +40,13 @@ if(!isset($_POST['party_id'])){
     $party_id = $pdo->lastInsertId();
     $party_name = $_POST['party_name'];
 
-    $newchatroom_id = $pdo->query("SELECT MAX(chatmember_id)+1 as newid FROM chatmember;");
-    $newchatroom_id = $newchatroom_id->fetchAll()[0]['newid'];
-    $sql = $pdo->prepare("INSERT INTO chatmember(chatmember_id,user_id) VALUES(?,?)");
-    $sql->execute([$newchatroom_id,$_POST['host_id']]);
-    $chatroom_id = $newchatroom_id;
 
 }else{
     $party_id = $_POST['party_id'];
+    $query = $pdo->prepare("SELECT chat_member_id FROM party WHERE party_id = ?");
+    $query->execute([$party_id]);
+    $chatroom_id = $query->fetchAll()[0]['chat_member_id'];
+
 }
 
 ?>
@@ -52,6 +58,7 @@ if(!isset($_POST['party_id'])){
     <h2 class="text1"><?= $party_name?></h2><br>
 
     <input type="hidden" id="chatroom_id" value=<?= $chatroom_id ?>>
+    <input type="hidden" id="user_id" value=<?= $_SESSION['user']['id'] ?>>
 
     <div id="ajax">
     <?php showchat($connect,$chatroom_id); ?>
