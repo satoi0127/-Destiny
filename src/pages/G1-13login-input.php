@@ -15,7 +15,7 @@
     <p><input type="email" name="mail_address" placeholder="メールアドレス" required></p>
     <p><input type="password" name="user_password" placeholder="パスワード" required></p>
     <p><input type="submit" value="ログイン"></p>
-    <label>アカウント新規作成は<a href="customer-input.php">こちら</a></label>
+    <label>アカウント新規作成は<a href="signin_temp.php">こちら</a></label>
 
     </div>
    <?php
