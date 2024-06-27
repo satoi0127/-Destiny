@@ -67,9 +67,9 @@ $purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>
         $sql = $pdo->query('select * from interest');
             foreach($sql as $row){
                 if(in_array($row['interest_id'],$intid)){
-                    echo '<input type="checkbox" name="interest" class="syumi2" id="la'.$row['interest_id'].'" value="'.$row['interest_id'].'" checked><label class="syumi3" for="la'.$row['interest_id'].'">'. $row['interest_name'].'</label>';
+                    echo '<input type="checkbox" name="interest[]" class="syumi2" id="la'.$row['interest_id'].'" value="'.$row['interest_id'].'" checked><label class="syumi3" for="la'.$row['interest_id'].'">'. $row['interest_name'].'</label>';
                 }else{
-                    echo '<input type="checkbox" name="interest" class="syumi2" id="la'.$row['interest_id'].'" value="'.$row['interest_id'].'"><label class="syumi3" for="la'.$row['interest_id'].'">'. $row['interest_name'].'</label>';
+                    echo '<input type="checkbox" name="interest[]" class="syumi2" id="la'.$row['interest_id'].'" value="'.$row['interest_id'].'"><label class="syumi3" for="la'.$row['interest_id'].'">'. $row['interest_name'].'</label>';
                 }
                 // echo '<button class="syumi" onclick="changeColor(this)">', $row['interest_name'], '</button>';
                 
@@ -90,7 +90,9 @@ $purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>
 
         <div style="border: 1px solid black;" class="tatikawa">
         <h2>身長</h2>
+        <div class="tatikawa2">
         <input id="syumi" name="height" type="text" <?php echo 'value="'.$height.'"'; ?>>
+        </div>
         </div>
 <?php        
         echo'<div style="border: 1px solid black;">';
@@ -105,6 +107,7 @@ $purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>
                 }
             }
         echo'</select>';
+            echo'</div>';
             echo'</div>';
     
         echo'<div style="border: 1px solid black;">';
@@ -136,9 +139,11 @@ echo'</div>';
             }
         echo'</select>';
 echo'</div>';
+echo'</div>';
 ?>
         </form>
     </body>
+    <div style="height:10vh;"></div> <!--フッターメニューにめり込まないように余白-->
     <?php require 'G0-0footer.php'; ?>
 </body>
 </html>

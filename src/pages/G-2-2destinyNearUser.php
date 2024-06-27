@@ -82,7 +82,11 @@
                         <img src="../image/<?=$profile['user_profile_image_path']?>" alt="" class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;">
                         <p style="font-size: 18px;"><?=$user_data['user_name']?></p>
                     </div>
-                    <p style="font-size: 12px;"><?=$profile['user_description']?></p>
+                    <p style="font-size: 12px;">
+                        <?=$profile['user_description']?>
+                        <br>
+                        <?php echo '',$user_data['user_current_country'],' ',$user_data['user_current_city'],''?>
+                    </p>
                 </div>
         </form>
 
