@@ -12,11 +12,7 @@
     <div style="width:100%; height:10px;
     background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(9,9,221,1) 35%, rgba(200,45,64,1) 100%); "></div>
 
-        <div style="width: 100%; height: 54px; border: 1px solid black;">
-            <a href="G-2-1destinyAll.php"><button class="topbutton" >全て</button></a>
-            <a href="G-2-2destinyNearUser.php"><button class="topbutton" >近くのメンバー</button></a>
-            <button class="topbutton" >趣味</button>
-        </div>
+    <?php require "destiny_tabmenu.php"; ?>
 
     <style>
         hr{
@@ -24,8 +20,8 @@
             border-bottom: 2px solid #333;
             margin:0px;
             position:relative;
-            left:128px;
-            width: 33%;
+            left:calc(25%*1);
+            width: 25%;
         }
         </style>
         <hr>
