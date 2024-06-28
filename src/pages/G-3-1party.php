@@ -16,16 +16,11 @@
     
     <?php
         $pdo = new PDO($connect,USER,PASS);
-        $userid=$_SESSION['user']['id'];
-    $sql = $pdo->prepare('select chatmember_id from chatmember where user_id = ?');
-    $sql -> execute([$userid]);
-    foreach($sql as $row){
-        $chatid=$row['chatmember_id'];
-        $sql2 = $pdo->prepare('select user_id from chatmember where chatmember_id = ?');
-        $sql2->execute([$row['chatmember_id']]);
+       
+   
         
         $sql = $pdo->prepare("select * from party");
-    }
+    
         $sql ->execute([]);
 
         foreach($sql as $results){
