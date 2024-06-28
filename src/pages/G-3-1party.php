@@ -27,25 +27,23 @@
 
             
 
-            ?>
-
-            <div style="padding: bottom 32px; border-bottom: 1px solid black;">
             
-            <form action="G-3-4.php" method="post">
-            <input type="hidden" name="party_id" value="',$results['party_id'],'">
 
-            <p><?=$results['party_name'];?></p>
-            <p><?=$results['party_description'];?></p>
-            <button type="submit" >チャット開始</button>
+            echo'<div style="padding: bottom 32px; border-bottom: 1px solid black;">';
+            
+            echo'<form action="G-3-4.php" method="post">';
+            echo'<input type="hidden" name="party_id" value="'.$results['party_id'].'">';
+
+            echo'<p>'.$results['party_name'].'</p>';
+            echo'<p>'.$results['party_description'].'</p>';
+            echo'<button type="submit" >チャット開始</button>';
            
-            </form>
+            echo'</form>
 
-            </div>
-
-            <?php
+            </div>';
         }
-
-            /*
+?>
+            <!-- /*
 
             $query = $pdo->prepare("select party_name,party_description from party where party_name = ?,party_description = ?");
             $query->execute([$results['party_id']]);
@@ -63,7 +61,7 @@
                 */
         $group_query = "SELECT * FROM user WHERE user_id IN (SELECT user_id FROM chatroom WHERE chatroom_id = 2);";
 
-        ?>
+        ?> -->
 
     <div onclick="location.href='./G-3-2party.php'" class="post-btn">
     <i class="fas fa-plus"></i>
