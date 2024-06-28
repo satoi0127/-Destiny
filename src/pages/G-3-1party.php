@@ -24,14 +24,26 @@
         $sql ->execute([]);
 
         foreach($sql as $results){
-            
-            echo '<form action="G-3-4.php" method="post">';
-            echo '<input type="hidden" name="party_id" value="',$results['party_id'],'">';
 
-            echo $results['party_name'];
-            echo $results['party_description'];
-            //echo $results['interest_id'];
-            echo '<button type="submit" >チャット開始</button>';
+            
+
+            ?>
+
+            <div style="padding: bottom 32px; border-bottom: 1px solid black;">
+            
+            <form action="G-3-4.php" method="post">
+            <input type="hidden" name="party_id" value="',$results['party_id'],'">
+
+            <p><?=$results['party_name'];?></p>
+            <p><?=$results['party_description'];?></p>
+            <button type="submit" >チャット開始</button>
+           
+            </form>
+
+            </div>
+
+            <?php
+        }
 
             /*
 
@@ -49,14 +61,9 @@
                 echo '</div>';
             }
                 */
-           
-            echo '</form>';
-
-        }
-
         $group_query = "SELECT * FROM user WHERE user_id IN (SELECT user_id FROM chatroom WHERE chatroom_id = 2);";
 
-    ?>
+        ?>
 
     <div onclick="location.href='./G-3-2party.php'" class="post-btn">
     <i class="fas fa-plus"></i>
