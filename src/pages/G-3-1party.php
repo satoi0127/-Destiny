@@ -11,7 +11,7 @@
 </head>
 <body>
     <a href="./G-4-1.php" class="arrow_btn arrow_01"></a>
-    <br><h3>パーティー</h3>
+    <br><h2>パーティー</h2>
 <hr>
     
     <?php
@@ -25,19 +25,23 @@
 
         foreach($sql as $results){
 
-            
-
-            
-
             echo'<div style="padding: bottom 32px; border-bottom: 1px solid black;">';
-            
             echo'<form action="G-3-4.php" method="post">';
             echo'<input type="hidden" name="party_id" value="'.$results['party_id'].'">';
-
-            echo'<p>'.$results['party_name'].'</p>';
+            echo'<h3>'.$results['party_name'].'</h3>';
             echo'<p>'.$results['party_description'].'</p>';
+            echo'<div style="border: 1px solid black;">';
+            $sql2 = $pdo->prepare('select interest_id from partyInterest where party_id = ?');
+            $sql2 -> execute([$results['party_id']]);
+            foreach($sql2 as $row){
+                $sql3 = $pdo->prepare('select * from interest where interest_id = ?');
+                $sql3 -> execute([$row['interest_id']]);
+                foreach($sql3 as $row2){
+                    echo '<label class="syumi">'.$row2['interest_name'].'</label>';
+                }
+            }
+            echo'</div>';
             echo'<button type="submit" >チャット開始</button>';
-           
             echo'</form>
 
             </div>';

@@ -75,3 +75,9 @@ a{
     border-radius: 50%;
     text-align: center;
   }
+.syumi{
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: aqua;
+    color:white;
+}

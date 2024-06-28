@@ -11,7 +11,7 @@
     <title>チャット画面</title>
 </head>
 <body>
-    <a href="#" class="arrow_btn arrow_01"></a>
+    <!-- <a href="#" class="arrow_btn arrow_01"></a> -->
 <!-- <br><h3 class="text1">新しいマッチ</h3>
 <img src="../image/gray.png" alt="">
 <img src="../image/gray.png" alt="">
