@@ -10,7 +10,7 @@
     <title>パーティー</title>
 </head>
 <body>
-    <a href="./G-3-1.php" class="arrow_btn arrow_01"></a>
+    <a href="./G-3-1party.php" class="arrow_btn arrow_01"></a>
     <form method="POST" action="G-3-4.php">
     <input type="hidden" name="host_id" value=<?=$_SESSION['user']['id']?>> 
     <div class="container">
