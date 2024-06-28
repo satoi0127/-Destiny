@@ -81,3 +81,12 @@ a{
     background-color: aqua;
     color:white;
 }
+
+.user_img{
+width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

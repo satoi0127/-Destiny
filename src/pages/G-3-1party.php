@@ -41,6 +41,17 @@
                 }
             }
             echo'</div>';
+
+            $members = $pdo->prepare("SELECT user_id FROM chatmember WHERE chatmember_id = ?");
+            $members->execute([$results['chat_member_id']]);
+
+            foreach($members as $users){
+                $query = $pdo->prepare("SELECT user_profile_image_path FROM profile WHERE user_id = ?");
+                $query->execute([$users['user_id']]);
+                $imagepath = $query->fetchAll()[0]['user_profile_image_path'];
+                echo '<img class="user_img" src="../image/',$imagepath,'" alt="">';
+            }
+
             echo'<button type="submit" >チャット開始</button>';
             echo'</form>
 
