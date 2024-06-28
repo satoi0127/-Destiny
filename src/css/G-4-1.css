@@ -15,6 +15,9 @@ body {
     font-size: 15px;
     
     padding: 5px 10px 5px 30px;
+
+    margin-top: 15px;
+    margin-left: 10px;
 } 
 .arrow_btn::before,
 .arrow_btn::after {
@@ -106,6 +109,8 @@ a.btn--orange {
     text-align: center;
     transition: background-color 0.3s, color 0.3s;
     margin-left: 240px;
+    margin-top: 1550px;
+
 }
 
 .btn--orange:hover,
@@ -119,6 +124,6 @@ a.btn--orange:hover {
 }
 
 div.hen{
-    top: 40px;
-    right:25px;
+    margin-top: -1560px;
+    margin-left: 330px;
 }
