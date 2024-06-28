@@ -40,7 +40,7 @@
     <div style="height:320px;" id="map"></div>
 
     <script type="text/javascript">
-        var map = L.map('map').setView([51.505, -0.09], 13);
+        var map = L.map('map').setView([33.5901864, 130.3984387], 13);
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
