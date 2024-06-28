@@ -10,20 +10,22 @@
     <title>パーティー</title>
 </head>
 <body>
+    <a href="./G-4-1.php" class="arrow_btn arrow_01"></a>
+    <br><h3>パーティー</h3>
+<hr>
+    
     <?php
         $pdo = new PDO($connect,USER,PASS);
-        /*
-        if(!empty($_POST)){
-            $party_id = $_SESSION['party_name']['party_id'];
-            $party_member_id = ['chatmember_id'];
-        }else{
-
-        }*/
-    ?>
-    <div class="container">
-    <?php
+        $userid=$_SESSION['user']['id'];
+    $sql = $pdo->prepare('select chatmember_id from chatmember where user_id = ?');
+    $sql -> execute([$userid]);
+    foreach($sql as $row){
+        $chatid=$row['chatmember_id'];
+        $sql2 = $pdo->prepare('select user_id from chatmember where chatmember_id = ?');
+        $sql2->execute([$row['chatmember_id']]);
+        
         $sql = $pdo->prepare("select * from party");
-
+    }
         $sql ->execute([]);
 
         foreach($sql as $results){
@@ -61,7 +63,6 @@
 
     ?>
 
-    </div>
     <div onclick="location.href='./G-3-2party.php'" class="post-btn">
     <i class="fas fa-plus"></i>
     </div>
