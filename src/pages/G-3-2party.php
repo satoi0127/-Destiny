@@ -34,6 +34,6 @@
         <input type="submit" value="作成" />
     </div>
     <form>
-    
+    <div style="height:10vh;"></div> <!--フッターメニューにめり込まないように余白-->
 </body>
 </html>

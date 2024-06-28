@@ -81,6 +81,6 @@ if(!isset($_POST['party_id'])){
 </div>
 
 <script src="../javascript/sendmessage.js"></script>
-
+<div style="height:10vh;"></div> <!--フッターメニューにめり込まないように余白-->
 </body>
 </html>
