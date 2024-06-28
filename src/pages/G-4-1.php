@@ -112,10 +112,10 @@ $purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>
     </div>
 
 <?php if ($isCurrentUser): ?>
-    
+    <p class="hen">
     <a href="G-4-2.php">
-    <img  class="hen" src="../image/pitu.png" alt=""></a>
-    
+    <img src="../image/pitu.png" alt=""></a>
+    </p>
     <a href="logout.php"  class="btn btn--orange btn--radius">ログアウト</a>
     <?php else: ?>
         <p class="chat"><a href="G-5-2.php?user_id=<?php echo $profileUserId; ?>"><img src="../image/image.png" alt=""> </a></p>
