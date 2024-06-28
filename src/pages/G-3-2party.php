@@ -25,7 +25,7 @@
             $pdo = new PDO($connect,USER,PASS);
             $sql = $pdo->query('select * from interest');
             foreach($sql as $row){
-            echo '<input type="checkbox" id="', $row['interest_id'],'">';
+            echo '<input type="checkbox" id="', $row['interest_id'],'" name="interest[]">';
             echo '<label for="',$row['interest_id'],'">',$row['interest_name'],'</label>';
             }
             

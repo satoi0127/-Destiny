@@ -31,6 +31,9 @@ if(!isset($_POST['party_id'])){
     $chatroom_id = $newchatroom_id;
 
     $sql = $pdo->prepare("INSERT INTO party(party_name,party_description,chat_member_id) VALUES (?,?,?)");
+
+
+    
     if($sql->execute([$_POST['party_name'],$_POST['party_description'],$chatroom_id])){
       echo '成功';
     }else{
@@ -39,7 +42,13 @@ if(!isset($_POST['party_id'])){
   
     $party_id = $pdo->lastInsertId();
     $party_name = $_POST['party_name'];
-
+    
+    foreach($_POST['interest'] as $val){
+        
+        $sql2 = $pdo->prepare("INSERT INTO partyinterest(paryInterest_id,party_id,interest_id) VALUES (null,?,?)");
+        $sql2 -> execute([$party_id,$val]);
+        }
+    
 
 }else{
     $party_id = $_POST['party_id'];
