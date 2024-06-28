@@ -84,15 +84,15 @@ body {
 
 /* チャットアイコン */
 .chat {
-    position: relative;
-    margin-top: -1360px;
-    text-align: center;
-    margin-right: 260px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
 }
 
 .chat img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
 }
 
 /* ボタンのスタイル */
@@ -109,8 +109,7 @@ a.btn--orange {
     text-align: center;
     transition: background-color 0.3s, color 0.3s;
     margin-left: 240px;
-    margin-top: 1550px;
-
+    margin-top: 20px;
 }
 
 .btn--orange:hover,
@@ -125,7 +124,7 @@ a.btn--orange:hover {
 
 .hen {
     position: absolute;
-    top: 20px;
+    top: 38px;
     right: 20px;
     z-index: 10;
 }
