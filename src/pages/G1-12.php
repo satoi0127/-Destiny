@@ -15,7 +15,7 @@
             </button>
             <div class="subject">Destiny</div>
             <div class="text1">本システムは位置情報を使用してマッチングを行います。ご理解の程よろしくお願いいたします。</div><br>
-            <img src="../image/Destiny.png" class="earth" width="200" height="200">
+            <img src="../image/Destiny(black).png" class="earth" width="170" height="170">
             </div>
             <button type="button" class="nextbutton" id="nextButton" onclick="location.href='aa.html'"><div class="font" id="nextFont">Welcome to Destiny</div></button>
         </div>
