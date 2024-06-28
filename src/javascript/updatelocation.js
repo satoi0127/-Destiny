@@ -20,7 +20,7 @@ $(function(){
         navigator.geolocation.getCurrentPosition(getCoordinate);
 
         $.ajax({
-            url: "https://nominatim.openstreetmap.org/reverse?lat="+lat+"&lon="+lon+"&JSON",
+            url: "http://nominatim.openstreetmap.org/reverse?lat="+lat+"&lon="+lon+"&JSON",
             method:"GET",
             datatype:JSON,
             success : function(data){

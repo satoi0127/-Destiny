@@ -25,8 +25,7 @@
             $pdo = new PDO($connect,USER,PASS);
             $sql = $pdo->query('select * from interest');
             foreach($sql as $row){
-            echo '<input type="checkbox" id="', $row['interest_id'],'" name="interest[]">';
-            echo '<label for="',$row['interest_id'],'">',$row['interest_name'],'</label>';
+                echo '<input type="checkbox" name="interest[]"  id="la'.$row['interest_id'].'" value="'.$row['interest_id'].'"><label for="la'.$row['interest_id'].'">'. $row['interest_name'].'</label>';
             }
             
         ?>
@@ -35,6 +34,6 @@
         <input type="submit" value="作成" />
     </div>
     <form>
-    
+    <div style="height:10vh;"></div> <!--フッターメニューにめり込まないように余白-->
 </body>
 </html>

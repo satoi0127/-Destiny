@@ -21,6 +21,7 @@ $chatroom_id = 0;
 
 $pdo = new PDO($connect,USER,PASS);
 
+
 if(!isset($_POST['party_id'])){
     echo 'チャットルームIDが指定されていません。新しくパーティーチャットを作成します';
 
@@ -44,8 +45,7 @@ if(!isset($_POST['party_id'])){
     $party_name = $_POST['party_name'];
     
     foreach($_POST['interest'] as $val){
-        
-        $sql2 = $pdo->prepare("INSERT INTO partyinterest(paryInterest_id,party_id,interest_id) VALUES (null,?,?)");
+        $sql2 = $pdo->prepare("INSERT INTO partyInterest(paryInterest_id,party_id,interest_id) VALUES (null,?,?)");
         $sql2 -> execute([$party_id,$val]);
         }
     
@@ -55,7 +55,6 @@ if(!isset($_POST['party_id'])){
     $query = $pdo->prepare("SELECT chat_member_id FROM party WHERE party_id = ?");
     $query->execute([$party_id]);
     $chatroom_id = $query->fetchAll()[0]['chat_member_id'];
-
 }
 
 ?>
@@ -82,6 +81,6 @@ if(!isset($_POST['party_id'])){
 </div>
 
 <script src="../javascript/sendmessage.js"></script>
-
+<div style="height:10vh;"></div> <!--フッターメニューにめり込まないように余白-->
 </body>
 </html>
