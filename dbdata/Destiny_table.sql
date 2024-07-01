@@ -82,19 +82,19 @@ CREATE TABLE Message(
     FOREIGN KEY (chatmember_id) REFERENCES chatmember(chatmember_id)
     );
 
-CREATE TABLE party_message(){
-    party_message_id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    party_message VARCHAR(300) NOT NULL,
-    user_id INTEGER NOT NULL,
-    party_member_id INTEGER NOT NULL,
-    FOREIGN KEY(user_id) REFERENCES user(user_id),
-    FOREIGN KEY(party_member_id) REFERENCES party_member(party_member_id)
-}
-
 CREATE TABLE party_member(
     party_member_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     party_id INTEGER NOT NULL,
     user_id INTEGER NOT NULL,
     FOREIGN KEY(user_id) REFERENCES user(user_id),
     FOREIGN KEY(party_id) REFERENCES party(party_id)
+);
+
+CREATE TABLE party_message(
+    party_message_id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    party_message VARCHAR(300) NOT NULL,
+    user_id INTEGER NOT NULL,
+    party_member_id INTEGER NOT NULL,
+    FOREIGN KEY(user_id) REFERENCES user(user_id),
+    FOREIGN KEY(party_member_id) REFERENCES party_member(party_member_id)
 );
