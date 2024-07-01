@@ -1,6 +1,6 @@
-<?php require "module/DBconnect.php"; ?>
+<?php require "../modules/DBconnect.php"; ?>
 <?php
-$pdo = new PDO($connect,user,pass);
+$pdo = new PDO($connect,USER,PASS);
 
 $target_dir = "../image/";
 $target_file = $target_dir . basename($_FILES["filetoupload"]["name"]);
