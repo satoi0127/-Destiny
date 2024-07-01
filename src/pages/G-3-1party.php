@@ -29,7 +29,7 @@
             echo'<form action="G-3-4.php" method="post">';
             echo'<input type="hidden" name="party_id" value="'.$results['party_id'].'">';
             echo'<h3>'.$results['party_name'].'</h3>';
-            echo'<p>'.$results['party_description'].'</p>';
+            echo'<p class="description">'.$results['party_description'].'</p>';
             echo'<div style="border: 1px solid black;">';
             $sql2 = $pdo->prepare('select interest_id from partyInterest where party_id = ?');
             $sql2 -> execute([$results['party_id']]);
@@ -52,7 +52,7 @@
                 echo '<img class="user_img" src="../image/',$imagepath,'" alt="">';
             }
 
-            echo'<button type="submit" >チャット開始</button>';
+            echo'<button type="submit" class="chat">チャット開始</button>';
             echo'</form>
         
             </div>';
