@@ -78,7 +78,7 @@ $loggedInUserId = $_SESSION['user']['id'];
             echo "</div>";
         }
     } else {
-        echo "No results found.";
+        echo "<p class='search'>検索内容と一致するユーザーは存在しません</p>";
     }
 
 ?>

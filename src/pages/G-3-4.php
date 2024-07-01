@@ -19,6 +19,8 @@ $party_name = "";
 $party_id = 0;
 $chatmember_id = 0;
 
+$member_count = 0;
+
 $pdo = new PDO($connect,USER,PASS);
 
 
@@ -32,8 +34,6 @@ if(!isset($_POST['party_id'])){
     $chatmember_id = $newchatmember_id;
 
     $sql = $pdo->prepare("INSERT INTO party(party_name,party_description,chat_member_id) VALUES (?,?,?)");
-
-
     
     if($sql->execute([$_POST['party_name'],$_POST['party_description'],$chatmember_id])){
       echo '成功';
@@ -55,6 +55,22 @@ if(!isset($_POST['party_id'])){
     $query = $pdo->prepare("SELECT chat_member_id FROM party WHERE party_id = ?");
     $query->execute([$party_id]);
     $chatmember_id = $query->fetchAll()[0]['chat_member_id'];
+
+    $user_id = $_SESSION['user']['id'];
+    
+    //パーティーメンバーの数
+    $party_member_num = $pdo->prepare("SELECT COUNT(*) as num FROM chatmember WHERE chatmember_id = ?");
+    $party_member_num->execute([$party_id]);
+    $member_count = $party_member_num->fetchAll()[0]['num'];
+
+    $query = $pdo->prepare("SELECT COUNT(*) as matches FROM chatmember WHERE ? IN(SELECT user_id FROM chatmember WHERE chatmember_id = ?)");
+    $query->execute([$user_id,$party_id]);
+    $is_new_member = $query->fetchAll()[0]['matches'];
+
+    if($is_new_member==0){
+        $query = $pdo->prepare('INSERT INTO chatmember(chatmember_id,user_id) VALUES(?,?)');
+        $query->execute([$party_id,$user_id]);
+    }
 }
 
 ?>
