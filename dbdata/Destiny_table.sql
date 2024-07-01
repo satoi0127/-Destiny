@@ -48,10 +48,10 @@ CREATE TABLE userInterest(
     );
 
 CREATE TABLE chatmember(
-    chatroom_id INTEGER,
+    chatmember_id INTEGER,
     user_id INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES user(user_id),
-    PRIMARY KEY(chatroom_id, user_id)
+    PRIMARY KEY(chatmember_id, user_id)
     );
 
 CREATE TABLE party(
@@ -61,7 +61,7 @@ CREATE TABLE party(
     chat_member_id INTEGER,
     party_member_id INTEGER,
     party_host_id INTEGER,
-    FOREIGN KEY (chat_member_id) REFERENCES chatmember(chatroom_id),
+    FOREIGN KEY (chat_member_id) REFERENCES chatmember(chatmember_id),
     FOREIGN KEY (party_host_id) REFERENCES user(user_id)
     );
 
@@ -77,9 +77,9 @@ CREATE TABLE Message(
     message_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     message_text VARCHAR(300) NOT NULL,
     user_id INTEGER NOT NULL,
-    chatroom_id INTEGER NOT NULL,
+    chatmember_id INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES user(user_id),
-    FOREIGN KEY (chatroom_id) REFERENCES chatmember(chatroom_id)
+    FOREIGN KEY (chatmember_id) REFERENCES chatmember(chatmember_id)
     );
 
 CREATE TABLE party_member(

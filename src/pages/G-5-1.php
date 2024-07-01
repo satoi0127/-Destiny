@@ -22,12 +22,12 @@
 <?php
 $pdo = new PDO($connect,USER,PASS);
 $userid=$_SESSION['user']['id'];
-$sql = $pdo->prepare('select chatroom_id from chatmember where user_id = ?');
+$sql = $pdo->prepare('select chatmember_id from chatmember where user_id = ?');
 $sql -> execute([$userid]);
 foreach($sql as $row){
-    $chatid=$row['chatroom_id'];
-    $sql2 = $pdo->prepare('select user_id from chatmember where chatroom_id = ?');
-    $sql2->execute([$row['chatroom_id']]);
+    $chatid=$row['chatmember_id'];
+    $sql2 = $pdo->prepare('select user_id from chatmember where chatmember_id = ?');
+    $sql2->execute([$row['chatmember_id']]);
     foreach($sql2 as $users){  
         if($users['user_id']!=$userid){
             echo'<div><a href="G-5-2.php?chatid=',$chatid,'">';
@@ -43,8 +43,8 @@ foreach($sql as $row){
                 echo'<h4 class="text2">',$name['user_name'],'</h4>';
             }
             $sql4 = $pdo->prepare('select * from Message
-            where chatroom_id = ? order by message_id desc limit 1');
-            $sql4 -> execute([$row['chatroom_id']]);
+            where chatmember_id = ? order by message_id desc limit 1');
+            $sql4 -> execute([$row['chatmember_id']]);
             foreach($sql4 as $message){
                 $text = $message['message_text'];
             if(!isset($text)){

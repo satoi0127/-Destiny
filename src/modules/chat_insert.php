@@ -4,12 +4,12 @@
 
 $message = $_POST['message'];
 $user_id = $_POST['user_id'];
-$chatroom_id = $_POST['chatroom_id'];
+$chatmember_id = $_POST['chatmember_id'];
 
 $pdo = new PDO($connect,USER,PASS);
-$sql = $pdo->prepare("insert into Message(message_text,user_id,chatroom_id) VALUES(?,?,?)");
-if($sql->execute([$message,$user_id,$chatroom_id])){
-    echo showchat($connect,$chatroom_id);
+$sql = $pdo->prepare("insert into Message(message_text,user_id,chatmember_id) VALUES(?,?,?)");
+if($sql->execute([$message,$user_id,$chatmember_id])){
+    echo showchat($connect,$chatmember_id);
 }else{
     echo 'failed to send messages';
 }

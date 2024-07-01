@@ -42,7 +42,7 @@
             }
             echo'</div>';
 
-            $members = $pdo->prepare("SELECT user_id FROM chatmember WHERE chatroom_id = ?");
+            $members = $pdo->prepare("SELECT user_id FROM chatmember WHERE chatmember_id = ?");
             $members->execute([$results['chat_member_id']]);
 
             foreach($members as $users){
@@ -74,7 +74,7 @@
                 echo '</div>';
             }
                 */
-        $group_query = "SELECT * FROM user WHERE user_id IN (SELECT user_id FROM chatroom WHERE chatroom_id = 2);";
+        $group_query = "SELECT * FROM user WHERE user_id IN (SELECT user_id FROM chatroom WHERE chatmember_id = 2);";
 
         ?> -->
 

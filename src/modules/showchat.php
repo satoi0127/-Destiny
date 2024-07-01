@@ -1,13 +1,13 @@
 <?php if(session_status() === PHP_SESSION_NONE)session_start(); ?>
 <?php
 
-function showchat($connect,$chatroom_id){
+function showchat($connect,$chatmember_id){
 
 $pdo = new PDO($connect,USER,PASS);
-$sql = $pdo->prepare("select * from Message where chatroom_id = ?");
-$sql->execute([$chatroom_id]);
-$users = $pdo->prepare('SELECT * FROM user where user_id IN (SELECT user_id FROM chatmember where chatroom_id = ?)');
-$users->execute([$chatroom_id]);
+$sql = $pdo->prepare("select * from Message where chatmember_id = ?");
+$sql->execute([$chatmember_id]);
+$users = $pdo->prepare('SELECT * FROM user where user_id IN (SELECT user_id FROM chatmember where chatmember_id = ?)');
+$users->execute([$chatmember_id]);
 $users = $users->fetchAll();
 
 foreach($sql as $query){

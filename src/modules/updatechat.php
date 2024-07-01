@@ -1,6 +1,6 @@
 <?php require "DBconnect.php"; ?>
 <?php require "showchat.php"; ?>
 <?php
-    $chatroom_id = $_POST['chatroom_id'];
-    echo showchat($connect,$chatroom_id);
+    $chatmember_id = $_POST['chatmember_id'];
+    echo showchat($connect,$chatmember_id);
 ?>

@@ -7,7 +7,7 @@ $(function(){
             type: 'POST',
             url: '../modules/chat_insert.php',
             dataType: 'text',
-            data: {message: $("#message").val(), chatroom_id: $("#chatroom_id").val(), user_id : $("#user_id").val()},
+            data: {message: $("#message").val(), chatmember_id: $("#chatmember_id").val(), user_id : $("#user_id").val()},
         }).done(function(data){
             $("#message").val("");
             //console.log(data);
