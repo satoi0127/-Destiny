@@ -37,7 +37,7 @@
                 $sql3 = $pdo->prepare('select * from interest where interest_id = ?');
                 $sql3 -> execute([$row['interest_id']]);
                 foreach($sql3 as $row2){
-                    echo '<label class="syumi">'.$row2['interest_name'].'</label>';
+                    echo '<label class="syumi"> #'.$row2['interest_name'].'</label>';
                 }
             }
             echo'</div>';

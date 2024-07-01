@@ -74,12 +74,11 @@ a{
     background: aqua;
     border-radius: 50%;
     text-align: center;
+    top: 25px;
+
   }
 .syumi{
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: aqua;
-    color:white;
+    color:rgb(94, 147, 228);
 
 
 }
@@ -100,10 +99,23 @@ form{
 }
 h3{
     color: #000;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-right: 20px;
+
 }
 .chat{
-    color: #000;
+    margin-left: 215px;
 }
 .description{
     color: #000;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
