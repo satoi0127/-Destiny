@@ -4,9 +4,9 @@
 function showchat($connect,$chatroom_id){
 
 $pdo = new PDO($connect,USER,PASS);
-$sql = $pdo->prepare("select * from Message where chatmember_id = ?");
+$sql = $pdo->prepare("select * from Message where chatroom_id = ?");
 $sql->execute([$chatroom_id]);
-$users = $pdo->prepare('SELECT * FROM user where user_id IN (SELECT user_id FROM chatmember where chatmember_id = ?)');
+$users = $pdo->prepare('SELECT * FROM user where user_id IN (SELECT user_id FROM chatmember where chatroom_id = ?)');
 $users->execute([$chatroom_id]);
 $users = $users->fetchAll();
 

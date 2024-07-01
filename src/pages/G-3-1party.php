@@ -42,7 +42,7 @@
             }
             echo'</div>';
 
-            $members = $pdo->prepare("SELECT user_id FROM chatmember WHERE chatmember_id = ?");
+            $members = $pdo->prepare("SELECT user_id FROM chatmember WHERE chatroom_id = ?");
             $members->execute([$results['chat_member_id']]);
 
             foreach($members as $users){
