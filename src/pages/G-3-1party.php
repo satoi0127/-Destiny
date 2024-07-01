@@ -54,7 +54,7 @@
 
             echo'<button type="submit" >チャット開始</button>';
             echo'</form>
-
+        
             </div>';
         }
 ?>
