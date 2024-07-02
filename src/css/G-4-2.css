@@ -112,7 +112,7 @@ select {
 }
 
 /* 趣味チェックボックスとラベル */
-.syumi2 {
+/* .syumi2 {
     margin-right: 10px;
     display: inline-block;
     vertical-align: middle;
@@ -122,7 +122,7 @@ select {
     margin-right: 20px;
     display: inline-block;
     vertical-align: middle;
-}
+} */
 
 div {
     margin-bottom: 20px;
@@ -142,4 +142,30 @@ select {
 }
 .imagehen{
     text-align: center;
+}
+
+input[type=checkbox] {
+	display: none;
+}
+input[type="checkbox"].syumi2:checked + label {
+	background: #31A9EE;
+	color: #ffffff;
+}
+.syumi3:hover {
+	background-color: #E2EDF9;
+}
+.syumi3 {
+	/* display: block;
+	float: left;
+	width: 120px;
+	height: 45px;
+	text-align: center;
+	line-height: 45px; */
+    margin: 3px;
+	padding-left: 5px;
+	padding-right: 5px;
+	cursor: pointer;
+	color: #31A9EE;
+	border: 2px solid #006DD9;
+	border-radius: 5px;
 }

@@ -53,11 +53,17 @@ $purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>
 
 <img  class="profile" src="../image/<?php echo $profile_image_path; ?>"  alt="プロフィール画像">
 <a href="profile_image.php" class="imagehen">プロフィール画像編集</a>
+<div style="border: 1px solid black;" class="tatikawa">
         <h2>自己紹介</h2>
+        <div>
         <input name="self" type="text" <?php echo 'value="'.$info.'"'; ?>>
         </div>
-        <div>
+        </div>
+        
+        <div style="border: 1px solid black;" class="tatikawa">
+        
         <h2>趣味</h2>
+        <div>
         <?php
         $intid = [];
         $userint = $pdo->prepare('select * from userInterest where user_id = ?');
@@ -84,6 +90,7 @@ $purposes = array(0 =>'暇つぶし',1 =>'恋人探し',2 =>'友達探し', 3 =>
             document.getElementById('clickedText').innerText = button.innerText;
             }
         </script> -->
+        </div>
         </div>
         
         <!-- //後でfor文 -->
