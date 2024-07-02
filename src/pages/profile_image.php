@@ -20,7 +20,9 @@ $profile_image_path = $userdata['user_profile_image_path'];
     <title>Document</title>
 </head>
 <body>
+
 <div>
+<a href="G-4-1.php" class="arrow_btn arrow_01" style="position: absolute;"></a>
     <h1>プロフィール画面編集</h1>
     <img  class="profile" src="../image/<?php echo $profile_image_path; ?>"  alt="プロフィール画像">
     <form action="../modules/imageupload.php" method="post" enctype="multipart/form-data">
