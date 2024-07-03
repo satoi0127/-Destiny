@@ -1,7 +1,7 @@
 <?php if(session_status() === PHP_SESSION_NONE)session_start(); ?>
 <?php
 
-function showchat($connect,$party_id){
+function showparty($connect,$party_id){
 
 $pdo = new PDO($connect,USER,PASS);
 $sql = $pdo->prepare("select * from party_message where party_id = ?");
