@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.headergroup{
+    height: auto;
+    display: flexbox;
+    justify-content: center;
+    flex-direction:row-reverse;
+}
+
+.topbutton1, .topbutton2, .topbutton3, .topbutton4{
+    height: 8vh;
+    border: none;
+    background-color: #FFFF;
+    width:23vw;
+}
+/*
+.topbutton1 {
+    margin-left: 1vw;
+}
+
+.topbutton4 {
+    margin-right: 1vw;
+}
+*/
+.font{
+    color: #000;
+    text-align: center;
+    font-family: "SF Pro Text";
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.topbutton1:hover, .topbutton2:hover, .topbutton3:hover, .topbutton4:hover{
+    border: solid;
+}
+
+.headhr{
+    
+}
