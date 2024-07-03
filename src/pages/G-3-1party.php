@@ -81,7 +81,7 @@
     <div onclick="location.href='./G-3-2party.php'" class="post-btn">
     <i class="fas fa-plus"></i>
     </div>
-    <div style="height:10vh;"></div> <!--フッターメニューにめり込まないように余白-->
+    <div style="height:20vh;"></div> <!--フッターメニューにめり込まないように余白-->
     <?php require 'G0-0footer.php'; ?>
     
 </body>
