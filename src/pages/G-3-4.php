@@ -27,13 +27,13 @@ $pdo = new PDO($connect,USER,PASS);
 if(!isset($_POST['party_id'])){
     echo 'チャットルームIDが指定されていません。新しくパーティーチャットを作成します';
 
-    $newchatmember_id = $pdo->query("SELECT MAX(chatmember_id)+1 as newid FROM chatmember;");
+    $newchatmember_id = $pdo->query("SELECT MAX(party_id)+1 as newid FROM party_member;");
     $newchatmember_id = $newchatmember_id->fetchAll()[0]['newid'];
-    $sql = $pdo->prepare("INSERT INTO chatmember(chatmember_id,user_id) VALUES(?,?)");
+    $sql = $pdo->prepare("INSERT INTO party_member(party_member_id,party_id,user_id) VALUES(null,?,?)");
     $sql->execute([$newchatmember_id,$_POST['host_id']]);
     $chatmember_id = $newchatmember_id;
 
-    $sql = $pdo->prepare("INSERT INTO party(party_name,party_description,chat_member_id) VALUES (?,?,?)");
+    $sql = $pdo->prepare("INSERT INTO party(party_name,party_description,party_member_id) VALUES (?,?,?)");
     
     if($sql->execute([$_POST['party_name'],$_POST['party_description'],$chatmember_id])){
       echo '成功';
