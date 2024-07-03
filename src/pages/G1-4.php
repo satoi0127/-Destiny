@@ -1,5 +1,13 @@
 <?php session_start();?>
-<!-- <php require '../modules/DBconnect.php'; ?> -->
+<?php require '../modules/DBconnect.php'; ?>
+<?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $_SESSION['sex'] = $_POST['check'];
+        header('Location: G1-5.php');
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,10 +70,3 @@
 </script>
 </body>
 </html>
-<?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $_SESSION['sex'] = $_POST['check'];
-        header('Location: G1-5.php');
-        exit;
-    }
-?>

@@ -1,5 +1,13 @@
 <?php session_start();?>
-<!-- <php require '../modules/DBconnect.php'; ?> -->
+<?php require '../modules/DBconnect.php'; ?>
+<?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $_SESSION['email'] = $_POST['email'];
+        $_SESSION['password'] = $_POST['password'];
+        header('Location: G1-4.php');
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +24,7 @@
             <img src="../image/left.png" class="left" width="15.56" height="25.68"><br>
         </button>
         <div class="subject">個人情報を</div>
-        <div class="subject">入力してください</div>
+        <div class="subject2">入力してください</div>
         <div class="text3">メールアドレスを入力してください</div>
         <input type="email" class="textbox" id="nextEmail" name="email">
         <div class="text3">パスワードを入力してください</div>
@@ -56,11 +64,3 @@
 </script>
 </body>
 </html>
-<?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $_SESSION['email'] = $_POST['email'];
-        $_SESSION['password'] = $_POST['password'];
-        header('Location: G1-4.php');
-        exit;
-    }
-?>

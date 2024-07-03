@@ -14,9 +14,9 @@
 }
 
 .border2 {
-    background: #CDCACA;
+    border-style: solid #CDCACA;
     width: 100vw;
-
+    outline: none;
 }
 
 .left {
@@ -56,10 +56,10 @@ input:focus {
 }
 
 .text1 {
-    color: #A2A2A2;
     margin-top: 3vw;
-    word-break: break-all;
-    text-align: left;
+    color: #A2A2A2;
+    margin-top: 5vw;
+    margin-left: 2vw;
 }
 
 .text2 {

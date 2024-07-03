@@ -1,5 +1,13 @@
 <?php session_start();?>
-<!-- <php require '../modules/DBconnect.php'; ?> -->
+<?php require '../modules/DBconnect.php'; ?>
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $_SESSION['user_name'] = $_POST['name'];
+    header('Location: G1-3.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,10 +46,3 @@
 </script>
 </body>
 </html>
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $_SESSION['user_name'] = $_POST['name'];
-    header('Location: G1-3.php');
-    exit;
-}
-?>
