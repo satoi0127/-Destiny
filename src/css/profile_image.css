@@ -34,11 +34,6 @@ body {
     transition: background-color 0.3s, color 0.3s; /* ホバーエフェクトのためのトランジション */
 }
 
-.arrow_btn:hover {
-    background-color: #000; /* ホバー時の背景色 */
-    color: #ffffff; /* ホバー時のテキスト色 */
-}
-
 .arrow_btn::before,
 .arrow_btn::after {
     position: absolute;
