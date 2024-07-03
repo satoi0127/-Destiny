@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <?php require '../modules/DBconnect.php'; ?>
-<?php require "../modules/showchat.php"; ?>
+<?php require "../modules/showparty.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,22 +21,24 @@ $chatmember_id = 0;
 
 $member_count = 0;
 
+echo$_POST['host_id'];
 $pdo = new PDO($connect,USER,PASS);
 
 
 if(!isset($_POST['party_id'])){
     echo 'チャットルームIDが指定されていません。新しくパーティーチャットを作成します';
 
-    $newchatmember_id = $pdo->query("SELECT MAX(party_id)+1 as newid FROM party_member;");
-    $newchatmember_id = $newchatmember_id->fetchAll()[0]['newid'];
-    $sql = $pdo->prepare("INSERT INTO party_member(party_member_id,party_id,user_id) VALUES(null,?,?)");
-    $sql->execute([$newchatmember_id,$_POST['host_id']]);
-    $chatmember_id = $newchatmember_id;
-
-    $sql = $pdo->prepare("INSERT INTO party(party_name,party_description,party_member_id) VALUES (?,?,?)");
+    $sql = $pdo->prepare("INSERT INTO party(party_name,party_description,party_host_id) VALUES (?,?,?)");
     
-    if($sql->execute([$_POST['party_name'],$_POST['party_description'],$chatmember_id])){
+    if($sql->execute([$_POST['party_name'],$_POST['party_description'],$_POST['host_id']])){
       echo '成功';
+      $sql2 = $pdo->prepare("select * from party where party_host_id = ?");
+      $sql2->execute([$_POST['host_id']]);
+      foreach($sql2 as $row){
+        echo $row['party_id'].$row['party_name'];
+      $sql3 = $pdo->prepare("INSERT INTO party_member(party_id,user_id) VALUES(?,?)");
+      $sql3->execute([$row['party_id'],$row['party_host_id']]);
+      }
     }else{
       echo '失敗';
     }
@@ -59,16 +61,16 @@ if(!isset($_POST['party_id'])){
     $user_id = $_SESSION['user']['id'];
     
     //パーティーメンバーの数
-    $party_member_num = $pdo->prepare("SELECT COUNT(*) as num FROM chatmember WHERE chatmember_id = ?");
+    $party_member_num = $pdo->prepare("SELECT COUNT(*) as num FROM party_member WHERE party_id = ?");
     $party_member_num->execute([$party_id]);
     $member_count = $party_member_num->fetchAll()[0]['num'];
 
-    $query = $pdo->prepare("SELECT COUNT(*) as matches FROM chatmember WHERE ? IN(SELECT user_id FROM chatmember WHERE chatmember_id = ?)");
-    $query->execute([$user_id,$party_id]);
+    $query = $pdo->prepare("SELECT COUNT(*) as matches FROM party_member WHERE party_id=? ");
+    $query->execute([$party_id]);
     $is_new_member = $query->fetchAll()[0]['matches'];
 
     if($is_new_member==0){
-        $query = $pdo->prepare('INSERT INTO chatmember(chatmember_id,user_id) VALUES(?,?)');
+        $query = $pdo->prepare('INSERT INTO party_member(party_id,user_id) VALUES(?,?)');
         $query->execute([$party_id,$user_id]);
     }
 }
@@ -81,11 +83,11 @@ if(!isset($_POST['party_id'])){
 <div class="bar"><a href="./G-3-5.php" class="bars"><img src="../image/bars.png" alt="" class="barsimg"></a></div>
     <h2 class="text1"><?= $party_name?></h2><br>
 
-    <input type="hidden" id="chatmember_id" value=<?= $chatmember_id ?>>
+    <input type="hidden" id="party_id" value=<?= $party_id ?>>
     <input type="hidden" id="user_id" value=<?= $_SESSION['user']['id'] ?>>
 
     <div id="ajax">
-    <?php showchat($connect,$chatmember_id); ?>
+    <?php showparty($connect,$party_id); ?>
     </div>
 
     <footer>
