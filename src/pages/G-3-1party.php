@@ -42,8 +42,8 @@
             }
             echo'</div>';
 
-            $members = $pdo->prepare("SELECT user_id FROM chatmember WHERE chatmember_id = ?");
-            $members->execute([$results['chat_member_id']]);
+            $members = $pdo->prepare("SELECT user_id FROM partymember WHERE party_id = ?");
+            $members->execute([$results['party_id']]);
 
             foreach($members as $users){
                 $query = $pdo->prepare("SELECT user_profile_image_path FROM profile WHERE user_id = ?");
@@ -81,7 +81,7 @@
     <div onclick="location.href='./G-3-2party.php'" class="post-btn">
     <i class="fas fa-plus"></i>
     </div>
-    <div style="height:10vh;"></div> <!--フッターメニューにめり込まないように余白-->
+    <div style="height:20vh;"></div> <!--フッターメニューにめり込まないように余白-->
     <?php require 'G0-0footer.php'; ?>
     
 </body>
