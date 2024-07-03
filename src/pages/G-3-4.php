@@ -52,9 +52,9 @@ if(!isset($_POST['party_id'])){
 
 }else{
     $party_id = $_POST['party_id'];
-    $query = $pdo->prepare("SELECT chat_member_id FROM party WHERE party_id = ?");
-    $query->execute([$party_id]);
-    $chatmember_id = $query->fetchAll()[0]['chat_member_id'];
+    // $query = $pdo->prepare("SELECT chat_member_id FROM party WHERE party_id = ?");
+    // $query->execute([$party_id]);
+    // $chatmember_id = $query->fetchAll()[0]['chat_member_id'];
 
     $user_id = $_SESSION['user']['id'];
     
