@@ -42,8 +42,8 @@
             }
             echo'</div>';
 
-            $members = $pdo->prepare("SELECT user_id FROM partymember WHERE partymember_id = ?");
-            $members->execute([$results['chat_member_id']]);
+            $members = $pdo->prepare("SELECT user_id FROM partymember WHERE party_id = ?");
+            $members->execute([$results['party_id']]);
 
             foreach($members as $users){
                 $query = $pdo->prepare("SELECT user_profile_image_path FROM profile WHERE user_id = ?");
