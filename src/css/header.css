@@ -6,8 +6,7 @@
 .headergroup{
     height: auto;
     display: flexbox;
-    justify-content: center;
-    flex-direction:row-reverse;
+    justify-content: space-between;
 }
 
 .topbutton1, .topbutton2, .topbutton3, .topbutton4{
@@ -16,15 +15,15 @@
     background-color: #FFFF;
     width:23vw;
 }
-/*
+
 .topbutton1 {
-    margin-left: 1vw;
+    margin-left: 2vw;
 }
 
 .topbutton4 {
     margin-right: 1vw;
 }
-*/
+
 .font{
     color: #000;
     text-align: center;
