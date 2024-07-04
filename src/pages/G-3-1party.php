@@ -42,7 +42,7 @@
             }
             echo'</div>';
 
-            $members = $pdo->prepare("SELECT user_id FROM partymember WHERE party_id = ?");
+            $members = $pdo->prepare("SELECT user_id FROM party_member WHERE party_id = ?");
             $members->execute([$results['party_id']]);
 
             foreach($members as $users){

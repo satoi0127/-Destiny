@@ -22,9 +22,19 @@
     font-style: normal;
     font-weight: 1000;
     line-height: 1.9vh;
-    margin: 4vh auto 4vh 7vw;
+    margin: 4vh auto auto 7vw;
 }
 
+.subject2 {
+    color: #000;
+    text-align: left;
+    font-family: "SF Pro";
+    font-size: 37px;
+    font-style: normal;
+    font-weight: 1000;
+    line-height: 1.9vh;
+    margin: 4vh auto 4vh 7vw;
+}
 .textbox {
     border: none;
     border-bottom: 2px solid #B5B2B2;

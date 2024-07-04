@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 <?php require "../modules/DBconnect.php"; ?>
 <?php require "../modules/calc_dist.php"; ?>
+<?php require "../modules/headerborder.php";?>
 <?php require "../modules/header.php"; ?>
 
     <link rel="stylesheet" href="../css/G-2destiny.css">
@@ -12,19 +13,7 @@
     <div style="width:100%; height:10px;
     background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(9,9,221,1) 35%, rgba(200,45,64,1) 100%); "></div>
 
-    <?php require "destiny_tabmenu.php"; ?>
-
-    <style>
-        hr{
-            border: none;
-            border-bottom: 2px solid #333;
-            margin:0px;
-            position:relative;
-            left:calc(25%*1);
-            width: 25%;
-        }
-        </style>
-        <hr>
+    
 
     <div class="border">
         

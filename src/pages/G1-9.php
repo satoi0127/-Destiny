@@ -1,4 +1,13 @@
 <?php session_start(); ?>
+<?php require '../modules/DBconnect.php'; ?>
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $phone_number = $_POST['n1'] . $_POST['n2'] . $_POST['n3'] . $_POST['n4'] . $_POST['n5'] . $_POST['n6'] . $_POST['n7'] . $_POST['n8'] . $_POST['n9'] . $_POST['n10'] . $_POST['n11'];
+    $_SESSION['phone_number'] = $phone_number;
+    header('Location: G1-10.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +23,7 @@
         <button type="button" class="backbutton" onclick="history.back()">
             <img src="../image/left.png" class="left" width="15.56" height="25.68"><br>
         </button>
-        <div class="subject">電機番号を</div>
+        <div class="subject">電話番号を</div>
         <div class="subject">入力してください</div>
         <div class="input-group">
             <input type="tel" maxlength="1" name="n1" class="phonumber" placeholder="N">
@@ -77,13 +86,5 @@
             });
         });
     </script>
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $phone_number = $_POST['n1'] . $_POST['n2'] . $_POST['n3'] . $_POST['n4'] . $_POST['n5'] . $_POST['n6'] . $_POST['n7'] . $_POST['n8'] . $_POST['n9'] . $_POST['n10'] . $_POST['n11'];
-    $_SESSION['phone_number'] = $phone_number;
-    header('Location: G1-10.php');
-    exit;
-}
-?>
 </body>
 </html>

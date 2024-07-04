@@ -130,13 +130,14 @@
 }
 
 .distance{
-    margin-top: 5vh;
-    width: 100%;
+    margin:5vh 2.5vw auto 2.5vw;
+    width: 95vw;
 }
 
 .distance-container {
     display: flex;
     align-items: center;
+    width:80%;
 }
 
 .value {
@@ -144,4 +145,8 @@
     position: fixed;
     right: 0;
     margin-right: 2vw;
+}
+
+.group {
+    width:80%;
 }

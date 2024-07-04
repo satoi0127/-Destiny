@@ -1,5 +1,31 @@
 <?php session_start(); ?>
-<!-- <php require '../modules/DBconnect.php'; ?> -->
+<?php require '../modules/DBconnect.php'; ?>
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $year = $_POST['Y1'] . $_POST['Y2'] . $_POST['Y3'] . $_POST['Y4'];
+    $month = $_POST['M1'] . $_POST['M2'];
+    $day = $_POST['D1'] . $_POST['D2'];
+
+    if (empty($year) || empty($month) || empty($day)) {
+        $error_message = "すべてのフィールドを入力してください。";
+    } elseif (!checkdate($month, $day, $year)) {
+        $error_message = "有効な日付を入力してください。";
+    } else {
+        $birthday = new DateTime("$year-$month-$day");
+        $today = new DateTime();
+        $age = $today->diff($birthday)->y;
+
+        $_SESSION['year'] = $year;
+        $_SESSION['month'] = $month;
+        $_SESSION['day'] = $day;
+        $_SESSION['age'] = $age;
+
+        header('Location: G1-6.php');
+        exit;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,28 +103,3 @@
     </script>
 </body>
 </html>
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $year = $_POST['Y1'] . $_POST['Y2'] . $_POST['Y3'] . $_POST['Y4'];
-    $month = $_POST['M1'] . $_POST['M2'];
-    $day = $_POST['D1'] . $_POST['D2'];
-
-    if (empty($year) || empty($month) || empty($day)) {
-        $error_message = "すべてのフィールドを入力してください。";
-    } elseif (!checkdate($month, $day, $year)) {
-        $error_message = "有効な日付を入力してください。";
-    } else {
-        $birthday = new DateTime("$year-$month-$day");
-        $today = new DateTime();
-        $age = $today->diff($birthday)->y;
-
-        $_SESSION['year'] = $year;
-        $_SESSION['month'] = $month;
-        $_SESSION['day'] = $day;
-        $_SESSION['age'] = $age;
-
-        header('Location: G1-6.php');
-        exit;
-    }
-}
-?>
