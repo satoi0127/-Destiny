@@ -28,7 +28,7 @@ foreach($sql as $row){
     $chatid=$row['chatmember_id'];
     $sql2 = $pdo->prepare('select user_id from chatmember where chatmember_id = ?');
     $sql2->execute([$row['chatmember_id']]);
-    foreach($sql2 as $users){  
+    foreach($sql2 as $users){
         if($users['user_id']!=$userid){
             echo'<div><a href="G-5-2.php?chatid=',$chatid,'">';
          
@@ -45,20 +45,20 @@ foreach($sql as $row){
             $sql4 = $pdo->prepare('select * from Message
             where chatmember_id = ? order by message_id desc limit 1');
             $sql4 -> execute([$row['chatmember_id']]);
+            $count = 0;
             foreach($sql4 as $message){
                 $text = $message['message_text'];
-            if(!isset($text)){
-                echo'<p class="text3">チャットしてみよう！</p>';
-            }else{
-                echo'<p class="text3">',$text,'</p>';
-            }
+            if(isset($text))echo'<p class="text3">',$text,'</p>';
+            $count++;
         }
+        if($count==0)echo'<p class="text3">チャットしてみよう！</p>';
     
     
     echo'<hr>';
     echo'</a></div>';
-}
-}}
+        }
+    }
+    }
 
 ?>
 
