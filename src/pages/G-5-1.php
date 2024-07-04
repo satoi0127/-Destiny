@@ -51,7 +51,7 @@ foreach($sql as $row){
             if(isset($text))echo'<p class="text3">',$text,'</p>';
             $count++;
         }
-        if($count==0)echo'<p class="text3">チャットしてみよう！</p>';
+        if($count==0)echo'<p style="color:hotpink;" class="text3"><b>最初にメッセージを送ってみよう</b></p>';
     
     
     echo'<hr>';
