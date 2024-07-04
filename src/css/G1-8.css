@@ -209,3 +209,8 @@ ul.ks-cboxtags li input[type="checkbox"] {
 ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   border: 2px solid #e9a1ff;
 }
+
+.space {
+    width: 100%;
+    height: 15vh;
+}
