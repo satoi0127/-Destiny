@@ -87,7 +87,7 @@ if(!isset($_POST['party_id'])){
 <div class="container">
     <a href="./G-3-1party.php" class="arrow_btn arrow_01"><span style="color:#ff0000;">退出</span></a>
 
-<div class="bar"><a href="./G-3-5.php" class="bars"><img src="../image/bars.png" alt="" class="barsimg"></a></div>
+<div class="bar"></div>
     <h2 class="text1"><?= $party_name?></h2><br>
 
     <input type="hidden" id="party_id" value=<?= $party_id ?>>
