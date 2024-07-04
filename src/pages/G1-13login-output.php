@@ -1,19 +1,9 @@
 <?php
-session_start();
-require "../modules/DBconnect.php";
-?>
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/login.css">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <title>ログイン</title>
-</head>
-<body>
 
-<?php
+session_start();
+
+require "../modules/DBconnect.php";
+
 unset($_SESSION['user']);
 $pdo = new PDO($connect, USER, PASS);
 $sql = $pdo->prepare('select * from user where mail_address = ?');
@@ -37,14 +27,28 @@ foreach ($sql as $row) {
             'age' => $row['user_age'],
 
         ];
+
     }
 }
+
+
 if (isset($_SESSION['user'])) {
     header('Location:G-2-1destinyAll.php');
+    exit();
 } else {
     header('Location:G1-13login-input.php?hogeA=メールアドレスまたはパスワードが違います');
+    exit();
 }
 ?>
-<?php
-$pdo = null; // DB切断
-?>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>ログイン</title>
+</head>
+<body>
+</body>
+</html>
