@@ -1,63 +1,14 @@
-img.profile {
-    display: block;
-    margin: 0 auto 20px;
-    border-radius: 50%;
-    max-width: 150px;
-}
-div {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-body{
-    font-family: Arial, sans-serif;
+body {
+    font-family: 'Arial', sans-serif;
     background-color: #f0f0f0;
     color: #333;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
-.arrow_btn{ 
-    position: relative;
-    display: inline-block;
-    padding: 0 0 0 16px;
-    color: #000;
-    vertical-align: middle;
-    text-decoration: none;
-    font-size: 15px;
-    
-    padding: 5px 10px 5px 30px;
-} 
-.arrow_btn::before,
-.arrow_btn::after {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    content: "";
-    vertical-align: middle;
-}
-
-.arrow_01::before{
-    width: 10px;
-    height: 10px;
-    border-top: 4px solid #000;
-    border-right: 4px solid #000;
-    -webkit-transform: rotate(225deg);
-    transform: rotate(225deg);
-}
-h1{
-    text-align: center;
-    font-size: 1.5em;
-    margin-top: 20px;
-}
-input{
-    text-align: center;
-}
-
 
 img.profile {
     display: block;
@@ -74,14 +25,6 @@ div {
     background-color: #ffffff; /* 白色の背景 */
     border-radius: 10px; /* 角丸にする */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 影を追加して浮き出る感じにする */
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
-    margin: 0;
-    padding: 0;
 }
 
 .arrow_btn {
