@@ -20,7 +20,7 @@
     <title>パーティー</title>
 </head>
 <body>
-    <a href="./G-4-1.php" class="arrow_btn arrow_01"></a>
+    <!-- <a href="./G-4-1.php" class="arrow_btn arrow_01"></a> -->
     <br><h2>パーティー</h2>
     <hr>
     
