@@ -31,7 +31,7 @@
         <input type="password" class="textbox" id="nextPassword1">
         <div class="text3">もう一度パスワードを入力してください</div>
         <input type="password" class="textbox" id="nextPassword2" name="password">
-        <button type="button" class="nextbutton" id="nextButton" onclick="location.href='G1-4.php'"><div class="font" id="nextFont">次へ</div></button>
+        <button type="submit" class="nextbutton" id="nextButton"><div class="font" id="nextFont">次へ</div></button>
     </form>
 <script src="../js/test.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
