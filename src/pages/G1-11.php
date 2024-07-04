@@ -2,11 +2,12 @@
     require '../modules/DBconnect.php';
     $selected_interests = isset($_SESSION['selected_interests']) ? $_SESSION['selected_interests'] : [];
 
-    $sql=$db->prepare('inset into user values (NULL, ?, ?, ?, ?, ?, NULL, NULL, NULL, NULL, NULL, NULL, ?)');
+    $pdo = new PDO($connect, USER, PASS);
+    $sql=$pdo->prepare('inset into user values (NULL, ?, ?, ?, ?, ?, NULL, NULL, NULL, NULL, NULL, NULL, ?)');
     $sql->execute($_SESSION['password'], $_SESSION['user_name'], $_SESSION['phone_number'],  $_SESSION['email'], $_SESSION['sex'], $_SESSION['age'] );
-    $sql=$db->prepare('INSERT INTO user_interest (user_id, interest_id) VALUES (?, ?)');
+    $sql=$pdo->prepare('INSERT INTO user_interest (user_id, interest_id) VALUES (?, ?)');
 
-    $user_id = $db->lastInsertId();
+    $user_id = $pdo->lastInsertId();
     foreach ($_SESSION['checkbox_values'] as $interest_id) {
         $sql->execute([$user_id, $interest_id]);
     }

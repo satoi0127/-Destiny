@@ -16,7 +16,7 @@
 
 <body>
 <!-- → -->
-    <a href="javascript:history.back();" class="arrow_btn arrow_01" style="position: absolute;"></a>
+    <!-- <a href="javascript:history.back();" class="arrow_btn arrow_01" style="position: absolute;"></a> -->
     <!-- <div class="hen">
     <a href="http://localhost/src/pages/G-4-2.php">
     <img src="../image/pitu.png" alt=""></a>

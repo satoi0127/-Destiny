@@ -12,7 +12,7 @@
 <body>
 
   
-    <a href="javascript:history.back();" class="arrow_btn arrow_01"></a>
+    <!-- <a href="javascript:history.back();" class="arrow_btn arrow_01"></a> -->
 
     <div class="form">
         <form method="post" id="form2" action="G-6-1seach.php">

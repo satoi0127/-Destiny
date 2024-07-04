@@ -38,8 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
                 ?>
 
-
-            </ul>
+                <div class="space">　</div>
+            <ul>
         </div>
         <hr size="1x" class="border2">    
         <button type="submit" class="button" id="nextButton"><div class="font" id="nextFont">次へ</div></button>
