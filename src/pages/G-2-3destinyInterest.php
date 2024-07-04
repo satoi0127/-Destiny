@@ -15,8 +15,6 @@
     <div style="width:100%; height:10px;
     background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(9,9,221,1) 35%, rgba(200,45,64,1) 100%); "></div>
 
-    
-
     <div class="border">
 
         <h1 style="text-align:center;">あなたと<br>同じ趣味のユーザー</h1>
@@ -33,7 +31,9 @@
         $user_interests = $query->fetchAll();
 
         foreach($user_interests as $interests){
-            echo $interests['interest_id'];
+            $query = $pdo->prepare("SELECT interest_name from interest where interest_id = ?");
+            $query->execute([$interests['interest_id']]);
+            echo "<h3>",$query->fetchAll()[0]['interest_name'],"</h3>";
         }
 
         ?>

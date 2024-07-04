@@ -15,7 +15,7 @@
         <?php
     $pdo = new PDO($connect, USER, PASS);
     $user_logged_id = $_SESSION['user']['id'];
-    $sql = $pdo->prepare("select * from user where user_id != ?");
+    $sql = $pdo->prepare("select * from user where user_id != ? order by user_id desc");
     $sql->execute([$user_logged_id]);
     $individual_num = 0;
     foreach ($sql as $user_data) { 
