@@ -31,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
 
                 <?php
+                $pdo = new PDO($connect, USER, PASS);
                 $sql = $pdo->query('SELECT * FROM interest');
                 foreach($sql as $row){
                     echo '<li><input type="checkbox" id="checkbox'. $row['interest_id'] .'" class="check" name="checkbox[]" value="' . $row['interest_id'] . '"><label for="checkbox'. $row['interest_id'] .'">'. $row['interest_name'] .'</label></li>';
