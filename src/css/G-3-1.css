@@ -1,5 +1,4 @@
-/* G-3-1.css */
-
+/* Reset and basic styles */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f0f0;
@@ -8,6 +7,7 @@ body {
     padding: 0;
 }
 
+/* Navigation arrow button */
 .arrow_btn {
     position: relative;
     display: inline-block;
@@ -33,6 +33,78 @@ body {
     transform: rotate(225deg); /* 矢印の向き */
 }
 
+/* Styling for party items */
+.party-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.party-item h3 {
+    color: #000;
+    font-size: 1.5rem;
+    margin: 10px 0;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.party-item .description {
+    color: #444;
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.party-item .interests {
+    margin-top: 10px;
+}
+
+.party-item .interest {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #666;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-right: 10px;
+    font-size: 0.9rem;
+}
+
+.party-item .members {
+    margin-top: 15px;
+}
+
+.party-item .user_img {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    margin-right: 5px;
+}
+
+.party-item .chat {
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.party-item .chat:hover {
+    background-color: #45a049;
+}
+
+/* Floating action button for adding new party */
 .post-btn {
     position: fixed;
     bottom: 10%;
@@ -46,40 +118,12 @@ body {
     background: aqua;
     border-radius: 50%;
     text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.syumi {
-    color: rgb(94, 147, 228);
-}
-
-.user_img {
-    width: 32px;
-    height: 32px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-form {
-    border: 1px solid black;
-    margin: 15px;
-}
-
-h3 {
-    color: #000;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin: 10px 20px 5px;
-}
-
-.chat {
-    margin-left: 20px; /* ボタンの位置調整 */
-}
-
-.description {
-    color: #000;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin: 5px;
+.post-btn:hover {
+    background-color: #00bcd4;
+    transform: scale(1.1);
 }
