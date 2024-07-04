@@ -1,4 +1,12 @@
 <?php session_start();?>
+<?php require '../modules/DBconnect.php'; ?>
+<?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $_SESSION['distance'] = $_POST['distance'];
+        header('Location: G1-8.php');
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +24,6 @@
             </button>
             <div class="subject">出会いたい</div>
             <div class="subject">相手との距離は？</div>
-
             <div class="text1">スライダーを使って、検索する相手がいる</div>
             <div class="text2">距離の最大範囲を設定します。</div><br>
             <div class="distance-container">
@@ -48,10 +55,3 @@
     </script>
 </body>
 </html>
-<?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $_SESSION['distance'] = $_POST['distance'];
-        header('Location: G1-8.php');
-        exit;
-    }
-?>

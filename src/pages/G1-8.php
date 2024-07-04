@@ -1,5 +1,12 @@
 <?php session_start(); ?>
 <?php require '../modules/DBconnect.php'; ?>
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $_SESSION['checkbox_values'] = isset($_POST['checkbox']) ? $_POST['checkbox'] : [];
+    header('Location: G1-9.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +25,7 @@
         </button>
         <div class="subject">興味関心は？</div>
         <div class="text1">自分に最も合うと感じるものを、次の選択肢の中から5つまでお選びください</div>
-        <hr size="7px" class="border2">
+        <hr size="1x" class="border2">
         <div class="container">
             <ul class="ks-cboxtags">
                 
@@ -32,7 +39,8 @@
 
 
             </ul>
-        </div>    
+        </div>
+        <hr size="1x" class="border2">    
         <button type="submit" class="button" id="nextButton"><div class="font" id="nextFont">次へ</div></button>
     </form>
     <script>
@@ -67,11 +75,3 @@
     </script>
 </body>
 </html>
-
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $_SESSION['checkbox_values'] = isset($_POST['checkbox']) ? $_POST['checkbox'] : [];
-    header('Location: G1-9.php');
-    exit;
-}
-?>
