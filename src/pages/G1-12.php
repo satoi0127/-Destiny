@@ -18,7 +18,7 @@
             <div class="text1">本システムは位置情報を使用してマッチングを行います。ご理解の程よろしくお願いいたします。</div><br>
             <img src="../image/Destiny(black).png" class="earth" width="170" height="170">
             </div>
-            <button type="button" class="nextbutton" id="nextButton" onclick="location.href='G-2-1destinyAll.php'"><div class="font" id="nextFont">Welcome to Destiny</div></button>
+            <button type="button" class="nextbutton" id="nextButton" onclick="location.href='G1-13-login-input.php'"><div class="font" id="nextFont">Welcome to Destiny</div></button>
         </div>
     <script src="../js/test.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
