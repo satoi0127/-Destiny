@@ -11,7 +11,7 @@
 
         $user_id = $pdo->lastInsertId();
 
-        $sql = $pdo->prepare('INSERT INTO userinterest (user_id, interest_id) VALUES (?, ?)');
+        $sql = $pdo->prepare('INSERT INTO userInterest (user_id, interest_id) VALUES (?, ?)');
         foreach ($_SESSION['checkbox_values'] as $interest_id) {
             $sql->execute([$user_id, $interest_id]);
         }
