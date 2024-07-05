@@ -17,6 +17,9 @@
         <h3>パーティー名</h3>
         <input type="text" name="party_name"> 
         <h3>詳細（任意）</h3>
+        <!--<textarea name="msg" cols=25 rows=5  name="party_description">
+            ここに記入してください
+        </textarea> -->
         <p><input type="text" class="large-input" name="party_description"></p>  
         <div class="modal_wrap">
         
