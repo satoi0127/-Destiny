@@ -25,6 +25,25 @@
     } catch (PDOException $e) {
         echo 'Connection failed: ' . $e->getMessage();
     }
+
+    foreach ($sql as $row) {
+            $_SESSION['user'] = [
+                'id' => $row['user_id'],
+                'password' => $row['user_password'],
+                'name' => $row['user_name'],
+                'tel' => $row['user_tel'],
+                'address' => $row['mail_address'],
+                'sex' => $row['user_sex'],
+                'coordinate_latitude' => $row['user_coordinate_latitude'],
+                'coordinate_longitude' => $row['user_coordinate_longitude'],
+                'current_country' => $row['user_current_country'],
+                'current_city' => $row['user_current_city'],
+                'current_province' => $row['user_current_province'],
+                'current_suburb' => $row['user_current_suburb'],
+                'age' => $row['user_age'],
+    
+            ];
+        }
 ?>
 
 <!DOCTYPE html>
