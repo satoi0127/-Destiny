@@ -74,6 +74,8 @@ if(!isset($_POST['party_id'])){
     foreach($sql4 as $row){
         if($row['user_id']!=$user_id){
            $kakunin = 1;
+        }else{
+            $kakunin = 0;
         }
     }
     if($kakunin == 1){
