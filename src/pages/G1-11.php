@@ -2,9 +2,6 @@
     require '../modules/DBconnect.php';
     $selected_interests = isset($_SESSION['selected_interests']) ? $_SESSION['selected_interests'] : [];
 
-    $default_pfp = "default".$image_num.".png";
-    $image_num = 1+($user_id%5);
-
     try {
         $pdo = new PDO($connect, USER, PASS);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -12,13 +9,17 @@
         $sql = $pdo->prepare('INSERT INTO user (user_password, user_name, user_tel, mail_address, user_sex, user_age) VALUES (?, ?, ?, ?, ?, ?)');
         $sql->execute([$_SESSION['password'], $_SESSION['user_name'], $_SESSION['phone_number'], $_SESSION['email'], $_SESSION['sex'], $_SESSION['age']]);
 
-        $sql = $pdo->prepare("INSERT INTO profile(user_id, user_profile_image_path, user_description, user_starsign, user_blood_type ,user_purpose, user_height) values(?,?,'ユーザーは自己紹介文を書いていません',?,?,?,?)");
-        $sql->execute([$user_id, $default_pfp, 255, 255, 255, 16]);
 
         $sql = $pdo->prepare('INSERT INTO userinterest (user_id, interest_id) VALUES (?, ?)');
         foreach ($_SESSION['checkbox_values'] as $interest_id) {
             $sql->execute([$user_id, $interest_id]);
         }
+
+        $image_num = 1+($user_id%5);
+        $default_pfp = "default".$image_num.".png";
+
+        $sql = $pdo->prepare("INSERT INTO profile(user_id, user_profile_image_path, user_description, user_starsign, user_blood_type ,user_purpose, user_height) values(?,?,'ユーザーは自己紹介文を書いていません',?,?,?,?)");
+        $sql->execute([$user_id, $default_pfp, 255, 255, 255, 16]);
 
     } catch (PDOException $e) {
         echo 'Connection failed: ' . $e->getMessage();
