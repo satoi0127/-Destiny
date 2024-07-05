@@ -2,14 +2,25 @@
     require '../modules/DBconnect.php';
     $selected_interests = isset($_SESSION['selected_interests']) ? $_SESSION['selected_interests'] : [];
 
-    $pdo = new PDO($connect, USER, PASS);
-    $sql=$pdo->prepare('inset into user values (NULL, ?, ?, ?, ?, ?, NULL, NULL, NULL, NULL, NULL, NULL, ?)');
-    $sql->execute([$_SESSION['password'], $_SESSION['user_name'], $_SESSION['phone_number'],  $_SESSION['email'], $_SESSION['sex'], $_SESSION['age'] ]);
-    $sql=$pdo->prepare('INSERT INTO user_interest (user_id, interest_id) VALUES (?, ?)');
+    try {
+        $pdo = new PDO($connect, USER, PASS);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $user_id = $pdo->lastInsertId();
-    foreach ($_SESSION['checkbox_values'] as $interest_id) {
-        $sql->execute([$user_id, $interest_id]);
+        // Insert into user table
+        $sql = $pdo->prepare('INSERT INTO user (password, user_name, phone_number, email, sex, age) VALUES (?, ?, ?, ?, ?, ?)');
+        $sql->execute([$_SESSION['password'], $_SESSION['user_name'], $_SESSION['phone_number'], $_SESSION['email'], $_SESSION['sex'], $_SESSION['age']]);
+
+        // Get the last inserted user_id
+        $user_id = $pdo->lastInsertId();
+
+        // Insert into user_interest table
+        $sql = $pdo->prepare('INSERT INTO user_interest (user_id, interest_id) VALUES (?, ?)');
+        foreach ($_SESSION['checkbox_values'] as $interest_id) {
+            $sql->execute([$user_id, $interest_id]);
+        }
+
+    } catch (PDOException $e) {
+        echo 'Connection failed: ' . $e->getMessage();
     }
 ?>
 
