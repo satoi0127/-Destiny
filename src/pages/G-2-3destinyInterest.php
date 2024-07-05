@@ -28,7 +28,7 @@
         $pdo = new PDO($connect,USER,PASS);
         $query = $pdo->prepare("SELECT interest_id FROM userInterest WHERE user_id = ?");
         $query->execute([$user_id]);
-
+        $individual_num = 0;
         $user_interests = $query->fetchAll();
 
         foreach($user_interests as $interests){
@@ -45,7 +45,6 @@
             ?>
 
     <?php
-    $individual_num = 0;
     foreach ($sql as $user_data) {
         $individual_num++;
         $profile = $pdo->prepare("SELECT * FROM profile WHERE user_id = ?");
