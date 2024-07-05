@@ -19,7 +19,7 @@
         <h3>詳細（任意）</h3>
         <p><input type="text" class="large-input" name="party_description"></p>  
         <div class="modal_wrap">
-        <input id="trigger" type="checkbox">
+        
             <div class="modal_overlay">
                 <label for="trigger" class="modal_trigger"></label>
                     <div id="buttonContainer">
@@ -35,14 +35,19 @@
                         <div class="modal-window">
                             <div class="modal-content">
                     <p class="modal_title">趣味一覧</p>
+                    <div class="container1">
+                    <ul class="ks-cboxtags">
                                 <?php
                                     $pdo = new PDO($connect,USER,PASS);
                                     $sql = $pdo->query('select * from interest');
                                     foreach($sql as $row){
-                                    echo '<input type="checkbox" name="interest[]"  id="la'.$row['interest_id'].'" value="'.$row['interest_id'].'"><label for="la'.$row['interest_id'].'">'. $row['interest_name'].'</label>';
+                                        echo '<li><input type="checkbox" name="interest[]" id="checkbox'. $row['interest_id'] .'" class="check" name="checkbox[]" value="' . $row['interest_id'] . '"><label for="checkbox'. $row['interest_id'] .'">'. $row['interest_name'] .'</label></li>';
+                                    //echo '<input type="checkbox" name="interest[]"  id="la'.$row['interest_id'].'" value="'.$row['interest_id'].'"><label class="syumi3" for="la'.$row['interest_id'].'">'. $row['interest_name'].'</label>';
                                 }
                                 ?> 
-                
+                                 <div class="space">　</div>
+                                <ul>
+                    </div>
                             </div>
                             <a href="#!" class="modal-close"><i class="far fa-times-circle"></i></a>
                         </div>    
