@@ -24,6 +24,7 @@
         <?php
 
         $user_id = $_SESSION['user']['id'];
+        $user_logged_id = $user_id;
         $pdo = new PDO($connect,USER,PASS);
         $query = $pdo->prepare("SELECT interest_id FROM userInterest WHERE user_id = ?");
         $query->execute([$user_id]);
@@ -34,6 +35,36 @@
             $query = $pdo->prepare("SELECT interest_name from interest where interest_id = ?");
             $query->execute([$interests['interest_id']]);
             echo "<h3>",$query->fetchAll()[0]['interest_name'],"</h3>";
+            //$matchuser = $pdo->prepare("SELECT  FROM userInterest WHERE interest_id = ?");
+            //$matchuser->execute([$interests['interest_id']]);
+            ?>
+
+    <?php
+    $sql = $pdo->prepare("select * from user where user_id != ? and user_id IN(SELECT user_id FROM userInterest WHERE interest_id = ?) order by user_id desc");
+    $sql->execute([$user_logged_id,$interests['interest_id']]);
+    $individual_num = 0;
+    foreach ($sql as $user_data) {
+        $individual_num++;
+        $profile = $pdo->prepare("SELECT * FROM profile WHERE user_id = ?");
+        $profile->execute([$user_data['user_id']]);
+        $profile = $profile->fetchAll()[0];
+    ?>
+
+    <form name="individual_user<?=$individual_num?>" id="individual_user<?=$individual_num?>" action="G-4-1.php" method="GET">
+        <input type="hidden" name="user_id" value="<?=$user_data['user_id']?>">
+        <div class="user_list_individual" onClick="document.forms['individual_user<?=$individual_num?>'].submit();">
+            <div class="image_and_name">
+                <img src="../image/<?=$profile['user_profile_image_path']?>" alt="" class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;">
+                <p style="font-size: 18px;"><?=$user_data['user_name']?></p>
+            </div>
+            <p style="font-size: 12px;"><?=$profile['user_description']?></p>
+        </div>
+    </form>
+    <?php
+    }
+    ?>
+
+            <?php
         }
 
         ?>
