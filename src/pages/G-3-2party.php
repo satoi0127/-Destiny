@@ -52,7 +52,7 @@
                             <a href="#!" class="modal-close"><i class="far fa-times-circle"></i></a>
                         </div>    
                     </div>    
-                <input type="submit" value="作成" />
+                <input type="submit" class="chat" value="作成" />
             </div>
         </div>    
     </div>
