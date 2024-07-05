@@ -89,6 +89,11 @@ if(!isset($_POST['party_id'])){
     $query = $pdo->prepare('INSERT INTO party_member(party_id,user_id) VALUES(?,?)');
     $query->execute([$party_id,$user_id]);
     }
+    $sql4 = $pdo->prepare("select * from party where party_id = ?");
+    $sql4 -> execute([$party_id]);
+    foreach($sql4 as $row){
+        $party_name = $row['party_name'];
+    }
 }
 
 ?>
