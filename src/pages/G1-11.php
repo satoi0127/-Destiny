@@ -9,6 +9,7 @@
         $sql = $pdo->prepare('INSERT INTO user (user_password, user_name, user_tel, mail_address, user_sex, user_age) VALUES (?, ?, ?, ?, ?, ?)');
         $sql->execute([$_SESSION['password'], $_SESSION['user_name'], $_SESSION['phone_number'], $_SESSION['email'], $_SESSION['sex'], $_SESSION['age']]);
 
+        $user_id = $pdo->lastInsertId();
 
         $sql = $pdo->prepare('INSERT INTO userinterest (user_id, interest_id) VALUES (?, ?)');
         foreach ($_SESSION['checkbox_values'] as $interest_id) {
