@@ -68,17 +68,24 @@ if(!isset($_POST['party_id'])){
     //     $query = $pdo->prepare('INSERT INTO party_member(party_id,user_id) VALUES(?,?)');
     //     $query->execute([$party_id,$user_id]);
     // }
-    $kakunin = 0;
-    $sql4 = $pdo->prepare("select * from party_member where party_id = ?");
-    $sql4 -> execute([$party_id]);
-    foreach($sql4 as $row){
-        if($row['user_id']!=$user_id){
-           $kakunin = 1;
-        }else{
-            $kakunin = 0;
-        }
-    }
-    if($kakunin == 1){
+
+    // $kakunin = 0;
+    // $sql4 = $pdo->prepare("select * from party_member where party_id = ?");
+    // $sql4 -> execute([$party_id]);
+    // foreach($sql4 as $row){
+    //     if($row['user_id']!=$user_id){
+    //        $kakunin = 1;
+    //     }else{
+    //         $kakunin = 0;
+    //     }
+    // }
+
+    // 重複チェック
+    $sql4 = $pdo->prepare("SELECT COUNT(*) FROM party_member WHERE party_id = ? AND user_id = ?");
+    $sql4->execute([$party_id, $user_id]);
+    $count = $sql4->fetchColumn();
+
+    if($count == 0){
     $query = $pdo->prepare('INSERT INTO party_member(party_id,user_id) VALUES(?,?)');
     $query->execute([$party_id,$user_id]);
     }
