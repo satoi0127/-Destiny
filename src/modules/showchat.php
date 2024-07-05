@@ -27,7 +27,7 @@ foreach($sql as $query){
     }else{
         echo'<div class="balloon-color left">
         <figure class="icon-color">
-        <a href="profile.php?user_id=' . htmlspecialchars($message_uid) . '">
+        <a href="G-4-1.php?user_id=' . htmlspecialchars($message_uid) . '">
         <img src="../image/',$img_path,'" alt="代替えテキスト" >    
         </a>
         </figure>
