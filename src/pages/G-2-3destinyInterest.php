@@ -34,14 +34,17 @@
         foreach($user_interests as $interests){
             $query = $pdo->prepare("SELECT interest_name from interest where interest_id = ?");
             $query->execute([$interests['interest_id']]);
+            $sql = $pdo->prepare("select * from user where user_id != ? and user_id IN(SELECT user_id FROM userInterest WHERE interest_id = ?) order by user_id desc");
+            $sql->execute([$user_logged_id,$interests['interest_id']]);
+            $sql = $sql->fetchAll();
+            if(count($sql)!=0){
             echo "<h3>",$query->fetchAll()[0]['interest_name'],"</h3>";
+            }
             //$matchuser = $pdo->prepare("SELECT  FROM userInterest WHERE interest_id = ?");
             //$matchuser->execute([$interests['interest_id']]);
             ?>
 
     <?php
-    $sql = $pdo->prepare("select * from user where user_id != ? and user_id IN(SELECT user_id FROM userInterest WHERE interest_id = ?) order by user_id desc");
-    $sql->execute([$user_logged_id,$interests['interest_id']]);
     $individual_num = 0;
     foreach ($sql as $user_data) {
         $individual_num++;
