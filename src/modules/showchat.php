@@ -26,7 +26,10 @@ foreach($sql as $query){
         </div>';
     }else{
         echo'<div class="balloon-color left">
-        <figure class="icon-color"><img src="../image/',$img_path,'" alt="代替えテキスト" >    
+        <figure class="icon-color">
+        <a href="profile.php?user_id=' . htmlspecialchars($message_uid) . '">
+        <img src="../image/',$img_path,'" alt="代替えテキスト" >    
+        </a>
         </figure>
         <div class="chatting-color">
         <p class="text-color">',$query['message_text'],'</p>
@@ -40,4 +43,7 @@ foreach($sql as $query){
 
 }
 
+
 ?>
+
+
