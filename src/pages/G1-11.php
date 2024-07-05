@@ -7,8 +7,8 @@
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Insert into user table
-        $sql = $pdo->prepare('INSERT INTO user (password, user_name, phone_number, email, sex, age) VALUES (?, ?, ?, ?, ?, ?)');
-        $sql->execute([$_SESSION['password'], $_SESSION['user_name'], $_SESSION['phone_number'], $_SESSION['email'], $_SESSION['sex'], $_SESSION['age']]);
+        $sql = $pdo->prepare('INSERT INTO user (user_id, user_password, user_name, user_tel, mail_address, user_sex, user_age) VALUES (?, ?, ?, ?, ?, ?)');
+        $sql->execute([ NULL, $_SESSION['password'], $_SESSION['user_name'], $_SESSION['phone_number'], $_SESSION['email'], $_SESSION['sex'], $_SESSION['age']]);
 
         // Get the last inserted user_id
         $user_id = $pdo->lastInsertId();
