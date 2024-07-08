@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="../css/G-5-2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="../javascript/jquery-3.7.0.min.js" ></script>
@@ -116,7 +116,7 @@ $sql2 = $pdo->prepare('select * from user where user_id = ?');
         <div class="sendbox">
         <input type="hidden" id="chatmember_id" value=<?= $chatmember_id?> >
     <input type="hidden" id="user_id" value=<?= $user_id ?> >
-         <input type="textarea" id="message" placeholder="Aa" class="sendtext" style="width: 200px; height: 30px;">
+         <input  type="textarea" id="message" placeholder="Aa" class="sendtext" style="width: 200px; height: 30px;">
          
          <button id="sendbutton"><img src="../image/send.png" alt="" class="sendimg" ></button>
         </div>
