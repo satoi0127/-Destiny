@@ -7,6 +7,7 @@ function updatechat(){
     }).done(function(data){
         console.log("chat updated!");
         $("#ajax").html(data);
+        $("#container").scrollTop($("#container")[0].scrollHeight);
     });
 }
 setInterval(updatechat,500);
