@@ -6,22 +6,14 @@
 .headergroup{
     height: auto;
     display: flexbox;
-    justify-content: space-between;
 }
 
 .topbutton1, .topbutton2, .topbutton3, .topbutton4{
+    margin: 0px;
     height: 8vh;
     border: none;
     background-color: #FFFF;
-    width:32%;
-}
-
-.topbutton1 {
-    margin-left: 2vw;
-}
-
-.topbutton4 {
-    margin-right: 1vw;
+    width:32vw;
 }
 
 .font{
@@ -35,7 +27,7 @@
 }
 
 .topbutton1:hover, .topbutton2:hover, .topbutton3:hover, .topbutton4:hover{
-    border: solid;
+    /*border: solid;*/
 }
 
 .headhr{
