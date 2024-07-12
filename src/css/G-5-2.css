@@ -130,3 +130,8 @@
     background: transparent;
     border: transparent;
   }
+  .sita{
+    position: fixed;
+    bottom: 20%;
+    right: 5%;
+  }

@@ -16,6 +16,12 @@
 </head>
 <body>
 
+  <div class="sita">
+    <a href="#ajax">
+      <img src="../image/sita.png" alt="">
+    </a>
+  </div>
+
 <?php
 $pdo = new PDO($connect,USER,PASS);
 if(!isset($_GET['chatid'])){
