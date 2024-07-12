@@ -76,8 +76,10 @@ $sql2 = $pdo->prepare('select * from user where user_id = ?');
   
 ?>
 <div class="container" >
+  <header id="header">
     <a href="G-5-1.php" class="arrow_btn arrow_01"></a>
     <h2 class="text1"><?php echo $other_name; ?></h2><br>
+  </header>
     <div id="ajax">
     <?php
 
