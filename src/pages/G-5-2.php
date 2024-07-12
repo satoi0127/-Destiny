@@ -16,6 +16,10 @@
 </head>
 <body>
 
+  <div class="sita">
+    <a href="#chat-bottom"> </a>
+  </div>
+
 <?php
 $pdo = new PDO($connect,USER,PASS);
 if(!isset($_GET['chatid'])){
@@ -111,7 +115,9 @@ $sql2 = $pdo->prepare('select * from user where user_id = ?');
           <p class="text-color">まじまじマジンガー</p>
         </div>
     </div> -->
-    
+
+    <div id="chat-bottom"></div>
+
     <footer>
         <div class="sendbox">
         <input type="hidden" id="chatmember_id" value=<?= $chatmember_id?> >

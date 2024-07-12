@@ -13,6 +13,10 @@
     <title>パーティーチャット画面</title>
 </head>
 <body>
+<div class="sita">
+    <a href="#chat-bottom"> </a>
+  </div>
+
 <?php
 
 $party_name = "";
@@ -110,6 +114,9 @@ if(!isset($_POST['party_id'])){
     <div id="ajax">
     <?php showparty($connect,$party_id); ?>
     </div>
+    
+    <div id="chat-bottom"></div>
+
 
     <footer>
         <div class="sendbox">
