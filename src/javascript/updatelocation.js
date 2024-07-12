@@ -25,7 +25,7 @@ $(function(){
 
 function getName(){
     $.ajax({
-        url: "http://nominatim.openstreetmap.org/reverse?lat="+lat+"&lon="+lon+"&JSON",
+        url: "https://nominatim.openstreetmap.org/reverse?lat="+lat+"&lon="+lon+"&JSON",
         method:"GET",
         datatype:JSON,
         async:false,
