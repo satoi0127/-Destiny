@@ -103,18 +103,17 @@ if(!isset($_POST['party_id'])){
 ?>
 
 <div class="container">
-    <a href="./G-3-1party.php" class="arrow_btn arrow_01"></a>
-
-
-    <h2 class="text1"><?= $party_name?></h2><br>
-
+    <header id="header">
+        <a href="./G-3-1party.php" class="arrow_btn arrow_01"></a>
+        <h2 class="text1"><?= $party_name?></h2><br>
+    </header>
     <input type="hidden" id="party_id" value=<?= $party_id ?>>
     <input type="hidden" id="user_id" value=<?= $_SESSION['user']['id'] ?>>
 
     <div id="ajax">
     <?php showparty($connect,$party_id); ?>
     </div>
-    
+
     <div id="chat-bottom"></div>
 
 

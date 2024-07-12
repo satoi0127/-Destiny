@@ -1,13 +1,14 @@
 .arrow_btn{ 
-    position: relative;
+       position: relative;
     display: inline-block;
     padding: 0 0 0 16px;
     color: #000;
     vertical-align: middle;
     text-decoration: none;
     font-size: 15px;
-    
     padding: 5px 10px 5px 30px;
+    position: relative;
+    top: 25px;
 } 
 .arrow_btn::before,
 .arrow_btn::after {
@@ -29,8 +30,9 @@
     transform: rotate(225deg);
 }
 .text1{
-    border-bottom: 1px solid rgba(184, 184, 184, 0.863);
-    text-align: center;
+  text-align: center;
+  position: relative;
+  margin-top: 0px;
   }
   .balloon-color {
     display: flex;
@@ -98,6 +100,8 @@
     .container {
         padding-bottom: 60px;
         box-sizing: border-box;
+        position: relative;
+        top: 55px;
   }
   footer {
         position: fixed;
@@ -135,4 +139,8 @@
     z-index: 999;
     top: 0;
     left: 0;
+    width: 100%;
+    background: #eee;
+    box-sizing: border-box;
+    height: 70px;
   }
