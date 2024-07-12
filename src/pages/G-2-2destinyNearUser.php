@@ -67,10 +67,14 @@
             <input type="hidden" name="user_id" value="<?=$user_data['user_id']?>">
                 <div class="user_list_individual" onClick="document.forms['individual_user<?=$individual_num?>'].submit();">
                     <?php 
-                    if($dist!=-1){
-                        echo '<p style="margin:0; padding:0; text-align:right;">',$dist,' km</p>';
-                    }else if($dist<1.0){
+                    if($dist==-1){
+                        echo '<p style="margin:0; padding:0; text-align:right;"> 1000&lt;km </p>';
+                    }else if($dist==-2){
                         echo '<p style="margin:0; padding:0; text-align:right;"> 1>km</p>';
+                    }else if($dist==-3){
+                        echo '<p style="margin:0; padding:0; text-align:right;"> 距離取得不可 </p>';
+                    }else {
+                        echo '<p style="margin:0; padding:0; text-align:right;">',$dist,' km</p>';
                     }
                     ?>
                     <div class="image_and_name">
