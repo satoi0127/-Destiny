@@ -66,7 +66,13 @@
         <form name="individual_user<?=$individual_num?>" id="individual_user<?=$individual_num?>" action="G-4-1.php" method="GET">
             <input type="hidden" name="user_id" value="<?=$user_data['user_id']?>">
                 <div class="user_list_individual" onClick="document.forms['individual_user<?=$individual_num?>'].submit();">
-                    <?php if($dist!=-1||$dist==0)echo '<p style="margin:0; padding:0; text-align:right;">',$dist,' km</p>'; ?>
+                    <?php 
+                    if($dist!=-1){
+                        echo '<p style="margin:0; padding:0; text-align:right;">',$dist,' km</p>';
+                    }else if($dist<1.0){
+                        echo '<p style="margin:0; padding:0; text-align:right;"> 1>km</p>';
+                    }
+                    ?>
                     <div class="image_and_name">
                         <img src="../image/<?=$profile['user_profile_image_path']?>" alt="" class="user_list_individual_image" style="background-color: gainsboro; width: 64px; height: 64px; border-radius: 15%;">
                         <p style="font-size: 18px;"><?=$user_data['user_name']?></p><br>
