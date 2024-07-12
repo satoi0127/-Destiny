@@ -119,6 +119,13 @@ if(!isset($_POST['party_id'])){
     </footer>
 </div>
 
+<script>
+  window.onload = function() {
+    var chatBottom = document.getElementById('chat-bottom');
+    chatBottom.scrollIntoView();
+  };
+</script>
+
 <script src="../javascript/sendmessage_party.js"></script>
 <div style="height:10vh;"></div> <!--フッターメニューにめり込まないように余白-->
 </body>

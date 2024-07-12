@@ -16,12 +16,6 @@
 </head>
 <body>
 
-  <div class="sita">
-    <a href="#chat-bottom">
-      <img src="../image/sita.png" alt="">
-    </a>
-  </div>
-
 <?php
 $pdo = new PDO($connect,USER,PASS);
 if(!isset($_GET['chatid'])){
@@ -118,8 +112,6 @@ $sql2 = $pdo->prepare('select * from user where user_id = ?');
         </div>
     </div> -->
     
-    <div id="chat-bottom"></div>
-
     <footer>
         <div class="sendbox">
         <input type="hidden" id="chatmember_id" value=<?= $chatmember_id?> >
