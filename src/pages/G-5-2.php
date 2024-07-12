@@ -17,7 +17,7 @@
 <body>
 
   <div class="sita">
-    <a href="#ajax">
+    <a href="#chat-bottom">
       <img src="../image/sita.png" alt="">
     </a>
   </div>
@@ -118,6 +118,8 @@ $sql2 = $pdo->prepare('select * from user where user_id = ?');
         </div>
     </div> -->
     
+    <div id="chat-bottom"></div>
+
     <footer>
         <div class="sendbox">
         <input type="hidden" id="chatmember_id" value=<?= $chatmember_id?> >
@@ -128,6 +130,16 @@ $sql2 = $pdo->prepare('select * from user where user_id = ?');
         </div>
     </footer>
 </div>
+
+
+<script>
+  window.onload = function() {
+    var chatBottom = document.getElementById('chat-bottom');
+    chatBottom.scrollIntoView();
+  };
+</script>
+
+
 <script src="../javascript/sendmessage.js"></script>
 
 </body>
