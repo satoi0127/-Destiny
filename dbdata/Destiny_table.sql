@@ -97,3 +97,5 @@ CREATE TABLE party_message(
     party_id INTEGER NOT NULL,
     FOREIGN KEY(user_id) REFERENCES user(user_id)
 );
+
+-- SELECT user_name, ACOS(SIN(user_coordinate_latitude*(PI()/180))*SIN($lat2*(PI()/180))+COS(user_coordinate_latitude*(PI()/180))*COS($lat2*(PI()/180))*COS($lon2*(PI()/180)-user_coordinate_longitude*(PI()/180)))*6371 as distance FROM user;
