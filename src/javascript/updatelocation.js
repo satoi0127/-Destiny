@@ -10,8 +10,6 @@ function getCoordinate(pos){
     $("#longitude").html(lon);
 }
 
-navigator.geolocation.getCurrentPosition(getCoordinate);
-
 $(function(){
     console.log("jqueryが読み込まれました。");
 
@@ -46,6 +44,8 @@ function getName(){
                 console.log("php execution successful "+data);
             });
             console.log(country);
+
+            $("#ajax").load(location.href+" #ajax*>","");
         }
     });
 }

@@ -43,16 +43,16 @@
         
     </div>
 
+    <div id="ajax">
+
     <?php
 
     $user_logged_id = $_SESSION['user']['id'];
     $pdo = new PDO($connect, USER, PASS);
-    //$sql = $pdo->prepare("SELECT * from user WHERE user_id != ?");
     $sql = $pdo->prepare("SELECT *, ACOS(SIN(user_coordinate_latitude*(PI()/180))
 *SIN(?*(PI()/180))+COS(user_coordinate_latitude*(PI()/180))
 *COS(?*(PI()/180))*COS(?*(PI()/180)-user_coordinate_longitude*(PI()/180)))*6371 as distance FROM user WHERE user_id != ? ORDER BY distance;");
     $sql->execute([$user_lat,$user_lat,$user_lon,$user_logged_id]);
-    //$sql->execute([$user_logged_id]);
     $individual_num = 0;
     foreach ($sql as $user_data) {
         $individual_num++;
@@ -99,6 +99,8 @@
         <?php
     }
     ?>
+
+    </div>
 
     <div style="height:10vh;"></div> <!--フッターメニューにめり込まないように余白-->
 
