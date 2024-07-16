@@ -50,4 +50,4 @@ function getName(){
     });
 }
 
-setInterval(getName, 1000);
+setInterval(getName, 2000);
