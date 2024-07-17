@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
                 ?>
 
-                <div class="space">　</div>
+                <div class="space"></div>
             <ul>
         </div>
         <hr size="1x" class="border2">    
