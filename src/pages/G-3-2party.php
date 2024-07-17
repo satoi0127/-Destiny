@@ -15,9 +15,9 @@
     <input type="hidden" name="host_id" value=<?=$_SESSION['user']['id']?>> 
     <div class="container">
         <h3>パーティー名</h3>
-        <input type="text" name="party_name"> 
+        <input type="text" name="party_name" required> 
         <h3>詳細（任意）</h3>
-        <textarea name="party_description" cols=25 rows=5  >
+        <textarea name="party_description" cols=25 rows=5  required>
         </textarea> 
        <!-- <p><input type="text" class="large-input" name="party_description"></p>  -->
         <div class="modal_wrap">
