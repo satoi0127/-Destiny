@@ -24,6 +24,10 @@
         <input type="hidden" id="user_id" value=<?= $_SESSION['user']['id'] ?>>
 
         <?php
+        $colors = array(
+        "#a8e6cf","#dcedc1","#ffd3b6","#ffaaa5","#ff8b94","#ff71ce",
+        "#01cdfe","#05ffa1","#b967ff","#fffb96","#ffd4e5","#d4ffea",
+        "#eecbff","#feffa3","#feffa3","#dbdcff","#00aba9","#ff0097");
 
         $user_id = $_SESSION['user']['id'];
         $user_logged_id = $user_id;
@@ -46,6 +50,8 @@
             //$matchuser->execute([$interests['interest_id']]);
             ?>
 
+            <div style="background-color: <?= $colors[$interests['interest_id']%18]?>">
+
     <?php
     foreach ($sql as $user_data) {
         $individual_num++;
@@ -67,6 +73,8 @@
     <?php
     }
     ?>
+
+    </div>
 
             <?php
         }
