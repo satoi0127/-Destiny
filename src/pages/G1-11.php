@@ -16,11 +16,11 @@
             $sql->execute([$user_id, $interest_id]);
         }
 
-        // $image_num = 1+($user_id%5);
-        // $default_pfp = "default".$image_num.".png";
-        $default_pfp = "default.jpg";
+        $image_num = 1+($user_id%5);
+        $default_pfp = "default".$image_num.".png";
+
         $sql = $pdo->prepare("INSERT INTO profile(user_id, user_profile_image_path, user_description, user_starsign, user_blood_type ,user_purpose, user_height) values(?,?,'ユーザーは自己紹介文を書いていません',?,?,?,?)");
-        $sql->execute([$user_id, $default_pfp, 255, 255, 255, 16]);
+        $sql->execute([$user_id, $_SESSION['file'], 255, 255, 255, 16]);
 
     } catch (PDOException $e) {
         echo 'Connection failed: ' . $e->getMessage();
