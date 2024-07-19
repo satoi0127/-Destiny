@@ -49,9 +49,9 @@
 
     $user_logged_id = $_SESSION['user']['id'];
     $pdo = new PDO($connect, USER, PASS);
-    $sql = $pdo->prepare("SELECT *, ACOS(SIN((user_coordinate_latitude*(PI()/180)))
-*SIN((?*(PI()/180)))+COS((user_coordinate_latitude*(PI()/180)))
-*COS((?*(PI()/180)))*COS((?*(PI()/180))-(user_coordinate_longitude*(PI()/180))))*6371 as distance FROM user WHERE user_id != ? ORDER BY distance ASC;");
+    $sql = $pdo->prepare("SELECT *, ACOS(SIN((COALESCE(user_coordinate_latitude,0)*(PI()/180)))
+*SIN((?*(PI()/180)))+COS((COALESCE(user_coordinate_latitude,0)*(PI()/180)))
+*COS((?*(PI()/180)))*COS((?*(PI()/180))-(COALESCE(user_coordinate_longitude,0)*(PI()/180))))*6371 as distance FROM user WHERE user_id != ? ORDER BY distance ASC;");
     $sql->execute([$user_lat,$user_lat,$user_lon,$user_logged_id]);
     $individual_num = 0;
     foreach ($sql as $user_data) {
