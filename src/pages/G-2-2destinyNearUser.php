@@ -16,7 +16,6 @@
     <script type="text/javascript" src="../javascript/jquery-3.7.0.min.js" ></script>
 
     <a href="#" class="arrow_btn arrow_01"></a>
-    
 
     <div class="border">
         

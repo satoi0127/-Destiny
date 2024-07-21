@@ -10,15 +10,19 @@ $user_id = $_POST['user_id'];
 $latitude = $_POST['lat'];
 $longitude = $_POST['lon'];
 
+$empty = empty($longitude) || $longitude == 0 || $longitude == null;
+
 $pdo = new PDO($connect,USER,PASS);
 $query = $pdo->prepare("UPDATE user SET user_current_country = ?, user_current_city = ?, user_current_province = ?, user_current_suburb = ?, user_coordinate_latitude = ?, user_coordinate_longitude = ? WHERE user_id = ?");
 
+if(!$empty){
 if($query->execute([$country,$city,$province,$suburb,$latitude,$longitude,$user_id])){
     echo ":location update successful";
     $_SESSION['user']['coordinate_latitude'] = $latitude;
     $_SESSION['user']['coordinate_longitude'] = $longitude;
 }else{
     echo ":location update failed!";
+}
 }
 
 ?>

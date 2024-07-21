@@ -33,7 +33,9 @@ function getName(){
             let city = $(data).find('city').text();
             let country = $(data).find('country').text();
 
-            $("#place_name").html(suburb+prov+city+country);
+            let concat = suburb+prov+city+country;
+
+            if(country!=null&&country!="")$("#place_name").html(concat);
 
             $.ajax({
                 type: 'POST',
