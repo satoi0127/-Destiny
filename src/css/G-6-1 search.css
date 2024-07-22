@@ -52,7 +52,8 @@
     border-radius: initial;
     background:transparent;
     border:none;
-    outline:0;
+    outline:0; 
+    font-size: 16px;
   }
   /*検索ボタン*/
   #sbtn4{
