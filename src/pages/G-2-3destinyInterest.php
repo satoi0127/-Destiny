@@ -44,13 +44,13 @@
             $sql->execute([$user_logged_id,$interests['interest_id']]);
             $sql = $sql->fetchAll();
             if(count($sql)!=0){
-            echo "<h3>",$query->fetchAll()[0]['interest_name'],"</h3>";
+            echo "<h2>",$query->fetchAll()[0]['interest_name'],"</h2>";
             }
             //$matchuser = $pdo->prepare("SELECT  FROM userInterest WHERE interest_id = ?");
             //$matchuser->execute([$interests['interest_id']]);
             ?>
 
-            <div style="background-color: <?= $colors[$interests['interest_id']%18]?>">
+            <!-- <div style="background-color: <?= $colors[$interests['interest_id']%18]?>"> -->
 
     <?php
     foreach ($sql as $user_data) {
@@ -74,7 +74,7 @@
     }
     ?>
 
-    </div>
+    <!-- </div> -->
 
             <?php
         }
