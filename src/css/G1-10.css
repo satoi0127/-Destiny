@@ -120,20 +120,11 @@
 
 .image1 {
     border:solid 3px;
+    margin: left 50vw;
 }
 
 .image1 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.gray_image{
-    margin: 0 auto 0 auto;
-    display: block;
-    border: solid 2px black;
-}
-
-.insert_image{
-    border: solid 2px black;
 }

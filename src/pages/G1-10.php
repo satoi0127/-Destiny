@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadFile)) {
             $_SESSION['file'] = $fileName;
-            header('Location: G1-11.php'); // ファイルがアップロードされた後にリダイレクト
+            header('Location: G1-10.php'); // ファイルがアップロードされた後にリダイレクト
             exit();
         } else {
             echo "Failed to upload file: " . $fileName;
@@ -43,20 +43,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="column1">
                 <div class="image1">
                     <?php
-                    echo "　　　　";
                     if (isset($_SESSION['file'])) {
-                        echo "<img src='../image/" . $_SESSION['file'] . "' alt='Uploaded Image' class='insert_image' width='250' height='250'>";
+                        echo "<img src='../image/" . $_SESSION['file'] . "' alt='Uploaded Image' class='insert_image' width='250' height='250' style='display: block; margin: auto;'>";
                     } else {
-                        echo "<img src='../image/Gray.png' alt='Default Image' class='gray_image' width='250' height='250'>";
+                        echo "<img src='../image/Gray.png' alt='Default Image' class='gray_image' width='250' height='250' style='display: block; margin: auto;'>";
                     }
                     ?>
                     <input type="file" id="file" name="file">
                     <label for="file" class="custom-file-upload">
-                        <img src="../image/plus.png" alt="Upload Button" width='40' height='40'>
+                        <img src="../image/plus.png" alt="Upload Button" width='40' height='40' class="plusbutton" style='display: block; margin-left: 70vw;'>
                     </label>
                 </div>
             </div>
-            <button type="submit" class="nextbutton" id="nextButton"><div class="font" id="nextFont">次へ</div></button>
+            <button type="button" class="nextbutton" id="nextButton"><div class="font" id="nextFont">次へ</div></button>
         </form>
     </div>
 
