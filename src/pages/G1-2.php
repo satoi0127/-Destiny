@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <img src="../image/left.png" class="left" width="15.56" height="25.68"><br>
         </button>
         <div class="subject">あなたの名前は？</div>
-        <input type="text" class="textbox" id="nameTextbox" name="name">
+        <input type="text" class="textbox" id="nameTextbox" name="name" required>
         <div class="text1">プロフィールにはこの名前がそのまま表示されます。</div>
         <div class="text2">悪意のある名前を使用しないようにお気を付けください。</div>
         <button type="submit" class="nextbutton" id="nextButton"><div class="font" id="nextFont">次へ</div></button>
