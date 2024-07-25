@@ -4,4 +4,4 @@
 
 ###　江島さんの髪型可愛すぎるって
 
-![]("src/image/Image.jpeg");
+![]("https://github.com/satoi0127/-Destiny/blob/src/image/Image.jpeg");
