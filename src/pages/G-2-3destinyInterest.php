@@ -24,11 +24,6 @@
         <input type="hidden" id="user_id" value=<?= $_SESSION['user']['id'] ?>>
 
         <?php
-        $colors = array(
-        "#a8e6cf","#dcedc1","#ffd3b6","#ffaaa5","#ff8b94","#ff71ce",
-        "#01cdfe","#05ffa1","#b967ff","#fffb96","#ffd4e5","#d4ffea",
-        "#eecbff","#feffa3","#feffa3","#dbdcff","#00aba9","#ff0097");
-
         $user_id = $_SESSION['user']['id'];
         $user_logged_id = $user_id;
         $pdo = new PDO($connect,USER,PASS);
@@ -46,11 +41,7 @@
             if(count($sql)!=0){
             echo "<h2>",$query->fetchAll()[0]['interest_name'],"</h2>";
             }
-            //$matchuser = $pdo->prepare("SELECT  FROM userInterest WHERE interest_id = ?");
-            //$matchuser->execute([$interests['interest_id']]);
             ?>
-
-            <!-- <div style="background-color: <?= $colors[$interests['interest_id']%18]?>"> -->
 
     <?php
     foreach ($sql as $user_data) {
@@ -73,15 +64,9 @@
     <?php
     }
     ?>
-
-    <!-- </div> -->
-
             <?php
         }
-
         ?>
-
-        
     </div>
 
     <div style="height:10vh;"></div> <!--フッターメニューにめり込まないように余白-->
